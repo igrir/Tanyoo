@@ -17,10 +17,14 @@
 			$this->load->view('login', $data);
 		}
 
-		public function register($fbid){
+		public function login($fbid){
 			$this->load->library('user');
 
-			echo $this->user->cek_user_sudah_ada($fbid);
+			$cek_user = $this->user->cek_user_sudah_ada($fbid);
+
+			if ($cek_user == 0) {
+
+			}
 		}
 		
 	}

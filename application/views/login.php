@@ -13,7 +13,7 @@
 	   function updateUserInfo(response) {
 	     FB.api('/me', function(response) {
 	       document.getElementById('user-info').innerHTML = '<img src="https://graph.facebook.com/' + response.id + '/picture">' + response.name;		       	
-	       document.location = "index.php/register/"+response.id;
+	       document.location = "index.php/login/"+response.id;
 	     });
 	   }
 
