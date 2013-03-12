@@ -1,0 +1,402 @@
+body{
+    background-image: url(data:image/png;base64,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);
+}
+
+
+*{
+    margin: 0px;
+}
+
+#login_form
+{
+    background-color: #fff;
+    width: 300px;
+    min-height: 190px;
+    margin: 0px auto;
+    padding: 15px 15px 20px 15px;
+    box-shadow: 0px 1px 5px #000;
+    border-radius: 5px;
+
+}
+
+#daftar_form
+{
+    background-color: #fff;
+    width: 660px;
+    min-height: 190px;
+    margin: 0px auto;
+    padding: 15px 15px 20px 15px;
+    box-shadow: 0px 1px 5px #000;
+    border-radius: 5px;
+
+}
+
+.input_text{
+    font-size: 25px;
+    border-radius: 3px;
+    border: none;
+    box-shadow: 0px 1px 3px #000 inset;
+    width: 250px;
+    
+    padding: 5px;
+}
+
+.about{
+    height: 180px;
+}
+
+.rata_kanan{
+    text-align: right;
+}
+
+.elemen_rata_kanan{
+    float: right;
+}
+
+.container{
+    width: 960px;
+    margin: 0px auto;
+    padding: 5px;
+    
+    /*background-color: #fff;*/
+
+}
+
+.kiri{
+    float:left;
+}
+
+.kanan{
+    float:right;
+}
+
+.clear{
+    clear: both;
+}
+
+#viewfinder{
+    float: left;
+}
+
+#photo_result{
+    float: left;
+}
+
+.slidingbox{
+    width: 300px;
+    height: 300px;
+    background-color: #fff;
+    box-shadow: 0px 1px 3px #000;
+    padding: 10px;
+    border-radius: 3px;
+}
+
+.sb_element{
+    left: 0;
+    border: 0;
+}
+
+.inside_slidingbox{
+    width: 1000px;
+}
+
+.container_slidingbox{
+    overflow: hidden;
+    box-shadow: 0px 1px 5px #000;
+}
+
+.top_alert{
+    position: absolute;
+    text-align: right;
+    width: 94%;
+    width: 250px;
+    right: 5%;
+}
+
+#alert_box{
+    width: 250px;
+    padding: 5px;
+    background-color: #df0000;
+    color: #fff;
+    display: inline-block;
+    height: 50px;
+    border-radius: 0px 0px 5px 5px;
+    box-shadow: 0px 2px 5px #000;
+    font-family: Arial;
+    font-size: 15px;
+}
+
+.container_page{
+    float: left;
+    width: 980px;
+    height: 600px;
+    background-color: #e0d6b8;
+}
+
+.container_quiz{
+    overflow: hidden;
+}
+
+.quiz_overflow{
+    width: 10000px;
+}
+
+.container_foto{
+    width: 200px;
+    height: 180px;
+    background-color: #fff;
+    padding: 5px;
+    /*float: left;*/
+    box-shadow: 0px 1px 5px #000;
+    display: inline-block;
+}
+
+.container_foto_high{
+    width: 130px;
+    height: 110px;
+    padding: 1px 3px 2px 1px;
+    display: inline-block;
+    
+    text-align: center;
+    margin-bottom: -10px;
+    -webkit-transition: height 0.2s, box-shadow 0.2s;
+}
+
+.container_foto_high a{
+    text-decoration: none;
+}
+
+.container_foto_high:hover{
+    width: 130px;
+    height: 100px;
+    display: inline-block;
+    box-shadow: 0px 1px 25px #000;
+    text-align: center;
+    -webkit-transition: height 0.1s, box-shadow 0.1s;
+}
+
+.quiz_nama_high{
+    margin-top: 10px;
+    font-size: 20px;
+    font-family: Arial, Coquette Bold;
+    text-align: center;
+    color: #fff;
+    position: relative;
+    background-color: #000;
+    opacity: 0.8;
+    top: -30px;
+}
+
+.quiz_foto{
+    box-shadow: 0px 1px 5px #000;
+}
+
+.quiz_nama{
+    margin-top: 10px;
+    font-size: 25px;
+    font-family: Arial, Coquette Bold;
+}
+
+.soal{
+    margin-left:300px;
+}
+
+.container_kumpulan_foto{
+    margin-left: 160px;
+}
+
+.about_individu{
+    background-image: url(../img/about_box.png);
+    background-repeat: no-repeat;
+    font-size: 25px;
+    font-family: Arial, Coquette Bold;
+    width: 410px;
+    height: 135px;
+    padding: 20px;
+}
+
+.container_foto_individu{
+    width: 350px;
+    height: 350px;
+    background-color: #fff;
+    padding: 5px;
+    box-shadow: 0px 1px 5px #000;
+}
+
+.quiz_foto_individu{
+    box-shadow: 0px 1px 5px #000;
+}
+
+.quiz_nama_individu{
+    margin-top: 10px;
+    font-size: 25px;
+    font-family: Arial, Coquette Bold;
+}
+
+.salah{
+    font-size: 50px;
+    font-family: Arial, Coquette Bold;
+}
+
+.container_highscore{
+    margin-left: 60px;
+}
+
+#daftar{
+    /*float: right;*/
+    background-color: #ffd42a;
+    width: 320px;
+    padding: 5px;
+    height: 200px;
+    font-size: 20px;
+    box-shadow: 0px 0px 3px #000 inset;
+    border-radius: 5px;
+    font-family: Arial;
+    text-shadow: 0px 1px 0px #fff;
+}
+
+.highscores{
+    font-size: 15px;
+    font-family: Arial, Coquette Bold;
+}
+
+.penutup{
+    width: 930px;
+    height: 590px;
+    background-color: #000;
+    position: absolute;
+    color: white;
+    padding: 15px;
+    vertical-align: middle;
+}
+
+.judul_tengah{
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    font-size: 30px;
+    font-family: Arial;    
+}
+
+.container_judul_utama{
+    margin: 200px;
+}
+
+#skor{
+    font-size: 30px;
+    width: 70px;
+    height: 80px;
+    position: absolute;
+    left: 10px;
+    text-align: left;
+}
+
+.top_header{
+    width: 100%;
+    background-color: #fff;
+    height: 30px;
+    vertical-align: middle;
+    text-align: right;
+    box-shadow: 0px 2px 5px #000;
+    margin-bottom: 5px;
+}
+
+.header_container{
+    padding: 8px;
+}
+
+.profile_description{
+    text-align: left;
+    width: 400px;
+    min-height: 100px;
+    margin: 5px;
+
+}
+
+.whois_btn{
+    border: 0px;
+    border-radius: 5px;
+    width: 200px;
+    height: 80px;
+    font-size: 30px;
+    box-shadow: 0px 15px 0px #7f4400;
+    background-color: #ff8800;
+    -webkit-transition: margin-top 0.1s, box-shadow 0.1s, background-color 0.5s;
+    text-shadow: 0px -1px 0px #f0f0f0;
+}
+
+.whois_btn:hover{
+    margin-top: 5px;
+    border: 5px;
+    background-color: #ffa743;
+    box-shadow: 0px 10px 0px #7f4400;
+    -webkit-transition: margin-top 0.1s, box-shadow 0.1s, background-color 0.5s;
+}
+
+.photo_btn{
+    margin-top: -10px;
+    border-radius: 10px;
+    width: 55px;
+    height: 55px;
+    padding: 5px 5px 0px 5px;
+    box-shadow: 0px 15px 0px #7f4400;
+    background-color: #ff8800;
+    -webkit-transition: margin-top 0.1s, box-shadow 0.1s, background-color 0.5s;
+}
+
+.photo_btn:hover{
+    margin-top: -5px;
+    background-color: #dddd11;
+    box-shadow: 0px 10px 0px #dc8733;
+    -webkit-transition: margin-top 0.1s, box-shadow 0.1s, background-color 0.5s;
+}
+
+/*** SNIPPET STARTS ***/
+
+.noise {
+    position: relative;
+    z-index: 1;
+    }
+        
+.noise:before, .body-noise:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    background-image: url(data:image/png;base64,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);
+
+    }
+
+/*** SNIPPET ENDS ***/
+
+.info{
+    font-family: Arial;
+    color: #a0a0a0;
+}
+
+#score_text{
+    font-size: 100px;
+    width: 500px;
+}
+
+#penjelasan_game{   
+    box-shadow: 0px 1px 3px #000 inset;
+    padding: 5px;
+    width: 390px;
+    border-radius: 5px;
+    font-family: Arial;
+    font-size: 14px;
+}
+
+#penjelasan_game #tulisan{
+    width: 170px;
+    text-shadow: 0px 1px 0px #fff;
+}
+
+#howto{
+    font-family: Arial;
+    font-size: 20px;
+}
