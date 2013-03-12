@@ -43,9 +43,13 @@
 
 
 $route['default_controller'] = "tanyoo/index";
+
+$route['user/(:any)'] = 'user/$1';
+
 $route['(:any)'] = 'tanyoo/$1';
 
-// $route['mentoraa'] = 'mentoraa';
+
+
 // $route['mentoraa/(:any)'] = 'mentoraa/$1';
 
 //$route['404_override'] = '';

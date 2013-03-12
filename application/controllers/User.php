@@ -1,14 +1,38 @@
 <?php
 	
+	//untuk handle API
+
 	class User extends CI_Controller{
 
 		public function __construct(){
-			parent::__construct();	        
+			parent::__construct();   
+
+			//load model database user
+			$this->load->model('user_model');
 		}
 
-		public function cek_user_sudah_ada($id_facebook){
-			get_number_user_by_fbid($id_facebook);
+		public function index(){
+			echo "index";
 		}
 
-		
+
+		//API mendapatkan banyak user
+		public function get_num_user(){
+			$username = $_GET['username'];
+
+			$this->load->library('user_lib');
+			$this->load->helper('url');
+
+			$cek_user = $this->user_lib->cek_username($username);
+			echo $cek_user;
+		}
+
+		public function add_user(){
+
+			if($this->user_model->add_user()){
+				
+			}else{
+				echo "can't add database";
+			}
+		}
 	}
