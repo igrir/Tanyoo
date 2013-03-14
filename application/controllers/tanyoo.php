@@ -2,7 +2,7 @@
 	//di comment ajah
 	
 	//ini untuk controller dari tanyoo
-	//ngedit buat yola
+	//ngedit buat yola nambah
 	class Tanyoo extends CI_Controller{
 
 		public function __construct(){
