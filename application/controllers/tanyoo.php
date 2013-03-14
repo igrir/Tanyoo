@@ -4,12 +4,9 @@
 
 		public function __construct(){
 			parent::__construct();
-			
-
-	        
 		}
 
-		public function index(){
+		public function index(){ //index disini
 			$this->load->helper('url');
 			$this->load->helper('form');
 			$this->load->library('form_validation');
