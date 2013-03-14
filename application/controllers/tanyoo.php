@@ -1,15 +1,18 @@
 <?php
+<<<<<<< HEAD
 	//di comment ajah
+=======
+	
+	//ini untuk controller dari tanyoo
+
+>>>>>>> cc3582b6e4280c9b190e12b74c60076c98fdeb9e
 	class Tanyoo extends CI_Controller{
 
 		public function __construct(){
 			parent::__construct();
-			
-
-	        
 		}
 
-		public function index(){
+		public function index(){ //index disini
 			$this->load->helper('url');
 			$this->load->helper('form');
 			$this->load->library('form_validation');
