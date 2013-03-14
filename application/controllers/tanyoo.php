@@ -1,7 +1,7 @@
 <?php
 	
 	//ini untuk controller dari tanyoo
-
+	//ngedit buat yola
 	class Tanyoo extends CI_Controller{
 
 		public function __construct(){
