@@ -1,5 +1,5 @@
 <?php
-	
+	//di comment ajah
 	class Tanyoo extends CI_Controller{
 
 		public function __construct(){
