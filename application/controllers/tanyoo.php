@@ -1,5 +1,7 @@
 <?php
 	
+	//ini untuk controller dari tanyoo
+
 	class Tanyoo extends CI_Controller{
 
 		public function __construct(){
