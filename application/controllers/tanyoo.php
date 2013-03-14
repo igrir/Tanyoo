@@ -1,4 +1,5 @@
 <?php
+	//di comment ajah
 	
 	//ini untuk controller dari tanyoo
 	//ngedit buat yola
@@ -7,7 +8,8 @@
 		public function __construct(){
 			parent::__construct();
 		}
-
+		
+		//comment lagi
 		public function index(){ //index disini
 			$this->load->helper('url');
 			$this->load->helper('form');
