@@ -1,11 +1,8 @@
 <?php
-<<<<<<< HEAD
 	//di comment ajah
-=======
 	
 	//ini untuk controller dari tanyoo
 
->>>>>>> cc3582b6e4280c9b190e12b74c60076c98fdeb9e
 	class Tanyoo extends CI_Controller{
 
 		public function __construct(){
