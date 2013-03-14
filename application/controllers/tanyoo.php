@@ -8,7 +8,8 @@
 		public function __construct(){
 			parent::__construct();
 		}
-
+		
+		//comment lagi
 		public function index(){ //index disini
 			$this->load->helper('url');
 			$this->load->helper('form');
