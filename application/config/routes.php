@@ -42,7 +42,7 @@
 // $route['default_controller'] = "welcome";
 
 
-$route['default_controller'] = "tanyoo/index";
+$route['default_controller'] = "soal"; //ini diubah jadi langsung ke soal dulu ya
 
 $route['user/(:any)'] = 'user/$1';
 
