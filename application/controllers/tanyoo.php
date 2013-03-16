@@ -17,6 +17,7 @@
 			$data['title'] = "Login to Tumehsite";
 			$this->load->view('templates/header', $data);
 			$this->load->view('login', $data);
+			$this->load->view('templates/footer', $data);
 		}
 
 		public function login($fbid){
@@ -29,10 +30,10 @@
 			//kalau belum ada user
 			if ($cek_user == 0) {
 				//daftar dulu
-				$this->register();
+				redirect("register");
 			}else{
 				//langsung masuk
-				$this->home();
+				redirect("home");
 			}
 		}
 		
@@ -45,14 +46,28 @@
 
 			$this->load->view('templates/header', $data);
 			$this->load->view('register', $data);
+			$this->load->view('templates/footer', $data);
+		}
+
+		public function tanya(){
+			$this->load->helper('form');
+			$this->load->library('form_validation');
+			$this->load->helper('url');
+
+			$data['title'] = "Daftar";
+
+			$this->load->view('templates/header', $data);
+			$this->load->view('tanya', $data);
+			$this->load->view('templates/footer', $data);
 		}
 
 		public function home(){
 
 			$data['title'] = "Home";
-
+			echo 
 			$this->load->view('templates/header', $data);
 			$this->load->view('home', $data);
+			$this->load->view('templates/footer', $data);
 		}
 
 	}

@@ -50,5 +50,3 @@
 		<div id="user-info"></div>
 		
 	</div> 
-</body> 
-</html> 

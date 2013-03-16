@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Mar 12, 2013 at 05:23 PM
+-- Generation Time: Mar 16, 2013 at 06:27 PM
 -- Server version: 5.1.44
 -- PHP Version: 5.3.1
 
@@ -120,6 +120,7 @@ CREATE TABLE IF NOT EXISTS `static` (
 
 CREATE TABLE IF NOT EXISTS `user` (
   `username` varchar(32) NOT NULL,
+  `password` varchar(255) NOT NULL,
   `id_fb` varchar(50) NOT NULL,
   `skor` int(11) NOT NULL,
   `bio` varchar(250) NOT NULL,
@@ -131,9 +132,10 @@ CREATE TABLE IF NOT EXISTS `user` (
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`username`, `id_fb`, `skor`, `bio`, `minat`) VALUES
-('abc', '123', 0, '', ''),
-('giri', '0', 0, '123', 'a b c');
+INSERT INTO `user` (`username`, `password`, `id_fb`, `skor`, `bio`, `minat`) VALUES
+('abc', '', '123', 0, '', ''),
+('giri', '', '0', 0, '123', 'a b c'),
+('igrir', '', '1227196016', 0, 'Penyuka penanya jawaban', 'biologi fisika matematika');
 
 -- --------------------------------------------------------
 
