@@ -42,7 +42,7 @@
 // $route['default_controller'] = "welcome";
 
 
-$route['default_controller'] = "soal"; //ini diubah jadi langsung ke soal dulu ya
+$route['default_controller'] = "soal"; //ini diubah jadi langsung ke soal dulu ya, soalnya q mw coba masukin bagian soal
 
 $route['user/(:any)'] = 'user/$1';
 
