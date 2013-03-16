@@ -28,9 +28,10 @@
 		}
 
 		public function add_user(){
+			$this->load->helper('url');
 
 			if($this->user_model->add_user()){
-				
+				redirect("index");
 			}else{
 				echo "can't add database";
 			}

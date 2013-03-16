@@ -34,7 +34,7 @@ class User_model extends CI_Model{
 	public function add_user(){
 		$data = array(
 				'username'  => $this->input->post('username'),
-				'id_fb'  => $this->input->post('fbid'),
+				'password'  => $this->input->post('password'),
 				'skor'  => 0,
 				'bio' => $this->input->post('bio'),
 				'minat' => $this->input->post('minat')
