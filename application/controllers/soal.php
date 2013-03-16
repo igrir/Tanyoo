@@ -18,7 +18,7 @@
 			if($_POST==NULL){
 				$this->load->view('soal_view');
 			}else{
-				$this->soal_model->add_soal($_POST);
+				$this->soal_model->add_soal($_POST); //kenapa ga masuk terus, gada eror apapun
 				redirect('','refresh'); 
 			}			 
 		}

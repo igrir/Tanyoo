@@ -38,21 +38,8 @@
 |
 */
 
-
-// $route['default_controller'] = "welcome";
-
-
-$route['default_controller'] = "soal"; //ini diubah jadi langsung ke soal dulu ya, soalnya q mw coba masukin bagian soal
-
-$route['user/(:any)'] = 'user/$1';
-
-$route['(:any)'] = 'tanyoo/$1';
-
-
-
-// $route['mentoraa/(:any)'] = 'mentoraa/$1';
-
-//$route['404_override'] = '';
+$route['default_controller'] = 'soal';
+$route['404_override'] = '';
 
 
 /* End of file routes.php */
