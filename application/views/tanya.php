@@ -28,4 +28,4 @@
 			
 			<a href="" data-role="button" data-theme="a" data-inline="true">post</a>
 		</div>
-	</div>
+	

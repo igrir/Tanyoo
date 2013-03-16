@@ -14,27 +14,12 @@
 			$this->load->helper('url');
 			$this->load->helper('form');
 			$this->load->library('form_validation');
-			$data['title'] = "Login to Tumehsite";
+
+			$data['title'] = "Login to Tanyoo";
 			$this->load->view('templates/header', $data);
 			$this->load->view('login', $data);
 			$this->load->view('templates/footer', $data);
-		}
 
-		public function login($fbid){
-			$this->load->library('user_lib');
-			$this->load->helper('url');
-
-			$cek_user = $this->user_lib->cek_user_sudah_ada($fbid);
-
-
-			//kalau belum ada user
-			if ($cek_user == 0) {
-				//daftar dulu
-				redirect("register");
-			}else{
-				//langsung masuk
-				redirect("home");
-			}
 		}
 		
 		public function register(){
@@ -46,7 +31,7 @@
 
 			$this->load->view('templates/header', $data);
 			$this->load->view('register', $data);
-			$this->load->view('templates/footer', $data);
+			
 		}
 
 		public function tanya(){
@@ -58,16 +43,25 @@
 
 			$this->load->view('templates/header', $data);
 			$this->load->view('tanya', $data);
-			$this->load->view('templates/footer', $data);
+			$this->load->view('templates/footer_logout', $data);
 		}
 
 		public function home(){
+			$this->load->helper('form');
+			$this->load->library('form_validation');
+			$this->load->helper('url');
+			$this->load->library('session');
 
 			$data['title'] = "Home";
-			echo 
-			$this->load->view('templates/header', $data);
-			$this->load->view('home', $data);
-			$this->load->view('templates/footer', $data);
+
+			if ($this->session->userdata('LOGGED_IN')) {
+				$this->load->view('templates/header', $data);
+				$this->load->view('home', $data);
+				$this->load->view('templates/footer_logout', $data);
+			}else{
+				redirect('index');
+			}
+			
 		}
 
 	}

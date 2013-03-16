@@ -45,6 +45,7 @@
 $route['default_controller'] = "tanyoo/index";
 
 $route['user/(:any)'] = 'user/$1';
+$route['login/(:any)'] = 'login/$1';
 
 $route['(:any)'] = 'tanyoo/$1';
 

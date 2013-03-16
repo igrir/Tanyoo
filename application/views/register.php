@@ -1,5 +1,5 @@
 	
-	<div data-role="page" id="one" data-theme="e" style="background:url(<?php echo base_url()?>/css/images/back.png) no-repeat;background-size:100% 100%;">  
+	<div data-role="page" id="one" data-theme="e" style="background:url(<?php echo base_url()?>css/images/back.png) no-repeat;background-size:100% 100%;" data-add-back-btn="true">  
 		<div data-role="header" data-position="inline" data-theme="e"> 
 			<h1>Register</h1> 
 		</div> 
@@ -41,7 +41,7 @@
 				<br/>
 
 				<div id="submit_area">
-					<input type="button" id="cek" value="Ok?" onClick="cekUser();"/>
+					<button type="submit">Register</button>
 				</div>
 				
 			</div>
