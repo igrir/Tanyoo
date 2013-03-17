@@ -4,9 +4,9 @@
 		<meta charset="utf-8"> 
 		<title>register</title> 
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="stylesheet" href="<?php echo base_url()?>/css/jquery.mobile-1.2.0.min.css"/>
+		<link rel="stylesheet" href="<?php echo base_url()?>/css/jquery.mobile-1.3.0.min.css"/>
 		<script src="<?php echo base_url()?>/js/jquery-1.8.2.min.js"></script>
-		<script src="<?php echo base_url()?>/js/jquery.mobile-1.2.0.min.js"></script>
+		<script src="<?php echo base_url()?>/js/jquery.mobile-1.3.0.min.js"></script>
 
 		<style>
 			body #logout { display:none; }
