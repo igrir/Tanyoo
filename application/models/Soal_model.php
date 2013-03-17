@@ -17,16 +17,14 @@ class Soal_model extends CI_Model{
 	}
 
 	//menambah soal baru
-	public function add_soal($set){
-		$this->db->insert('tsoal',$set); //insert ke tabel tsoal
+	public function add_soal($data){
+		$this->db->insert('tsoal', $data); //insert ke tabel soal
 		return $this->db->insert_id();
 	}
 
 	//mengedit soal
 	public function edit_soal(){
-		$this->db->where("id_soal",$_POST['id_soal']);
-		$this->db->update("tsoal",$_POST); 
-		// redirect('','refresh');
+		
 	}
 	
 	function selectsoal ($id_soal){
@@ -54,7 +52,6 @@ class Soal_model extends CI_Model{
 	public function set_lock(){
 
 	}
-
 
 	//melepaskan lock
 	public function unset_lock(){

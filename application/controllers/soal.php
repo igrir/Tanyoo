@@ -18,14 +18,21 @@
 			if($_POST==NULL){
 				$this->load->view('soal_view');
 			}else{
-				$this->soal_model->add_soal($_POST); //kenapa ga masuk terus, gada eror apapun
+				$data = array('id_soal' => $this->input->post(''),
+                            'text_soal' => $this->input->post('soal'),
+                            'jawaban' => $this->input->post('jawaban'),
+                            'flag' => $this->input->post(''),
+                            'tag' => $this->input->post('tag'),
+                            'username' => 'giri', //masih dihardcode soalnya blm ada session
+                            'lock' => $this->input->post(''));
+				$this->soal_model->insert($data);
 				redirect('','refresh'); 
 			}			 
 		}
 		
 		function ubah($id_soal){			
 			$data['data_soal']=$this->Soal_model->selectsoal($this->uri->segment(3)); 
-			$this->load->view('editsoal_view',$data); 
+			$this->load->view('soal_ubah',$data); 
 		}
 		
 		function simpan_ubah(){

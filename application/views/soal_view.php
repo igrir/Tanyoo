@@ -45,7 +45,7 @@ $(document).ready(function() {
 			<?php foreach($data_soal as $t): //menampilkan hasil dari data_soal yang ada dicontroller ke dalam tabel?> 
 			<table>		
 			<tr>
-				<td><?php echo $t->soal ?> ? </td>
+				<td><?php echo $t->text_soal ?> ? </td>
 			</tr>
 			<tr>
 				<td><?php echo $t->jawaban ?></td>
