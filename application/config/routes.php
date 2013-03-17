@@ -38,14 +38,6 @@
 |
 */
 
-<<<<<<< HEAD
-$route['default_controller'] = 'soal';
-$route['404_override'] = '';
-=======
-
-// $route['default_controller'] = "welcome";
-
-
 $route['default_controller'] = "tanyoo/index";
 
 $route['user/(:any)'] = 'user/$1';
@@ -58,8 +50,6 @@ $route['(:any)'] = 'tanyoo/$1';
 // $route['mentoraa/(:any)'] = 'mentoraa/$1';
 
 //$route['404_override'] = '';
->>>>>>> 98286348e8ae0320204cff1c0ddd33ee2a41a9c6
-
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */

@@ -20,7 +20,6 @@
 								'LOGGED_IN' => true
 							);
 				$this->session->set_userdata($newdata);
-
 				redirect('home');
 			}else{
 				redirect('index');

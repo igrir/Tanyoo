@@ -1,29 +1,14 @@
 <html>
 <head>
 <title>Soal</title>
-<link href="<?php echo base_url(); ?>assets/css/style.css" rel="stylesheet" type="text/css" />
-<link href="<?php echo base_url(); ?>assets/css/table.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/jquery-1.2.3.pack.js"></script>
-<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/jquery.validate.pack.js"></script>
-<script type="text/javascript">
-$(document).ready(function() {
-	$("#soal").validate({
-		messages: {
-			email: {
-				required: "E-mail harus diisi",
-				email: "Masukkan E-mail yang valid"
-			}
-		},
-		errorPlacement: function(error, element) {
-			error.appendTo(element.parent("td"));
-		}
-	});
-})
-</script>
+<div data-role="page" id="one" data-theme="e" style="background:url(<?php echo base_url()?>/css/images/back.png) no-repeat;background-size:100% 100%;">  
+<div data-role="header" data-position="inline" data-theme="e"> 
+	<h1>Home</h1> 
+</div> 
 <body>
-	<div class="content">
+	<div data-role="content"> 
 		<h1>Tanyoo</h1>
-		<div class="data">		
+		<div data-role="fieldcontain" class="ui-hide-label">
 			<?php  $attributes = array( 'id' => 'soal'); // id = soal dipakai untuk validasi?>
 			<?php echo form_open('soal/add',$attributes); ?>
 				<table>
@@ -59,7 +44,10 @@ $(document).ready(function() {
 			<?php $i++; ?>
 			<?php endforeach ?>					
 			</table>				
+			
+			<input type="button" onClick="logout();" value="Logout"/>
 		</div>
 	</div>
+	<div id="user-info"></div>
 </body>
 </html>

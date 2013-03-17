@@ -14,7 +14,7 @@
 | path to your installation.
 |
 */
-$config['base_url']	= 'localhost/tanyoo'; //ini aku edit 
+$config['base_url']	= ''; 
 
 /*
 |--------------------------------------------------------------------------
@@ -26,7 +26,7 @@ $config['base_url']	= 'localhost/tanyoo'; //ini aku edit
 | variable so that it is blank.
 |
 */
-$config['index_page'] = '';
+$config['index_page'] = 'index.php'; //klo kosong malah ga muncul home, jadi q tambah index.php 
 
 /*
 |--------------------------------------------------------------------------

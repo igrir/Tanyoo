@@ -7,7 +7,7 @@ class Soal_model extends CI_Model{
 	
 	function selectAll(){
 			$this->db->order_by("id_soal", "desc"); 
-			return $this->db->get('tsoal')->result(); //nama tabelnya tbl_transaksi
+			return $this->db->get('soal')->result(); //nama tabelnya soal
 	}
 
 
@@ -18,7 +18,7 @@ class Soal_model extends CI_Model{
 
 	//menambah soal baru
 	public function add_soal($data){
-		$this->db->insert('tsoal', $data); //insert ke tabel soal
+		$this->db->insert('soal', $data); //insert ke tabel soal
 		return $this->db->insert_id();
 	}
 
@@ -28,13 +28,13 @@ class Soal_model extends CI_Model{
 	}
 	
 	function selectsoal ($id_soal){
-			$data = $this->db->get_where('tsoal', array('id_soal' => $id_soal));
+			$data = $this->db->get_where('soal', array('id_soal' => $id_soal));
 			return $data;
 	}	
 	
 	function simpan_ubah(){
 		$this->db->where("id_soal",$_POST['id_soal']);
-		$this->db->update("tsoal",$_POST); 
+		$this->db->update("soal",$_POST); 
 		redirect('','refresh');
 	}
 
