@@ -4,6 +4,11 @@ class Soal_model extends CI_Model{
 	{
 		$this->load->database();
 	}
+	
+	function selectAll(){
+			$this->db->order_by("id_soal", "desc"); 
+			return $this->db->get('soal')->result(); //nama tabelnya soal
+	}
 
 
 	//return semua isi soal dalam bentuk array
@@ -12,13 +17,25 @@ class Soal_model extends CI_Model{
 	}
 
 	//menambah soal baru
-	public function add_soal(){
-
+	public function add_soal($data){
+		$this->db->insert('soal', $data); //insert ke tabel soal
+		return $this->db->insert_id();
 	}
 
 	//mengedit soal
-	public function edit_soal($id_soal){
-
+	public function edit_soal(){
+		
+	}
+	
+	function selectsoal ($id_soal){
+			$data = $this->db->get_where('soal', array('id_soal' => $id_soal));
+			return $data;
+	}	
+	
+	function simpan_ubah(){
+		$this->db->where("id_soal",$_POST['id_soal']);
+		$this->db->update("soal",$_POST); 
+		redirect('','refresh');
 	}
 
 	//menambah flag
@@ -35,7 +52,6 @@ class Soal_model extends CI_Model{
 	public function set_lock(){
 
 	}
-
 
 	//melepaskan lock
 	public function unset_lock(){

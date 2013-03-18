@@ -17,11 +17,24 @@ class User_model extends CI_Model{
 		return $query->num_rows();
 	}
 
+	//MENGECEK USER APAKAH ADA
+	//digunakan pada login
+	public function check_user(){
+		$query = $this->db->get_where('user', array('username' => $this->input->post('username'),
+													'password' => $this->input->post('password')));
+
+		if ($query->num_rows == 1) {
+			return true;
+		}else{
+			return false;
+		}
+	}
+
 
 	public function add_user(){
 		$data = array(
 				'username'  => $this->input->post('username'),
-				'id_fb'  => $this->input->post('fbid'),
+				'password'  => $this->input->post('password'),
 				'skor'  => 0,
 				'bio' => $this->input->post('bio'),
 				'minat' => $this->input->post('minat')

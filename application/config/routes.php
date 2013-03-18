@@ -38,13 +38,10 @@
 |
 */
 
-
-// $route['default_controller'] = "welcome";
-
-
 $route['default_controller'] = "tanyoo/index";
 
 $route['user/(:any)'] = 'user/$1';
+$route['login/(:any)'] = 'login/$1';
 
 $route['(:any)'] = 'tanyoo/$1';
 
@@ -53,7 +50,6 @@ $route['(:any)'] = 'tanyoo/$1';
 // $route['mentoraa/(:any)'] = 'mentoraa/$1';
 
 //$route['404_override'] = '';
-
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */
