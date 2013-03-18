@@ -18,7 +18,7 @@
 
 
 				<label for="username">Nama Tampilan</label>
-				<input type="text" name="username_tmp" id="username_tmp" value="" placeholder="Nama Tampilan"/>
+				<input type="text" name="username" id="username" value="" placeholder="Nama Tampilan"/>
 				<span id="peringatan"></span>
 				<small>hanya gunakan 1 kata tanpa spasi</small>
 
