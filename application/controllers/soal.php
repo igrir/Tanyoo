@@ -15,9 +15,9 @@
 		}
 		
 		function add(){			
-			if($_POST==NULL){
-				$this->load->view('soal_view');
-			}else{
+			// if($_POST==NULL){
+				// $this->load->view('soal_view');
+			//}else{
 				$data = array('id_soal' => $this->input->post(''),
                             'text_soal' => $this->input->post('soal'),
                             'jawaban' => $this->input->post('jawaban'),
@@ -25,9 +25,10 @@
                             'tag' => $this->input->post('tag'),
                             'username' => 'giri', //masih dihardcode soalnya blm ada session
                             'lock' => $this->input->post(''));
-				$this->soal_model->insert($data);
-				redirect('','refresh'); 
-			}			 
+				$this->soal_model->add_soal($data);
+				echo "tes";
+				//redirect('','refresh'); 
+			//}			 
 		}
 		
 		function ubah($id_soal){			

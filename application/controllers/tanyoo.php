@@ -56,7 +56,7 @@
 
 			if ($this->session->userdata('LOGGED_IN')) {
 				$this->load->view('templates/header', $data);
-				$this->load->view('home', $data);
+				$this->load->view('home.php', $data);
 				$this->load->view('templates/footer_logout', $data);
 			}else{
 				redirect('index');
