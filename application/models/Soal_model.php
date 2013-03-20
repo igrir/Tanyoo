@@ -32,10 +32,12 @@ class Soal_model extends CI_Model{
 			return $data;
 	}	
 	
-	function simpan_ubah(){
-		$this->db->where("id_soal",$_POST['id_soal']);
-		$this->db->update("soal",$_POST); 
-		redirect('','refresh');
+	function simpan_ubah($id_soal, $data){
+		//$this->db->where("id_soal",$_POST['id_soal']);
+		//$this->db->update("soal",$_POST);
+		$this->db->where("id_soal",$id_soal);
+		$this->db->update("soal",$data);
+		//redirect('','refresh');
 	}
 
 	//menambah flag

@@ -11,34 +11,65 @@
 		
 		function index(){
 			$data['data_soal']=$this->Soal_model->selectAll(); //data_soal menampung data dari soal_model dengan method selectAll
-			$this->load->view('soal_view',$data); //soal_view menampung data dari $data	
+			
+			$this->load->view('templates/header', $data);
+			$this->load->view('templates/header_bar', $data);
+			$this->load->view('soal_view',$data); //soal_view menampung data dari $data
+			$this->load->view('templates/footer', $data);
 		}
 		
-		function add(){			
-			// if($_POST==NULL){
-				// $this->load->view('soal_view');
-			//}else{
-				$data = array('id_soal' => $this->input->post(''),
+		function add(){
+			$this->load->library('session');
+			
+			if($_POST==NULL){
+				$this->load->view('soal_view');
+			}else{
+				$data = array(
                             'text_soal' => $this->input->post('soal'),
                             'jawaban' => $this->input->post('jawaban'),
-                            'flag' => $this->input->post(''),
+                            //'flag' => $this->input->post(''),
+			    'flag' => 0,
                             'tag' => $this->input->post('tag'),
-                            'username' => 'giri', //masih dihardcode soalnya blm ada session
-                            'lock' => $this->input->post(''));
-				$this->soal_model->add_soal($data);
+                            //'username' => 'giri', //masih dihardcode soalnya blm ada session
+			    'username' => $this->session->userdata('username'),
+                            //'lock' => $this->input->post('')
+			    'lock' => 0);
+				
+				$this->Soal_model->add_soal($data);
 				echo "tes";
-				//redirect('','refresh'); 
-			//}			 
+				redirect('home','refresh'); 
+			}			 
 		}
 		
-		function ubah($id_soal){			
+		function ubah($id_soal){
+			
 			$data['data_soal']=$this->Soal_model->selectsoal($this->uri->segment(3)); 
-			$this->load->view('soal_ubah',$data); 
+		
+			$this->load->view('templates/header', $data);
+			$this->load->view('templates/header_bar', $data);
+			$this->load->view('soal_ubah',$data);
+			$this->load->view('templates/footer_logout', $data);
+			
 		}
 		
 		function simpan_ubah(){
-			$this->soal_model->simpan_ubah(); 
-			redirect('','refresh');
+			$this->load->library('session');
+			
+			if($_POST==NULL){
+				redirect('soal/add');
+			}else{
+				$id_soal = $this->input->post('id_soal');
+				
+				$data = array(
+					'text_soal' => $this->input->post('soal'),
+					'jawaban' => $this->input->post('jawaban'),
+					'tag' => $this->input->post('tag'),
+					'username' => $this->session->userdata('username'));
+				
+				$this->Soal_model->simpan_ubah($id_soal, $data);
+				
+				redirect('soal/ubah/'.$id_soal,'refresh');
+			}
 		}
 	}
 ?>

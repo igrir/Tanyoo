@@ -14,11 +14,18 @@
 			$this->load->helper('url');
 			$this->load->helper('form');
 			$this->load->library('form_validation');
-
-			$data['title'] = "Login to Tanyoo";
-			$this->load->view('templates/header', $data);
-			$this->load->view('login', $data);
-			$this->load->view('templates/footer', $data);
+			$this->load->library('session');
+			
+			//supaya kalau login langsung redirect
+			if ($this->session->userdata('LOGGED_IN')) {
+				redirect('home');
+			}else{
+				$data['title'] = "Login to Tanyoo";
+				$this->load->view('templates/header', $data);
+				$this->load->view('login', $data);
+				$this->load->view('templates/footer', $data);	
+			}
+			
 
 		}
 		
@@ -42,6 +49,7 @@
 			$data['title'] = "Daftar";
 
 			$this->load->view('templates/header', $data);
+			$this->load->view('templates/header_bar', $data);
 			$this->load->view('tanya', $data);
 			$this->load->view('templates/footer_logout', $data);
 		}
@@ -56,6 +64,7 @@
 
 			if ($this->session->userdata('LOGGED_IN')) {
 				$this->load->view('templates/header', $data);
+				$this->load->view('templates/header_bar', $data);
 				$this->load->view('home.php', $data);
 				$this->load->view('templates/footer_logout', $data);
 			}else{
