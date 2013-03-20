@@ -10,12 +10,18 @@
 		}
 		
 		function index(){
-			$data['data_soal']=$this->Soal_model->selectAll(); //data_soal menampung data dari soal_model dengan method selectAll
+			$this->load->library('session');
+			
+			
+			$username = $this->session->userdata('username');
+			
+			//$data['data_soal']=$this->Soal_model->selectAll(); //data_soal menampung data dari soal_model dengan method selectAll
+			$data['data_soal']=$this->Soal_model->selectByUser($username); //data_soal menampung data dari soal_model dengan method selectAll
 			
 			$this->load->view('templates/header', $data);
 			$this->load->view('templates/header_bar', $data);
 			$this->load->view('soal_view',$data); //soal_view menampung data dari $data
-			$this->load->view('templates/footer', $data);
+			$this->load->view('templates/footer_logout', $data);
 		}
 		
 		function add(){

@@ -9,6 +9,7 @@
 
 			//load model database user
 			$this->load->model('user_model');
+			
 		}
 
 		public function index(){

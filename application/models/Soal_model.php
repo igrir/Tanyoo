@@ -9,6 +9,13 @@ class Soal_model extends CI_Model{
 			$this->db->order_by("id_soal", "desc"); 
 			return $this->db->get('soal')->result(); //nama tabelnya soal
 	}
+	
+	
+	//mengambil soal-soal berdasarkan user tertentu
+	function selectByUser($user){
+		$data = $this->db->get_where('soal', array('username' => $user));
+		return $data->result();
+	}
 
 
 	//return semua isi soal dalam bentuk array

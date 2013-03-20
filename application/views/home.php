@@ -7,7 +7,7 @@
 				<a href="#" data-role="button" data-inline="true">Jawab Pertanyaan</a>
 				<input type="button" onClick="logout();" value="Logout"/>
 			</div>
-
+		
 		</div> 
 
 		<div id="user-info"></div>
