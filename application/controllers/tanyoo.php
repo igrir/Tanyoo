@@ -65,6 +65,7 @@
 			$this->load->library('session');
 
 			$data['title'] = "Home";
+			$data['username'] = $this->session->userdata('username');
 
 			if ($this->session->userdata('LOGGED_IN')) {
 				$this->load->view('templates/header', $data);
