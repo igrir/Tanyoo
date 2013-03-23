@@ -1,6 +1,6 @@
 
 	<div data-role="content"> 
-		<h1>Tanyoo</h1>
+		<img src="<?php echo base_url()?>css/images/t2.png" />
 		<div data-role="fieldcontain" class="ui-hide-label">
 			<?php  $attributes = array( 'id' => 'soal'); // id = soal dipakai untuk validasi?>
 			<?php echo form_open('soal/add',$attributes); ?>
@@ -15,7 +15,7 @@
 						<td><input type="text" placeholder="Tag" name="tag" class="required" title="tag harus diisi" size="30px"></td>
 					</tr>
 					<tr>
-						<td><input type="Submit" value="simpan" class="orange" /></td>
+						<td><input type="Submit" value="post" class="orange" /></td>
 					</tr>					
 					</table><br/>
 			</form>		

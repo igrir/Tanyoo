@@ -9,7 +9,7 @@ padding-bottom: 0px!important;
 } 
 .ui-navbar-custom .ui-btn .ui-icon { 
 width: 30px!important; 
-height: 30px!important; 
+height: 20px!important; 
 margin-left: -15px!important; 
 box-shadow: none!important; 
 -moz-box-shadow: none!important; 
@@ -18,16 +18,39 @@ box-shadow: none!important;
 border-radius: none !important; 
 } 
 #home .ui-icon { 
-background: url(images/home.png) no-repeat; 
+background: url(images/home.png) 50% 50% no-repeat; 
 background-size: 23px 23px; 
 } 
 #profile .ui-icon { 
-background: url(images/profile.png)  no-repeat; 
+background: url(images/profile.png) 50% 50%  no-repeat; 
 background-size: 23px 23px; 
 } 
 #statistik .ui-icon { 
-background: url(images/statistik.png) no-repeat; 
+background: url(images/statistik.png) 50% 50% no-repeat; 
 background-size: 23px 23px; 
 } 
 
 #logo img { max-width: 70%; margin-left:45px; }
+
+#atas img{
+	margin-top : 8px;
+}
+
+.ui-grid-d .ui-block-a { 
+width: 35%; 
+margin-left:-30px;
+} 
+.ui-grid-d .ui-block-b { 
+width: 10%; 
+margin-left : 20px;
+} 
+.ui-grid-d .ui-block-c { 
+width: 10%; 
+}
+.ui-grid-d .ui-block-d { 
+width: 10%; 
+}
+.ui-grid-d .ui-block-e { 
+width: 35%; 
+}
+

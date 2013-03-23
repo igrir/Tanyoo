@@ -21,7 +21,7 @@
 							<td><input type="text" placeholder="Tag" name="tag" class="required" value="<?php echo $row->tag;?>" title="tag harus diisi" size="30px"></td>
 						</tr>
 						<tr>
-							<td><input type="Submit" value="simpan" class="orange"/></td>
+							<td><input type="Submit" value="simpan"/></td>
 						</tr>
 					</table><br/>
 				</form>		
