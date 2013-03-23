@@ -3,7 +3,8 @@
 		<img src="<?php echo base_url()?>css/images/t2.png" />
 		<div data-role="fieldcontain" class="ui-hide-label">
 			<?php  $attributes = array( 'id' => 'soal'); // id = soal dipakai untuk validasi?>
-			<?php echo form_open('soal/add',$attributes); ?>
+			<?php //echo form_open('soal/add',$attributes); ?>
+			<form action="<?php echo base_url()?>index.php/soal/add" method="POST" data-ajax="false">
 				<table>
 					<tr>
 						<td><input type="text" placeholder="Soal" name="soal" class="required" title="soal harus diisi" size="60px" ></td>
@@ -15,7 +16,7 @@
 						<td><input type="text" placeholder="Tag" name="tag" class="required" title="tag harus diisi" size="30px"></td>
 					</tr>
 					<tr>
-						<td><input type="Submit" value="post" class="orange" /></td>
+						<td><input type="Submit" value="post" class="orange" data-ajax="false"/></td>
 					</tr>					
 					</table><br/>
 			</form>		

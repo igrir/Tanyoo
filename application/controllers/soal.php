@@ -1,4 +1,17 @@
 <?php
+
+	/*
+	// Nama kelas : Soal.php
+	// Peran 	  : Controller untuk soal
+					- index, index dari soal, bisa menambah soal dan edit
+					- add, handle request POST menambah soal
+					
+					- ubah, halaman edit
+					- simpan_ubah, handle request POST mengubah soal
+
+
+	*/
+
 	class Soal extends CI_Controller{
 		function __construct(){
 			parent :: __construct();
@@ -15,7 +28,7 @@
 			
 			$username = $this->session->userdata('username');
 			
-			//$data['data_soal']=$this->Soal_model->selectAll(); //data_soal menampung data dari soal_model dengan method selectAll
+
 			$data['data_soal']=$this->Soal_model->selectByUser($username); //data_soal menampung data dari soal_model dengan method selectAll
 			
 			$this->load->view('templates/header', $data);
@@ -33,17 +46,14 @@
 				$data = array(
                             'text_soal' => $this->input->post('soal'),
                             'jawaban' => $this->input->post('jawaban'),
-                            //'flag' => $this->input->post(''),
 			    'flag' => 0,
                             'tag' => $this->input->post('tag'),
-                            //'username' => 'giri', //masih dihardcode soalnya blm ada session
 			    'username' => $this->session->userdata('username'),
-                            //'lock' => $this->input->post('')
 			    'lock' => 0);
 				
 				$this->Soal_model->add_soal($data);
-				echo "tes";
-				redirect('home','refresh'); 
+
+				redirect('soal/index','refresh'); 
 			}			 
 		}
 		
@@ -68,6 +78,7 @@
 				
 				$data = array(
 					'text_soal' => $this->input->post('soal'),
+					'lock' => $this->input->post('lock'),
 					'jawaban' => $this->input->post('jawaban'),
 					'tag' => $this->input->post('tag'),
 					'username' => $this->session->userdata('username'));
