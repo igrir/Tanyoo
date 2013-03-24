@@ -6,9 +6,15 @@ class User_model extends CI_Model{
 	}
 
 	//cek banyak user yang dicari berdasarkan id fb nya
-	public function get_number_user_by_fbid($id_facebook){
-		$query = $this->db->get_where('user', array('id_fb' => $id_facebook));
-		return $query->num_rows();
+	// public function get_number_user_by_fbid($id_facebook){
+	// 	$query = $this->db->get_where('user', array('id_fb' => $id_facebook));
+	// 	return $query->num_rows();
+	// }
+
+	public function get_user_by_username($username){
+		$this->db->select('username, bio, minat');
+		$query = $this->db->get_where('user', array('username' => $username));
+		return $query->result();
 	}
 
 	//cek banyak user berdasarkan usernamenya

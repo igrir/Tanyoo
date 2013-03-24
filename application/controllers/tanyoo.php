@@ -1,8 +1,12 @@
 <?php
-	//di comment ajah
 	
-	//ini untuk controller dari tanyoo
-	//ngedit buat yola nambah
+	// Nama kelas : Tanyoo.php
+	// Peran 	  : Controller untuk halaman:
+	//					- index
+	//					- register
+	//					- tanya (pendaftaran)
+	//					- home (beranda)
+
 	class Tanyoo extends CI_Controller{
 
 		public function __construct(){
@@ -61,6 +65,7 @@
 			$this->load->library('session');
 
 			$data['title'] = "Home";
+			$data['username'] = $this->session->userdata('username');
 
 			if ($this->session->userdata('LOGGED_IN')) {
 				$this->load->view('templates/header', $data);

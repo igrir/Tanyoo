@@ -21,6 +21,15 @@
 							<td><input type="text" placeholder="Tag" name="tag" class="required" value="<?php echo $row->tag;?>" title="tag harus diisi" size="30px"></td>
 						</tr>
 						<tr>
+							<td><b>Lock</b></td>
+							<td>
+								<select name="lock" data-role="slider">
+									<option value="1" <?php if($row->lock == 1) echo "selected";?>>Lock</option>
+									<option Value="0" <?php if($row->lock == 0) echo "selected";?>>Open</option>
+								</select>
+							</td>
+						</tr>
+						<tr>
 							<td><input type="Submit" value="simpan"/></td>
 						</tr>
 					</table><br/>

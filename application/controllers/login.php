@@ -22,7 +22,7 @@
 				$this->session->set_userdata($newdata);
 				redirect('home');
 			}else{
-				redirect('index');
+				redirect('tanyoo/index');
 			}			
 		}
 
@@ -30,7 +30,7 @@
 			$this->load->helper('url');
 			$this->load->library('session');
 			$this->session->sess_destroy();
-			redirect("index");
+			redirect('tanyoo/index');
 		}
 
 
