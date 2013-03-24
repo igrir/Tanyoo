@@ -17,7 +17,8 @@
 			parent :: __construct();
 			$this->load->helper('url'); 
 			$this->load->model('Soal_model'); //meload data dari soal_model
-		
+			$this->load->library('session');
+
 			// load library
 			$this->load->library(array('table','form_validation'));		
 		}
