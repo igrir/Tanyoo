@@ -5,6 +5,7 @@
 		<div data-role="content" id="logo"> 
 			<img src="<?php echo base_url()?>css/images/tagline.png" width="70%"></a>
 			<br>
+			<br>
 			<a href="#two" data-role="button" data-transition="flow">Login</a></p>
 		</div> 
 	</div> 
