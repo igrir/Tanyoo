@@ -5,13 +5,15 @@
 			<?php  $attributes = array( 'id' => 'soal'); // id = soal dipakai untuk validasi?>
 
 			<?php echo form_open('soal/add',$attributes); ?>
-				<div data-role="fieldcontain" id="bg">
+			<div class="ui-body ui-body-d">
+				<div data-role="fieldcontain">
 					<input type="text" name="soal" placeholder="Soal" class="required" title="soal harus diisi" >
 					<input type="text" placeholder="Jawaban" name="jawaban" class="required" title="jawaban harus diisi">
 					<input type="text" placeholder="Tag" name="tag" class="required" title="tag harus diisi">
 				
-					<input type="Submit" value="post" data-inline="true"/>
+					<input type="Submit" value="post" data-inline="true" data-theme="e"/>
 				</div>
+			</div>
 			</form>		
 			<?php $i=1 ?>
 			<?php foreach($data_soal as $t): //menampilkan hasil dari data_soal yang ada dicontroller ke dalam tabel?> 

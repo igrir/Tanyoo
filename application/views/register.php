@@ -7,21 +7,22 @@
 		<div data-role="content"> 
 
 
-
-			<div data-role="fieldcontain" class="ui-hide-label">
+			<div class="ui-body ui-body-e">
+			
 
 
 				<div id="gambar"></div>
 
-
+			
 				<form action="<?php echo base_url()?>/index.php/user/add_user" method="post" accept-charset="utf-8">
 
-
-				<label for="username">Nama Tampilan</label>
-				<input type="text" name="username" id="username" value="" placeholder="Nama Tampilan"/>
-				<span id="peringatan"></span>
-				<small>hanya gunakan 1 kata tanpa spasi</small>
-
+				<div data-role="fieldcontain" class="ui-hide-label">
+					<label for="username">Nama Tampilan</label>
+					<input type="text" name="username" id="username" value="" placeholder="Nama Tampilan"/>
+					<span id="peringatan"></span>
+					<small><i>hanya gunakan 1 kata tanpa spasi</i></small>
+				</div>
+			<div data-role="fieldcontain" class="ui-hide-label">
 				<label for="password">Password</label>
 				<input type="password" name="password" id="password" value="" placeholder="Password"/>
 
@@ -44,6 +45,7 @@
 					<button type="submit">Register</button>
 				</div>
 				
+			</div>
 			</div>
 
 		</div> 

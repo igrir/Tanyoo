@@ -1,13 +1,15 @@
 		<div data-role="content"> 
 			<p class="text"><i></i></p> <!-- untuk menampilkan nama user -->
 			<div data-role="fieldcontain" class="ui-hide-label">
+				<div class="ui-body ui-body-d">
 				<div class="choice_list">		
 				<ul data-role="listview" data-inset="true" data-theme="d"> <!---menampilkan bio dari user-->
 					<li>
 					
 					</li>				
 				</ul>
-				</div>			
+				</div>	
+				</div>
 			</div>
 			<p class="text">----------<i>skor</i>----------</p>
 			<div class="ui-grid-a"> 
