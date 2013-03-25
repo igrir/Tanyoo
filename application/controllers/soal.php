@@ -54,7 +54,7 @@
 				
 				$this->Soal_model->add_soal($data);
 
-				redirect('soal/index','refresh'); 
+				redirect('soal/index'); 
 			}			 
 		}
 		
@@ -88,6 +88,25 @@
 				
 				redirect('soal/ubah/'.$id_soal,'refresh');
 			}
+		}
+		
+		function cari_soal(){ //menampilkan form pencarian
+			$this->load->view('templates/header');
+			$this->load->view('templates/header_bar');
+			$this->load->view('cari_soal_view');
+			$this->load->view('templates/footer_logout');
+		}
+		
+		function proses_cari_soal(){ //memproses pencarian
+			$cari = $this->input->post('cari');
+			
+			$data['data_soal']=$this->Soal_model->proses_cari_soal($cari);		
+			
+			$this->load->view('templates/header', $data);
+			$this->load->view('templates/header_bar', $data);
+			$this->load->view('cari_soal_view',$data);
+			$this->load->view('templates/footer_logout', $data);
+			
 		}
 	}
 ?>

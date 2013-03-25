@@ -17,7 +17,6 @@ class Soal_model extends CI_Model{
 		return $data->result();
 	}
 
-
 	//return semua isi soal dalam bentuk array
 	public function get_info_soal($id_soal){
 
@@ -45,6 +44,11 @@ class Soal_model extends CI_Model{
 		$this->db->where("id_soal",$id_soal);
 		$this->db->update("soal",$data);
 		//redirect('','refresh');
+	}
+	
+	function proses_cari_soal($cari){
+		$data = $this->db->get_where('soal', array('tag' => $cari));
+		return $data->result();
 	}
 
 	//menambah flag

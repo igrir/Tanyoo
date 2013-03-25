@@ -11,7 +11,7 @@
 					<input type="text" placeholder="Jawaban" name="jawaban" class="required" title="jawaban harus diisi">
 					<input type="text" placeholder="Tag" name="tag" class="required" title="tag harus diisi">
 				
-					<input type="Submit" value="post" data-inline="true" data-theme="e"/>
+					<input type="Submit" value="Post" data-inline="true" data-theme="e"/>
 				</div>
 			</div>
 			</form>		
