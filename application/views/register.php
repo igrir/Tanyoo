@@ -14,7 +14,7 @@
 				<div id="gambar"></div>
 
 			
-				<form action="<?php echo base_url()?>/index.php/user/add_user" method="post" accept-charset="utf-8">
+				<form action="<?php echo base_url()?>index.php/user/add_user" method="post" accept-charset="utf-8">
 
 				<div data-role="fieldcontain" class="ui-hide-label">
 					<label for="username">Nama Tampilan</label>
