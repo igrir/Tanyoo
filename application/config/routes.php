@@ -45,8 +45,10 @@ $route['login/(:any)'] = 'login/$1';
 $route['soal/(:any)'] = 'soal/$1';
 $route['penghargaan/(:any)'] = 'penghargaan/$1';
 
+$route['u/celengan/(:any)'] = 'profil/celengan/$1';		//route ke profil dengan "u/[username]". "u" karena singkatan "user"
+
 $route['u/(:any)'] = 'profil/index/$1';		//route ke profil dengan "u/[username]". "u" karena singkatan "user"
-$route['u/(:any)/celengan'] = 'profil/celengan/$1';		//route ke profil dengan "u/[username]". "u" karena singkatan "user"
+
 
 $route['(:any)'] = 'tanyoo/$1'; 
 

@@ -16,20 +16,30 @@
 			$this->load->library('session');
 		}
 
-		public function index($username){
-			$data['profil'] = $this->User_model->get_user_by_username($username);
-			//var_dump($result);
-			$this->load->view('templates/header', $data);
-			$this->load->view('templates/header_bar', $data);
-			$this->load->view('profile', $data);
-			$this->load->view('templates/footer', $data);
+		public function index($username, $page){
+
+			if ($page == 'celengan') {
+				redirect('u/celengan/'.$username);
+			}else{
+				$data['profil'] = $this->User_model->get_user_by_username($username);
+				//var_dump($result);
+				$this->load->view('templates/header', $data);
+				$this->load->view('templates/header_bar', $data);
+				$this->load->view('profile', $data);
+				$this->load->view('templates/footer', $data);	
+			}
+
+			
 		}
 
 		//Halaman celengan
 		public function celengan($username){
 
-			$data = $this->Celengan_model->get_all_celengan($username);
-
+			//$data = $this->Celengan_model->get_all_celengan($username);
+			$this->load->view('templates/header', $data);
+			$this->load->view('templates/header_bar', $data);
+			$this->load->view('celengan', $data);
+			$this->load->view('templates/footer', $data);
 			var_dump($data);
 		}
 
