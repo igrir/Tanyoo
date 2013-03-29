@@ -14,7 +14,7 @@ class User_model extends CI_Model{
 	public function get_user_by_username($username){
 		$this->db->select('username, bio, minat');
 		$query = $this->db->get_where('user', array('username' => $username));
-		return $query->result();
+		return $query->row();
 	}
 
 	//cek banyak user berdasarkan usernamenya

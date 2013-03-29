@@ -1,7 +1,8 @@
 <?php
 	
 	// Nama kelas : Profil.php
-	// Peran 	  : Controller untuk halaman profil
+	// Peran 	  : - Controller untuk halaman profil
+	//				- Celengan
 
 	class Profil extends CI_Controller{
 
@@ -11,11 +12,25 @@
 			//load model database user
 			$this->load->model('User_model');
 			
+			$this->load->helper('url');			
+			$this->load->library('session');
 		}
 
 		public function index($username){
-			$result = $this->User_model->get_user_by_username($username);
-			var_dump($result);
+			$data['profil'] = $this->User_model->get_user_by_username($username);
+			//var_dump($result);
+			$this->load->view('templates/header', $data);
+			$this->load->view('templates/header_bar', $data);
+			$this->load->view('profile', $data);
+			$this->load->view('templates/footer', $data);
+		}
+
+		//Halaman celengan
+		public function celengan($username){
+
+			$data = $this->Celengan_model->get_all_celengan($username);
+
+			var_dump($data);
 		}
 
 	}
