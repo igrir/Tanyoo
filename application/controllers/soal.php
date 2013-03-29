@@ -24,14 +24,12 @@
 		}
 		
 		function index(){
+			
 			$this->load->library('session');
-			
-			
 			$username = $this->session->userdata('username');
+			$data['data_soal']=$this->Soal_model->selectByUser($username);
 			
-
-			$data['data_soal']=$this->Soal_model->selectByUser($username); //data_soal menampung data dari soal_model dengan method selectAll
-			
+			$this->load->vars($data);
 			$this->load->view('templates/header', $data);
 			$this->load->view('templates/header_bar', $data);
 			$this->load->view('soal_view',$data); //soal_view menampung data dari $data
@@ -53,7 +51,7 @@
 			    'locked' => 0);
 				
 				$this->Soal_model->add_soal($data);
-
+				echo "masuk";
 				redirect('soal/index'); 
 			}			 
 		}
@@ -79,7 +77,7 @@
 				
 				$data = array(
 					'text_soal' => $this->input->post('soal'),
-					'locked' => $this->input->post('lock'),
+					'lock' => $this->input->post('lock'),
 					'jawaban' => $this->input->post('jawaban'),
 					'tag' => $this->input->post('tag'),
 					'username' => $this->session->userdata('username'));
@@ -135,7 +133,7 @@
 		   mmenjawab soal dengan id tertentu
 		*/
 		function jawab_id($id_soal){
-			$data['soal'] = $this->Soal_model->get_random_soal();
+			$data['soal'] = $this->Soal_model->jawab_soal_id($this->uri->segment(3));
 
 			$this->load->view('templates/header');
 			$this->load->view('templates/header_bar');

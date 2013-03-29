@@ -21,7 +21,6 @@ class Soal_model extends CI_Model{
 	//menambah soal baru
 	public function add_soal($data){
 		$this->db->insert('soal', $data); //insert ke tabel soal
-		//return $this->db->insert_id();
 	}
 
 	//mengedit soal
@@ -52,6 +51,11 @@ class Soal_model extends CI_Model{
 	function proses_cari_soal($cari){
 		$data = $this->db->get_where('soal', array('tag' => $cari));
 		return $data->result();
+	}
+	
+	function jawab_soal_id($id_soal){
+		$data = $this->db->get_where('soal', array('id_soal' => $id_soal));
+		return $data;
 	}
 
 	//menambah flag
