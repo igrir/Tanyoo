@@ -55,7 +55,8 @@
 				}else{
 					//berhasil memasukkan data
 
-					$data = array('nama_celengan' => $this->input->post('nama_celengan'));
+					$data = array('nama_celengan' => $this->input->post('nama_celengan'),
+								  'username' => $username);
 					$this->Celengan_model->add_celengan($data);
 					redirect('u/'.$username.'/celengan');
 				}

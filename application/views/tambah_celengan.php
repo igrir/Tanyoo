@@ -11,7 +11,7 @@
 			<div class="ui-body ui-body-d">
 				<div data-role="fieldcontain">
 					<input type="text" placeholder="Nama Celengan" name="nama_celengan" class="required" title="jawaban harus diisi">
-					<input type="Submit" value="Tambah celengan" data-inline="true" data-theme="e"/>
+					<input type="Submit" value="Tambah celengan" data-inline="true" data-theme="e" data-ajax="false"/>
 				</div>
 			</div>
 		</div>

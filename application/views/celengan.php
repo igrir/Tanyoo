@@ -10,17 +10,21 @@
 			<ul data-role="listview" data-inset="true" data-theme="d">
 
 				<?php $banyak = count($user_celengan);
-				echo $banyak;
+				echo "banyak celengan ".$banyak;
 				if ($banyak <= 0) {
 					?>
 						<li>Tidak ada celengan</li>					
 					<?php
 				}else{
-
+					foreach($user_celengan as $celengan){
+					?>
+						<li>
+							<a href=""><?php echo $celengan->nama_celengan?></a>
+						</li>
+					<?php		
+					}
 				?>
-				<li>
-					<a href=""></a>
-				</li>
+				
 
 				<?php } ?>				
 			</ul>
