@@ -1,6 +1,6 @@
 
 
-<div data-role="page" data-theme="e" style="background:url(<?php echo base_url()?>/css/images/back.png) no-repeat;background-size:100% 100%;">  
+<div data-role="page" data-theme="e" style="background:url(<?php echo base_url()?>css/images/back.png) no-repeat;background-size:100% 100%;">  
 		<div data-role="header" class="ui-navbar-custom" data-position="fixed" data-theme="e"> 
 			<div class="ui-grid-d" style="text-align:center;"> 
 				<div class="ui-block-a"><img src="<?php echo base_url()?>css/images/t.png" width="25px"></div> 

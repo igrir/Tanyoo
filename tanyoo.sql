@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Mar 16, 2013 at 06:27 PM
+-- Generation Time: Mar 29, 2013 at 06:56 AM
 -- Server version: 5.1.44
 -- PHP Version: 5.3.1
 
@@ -31,7 +31,7 @@ CREATE TABLE IF NOT EXISTS `celengan` (
   `username` varchar(32) NOT NULL,
   PRIMARY KEY (`id_celengan`),
   KEY `username` (`username`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `celengan`
@@ -53,6 +53,25 @@ CREATE TABLE IF NOT EXISTS `isi_celengan` (
 
 --
 -- Dumping data for table `isi_celengan`
+--
+
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `log`
+--
+
+CREATE TABLE IF NOT EXISTS `log` (
+  `id_log` int(11) NOT NULL AUTO_INCREMENT,
+  `username` varchar(255) NOT NULL,
+  `id_soal` int(11) NOT NULL,
+  `log_type` int(11) NOT NULL COMMENT 'jawab soal = 1, flag = 2',
+  PRIMARY KEY (`id_log`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COMMENT='tabel yang menjelaskan penggunaan user terhadap menjawab soa' AUTO_INCREMENT=1 ;
+
+--
+-- Dumping data for table `log`
 --
 
 
@@ -89,12 +108,19 @@ CREATE TABLE IF NOT EXISTS `soal` (
   `lock` int(11) NOT NULL COMMENT '1 berarti lock, 0 nggak',
   PRIMARY KEY (`id_soal`),
   KEY `username` (`username`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
 
 --
 -- Dumping data for table `soal`
 --
 
+INSERT INTO `soal` (`id_soal`, `text_soal`, `jawaban`, `flag`, `tag`, `username`, `lock`) VALUES
+(2, 'Siapakah penemu lampu?', 'Thomas Alva Edison', 0, 'Penemu2 pengarang', 'giri', 0),
+(3, 'Siapakah penemu gravitasi dengan apel jatuh?', 'newton', 0, 'penemu', 'giri', 0),
+(4, 'aha', 'oho', 0, 'yaya', 'giri', 1),
+(5, '', '', 0, '', 'giri', 0),
+(6, 'a', 'b', 0, 'c', 'giri', 1),
+(7, '0', '0', 0, '0', 'giri', 0);
 
 -- --------------------------------------------------------
 
@@ -133,9 +159,11 @@ CREATE TABLE IF NOT EXISTS `user` (
 --
 
 INSERT INTO `user` (`username`, `password`, `id_fb`, `skor`, `bio`, `minat`) VALUES
-('abc', '', '123', 0, '', ''),
-('giri', '', '0', 0, '123', 'a b c'),
-('igrir', '', '1227196016', 0, 'Penyuka penanya jawaban', 'biologi fisika matematika');
+('erwin', '123', '', 0, 'erwingw', 'komputer'),
+('giri', '123', '', 0, '123123', '1 2 3'),
+('giri2', '123', '', 0, '123', '123'),
+('igrir', '123', '1227196016', 0, 'Penyuka penanya jawaban', 'biologi fisika matematika'),
+('indana', '123', '', 0, 'indana zf', 'fisika kimia');
 
 -- --------------------------------------------------------
 

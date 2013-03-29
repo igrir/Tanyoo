@@ -30,14 +30,14 @@
 
 		//Halaman celengan
 		public function celengan($username){
-
+			$data['profil'] = $this->User_model->get_user_by_username($username);
 			$data['user_celengan'] = $this->Celengan_model->get_all_celengan_user($username);
 			$this->load->view('templates/header', $data);
 			$this->load->view('templates/header_bar', $data);
 			$this->load->view('celengan', $data);
 			$this->load->view('templates/footer', $data);
 		}
-		
+
 		//Halaman celengan
 		public function penghargaan($username){
 
