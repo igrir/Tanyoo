@@ -38,5 +38,16 @@
 			$this->load->view('templates/footer', $data);
 			var_dump($data);
 		}
+		
+		//Halaman celengan
+		public function penghargaan($username){
 
+			//$data = $this->Celengan_model->get_all_celengan($username);
+			$this->load->view('templates/header', $data);
+			$this->load->view('templates/header_bar', $data);
+			$this->load->view('penghargaan', $data);
+			$this->load->view('templates/footer', $data);
+			var_dump($data);
+		}
+	
 	}
