@@ -12,6 +12,7 @@
 			//load model database user
 			$this->load->model('User_model');
 			$this->load->model('Celengan_model');
+			$this->load->model('Penghargaan_model');
 			$this->load->helper('url');			
 			$this->load->library('session');
 		}
@@ -38,13 +39,16 @@
 			$this->load->view('templates/footer', $data);
 		}
 		
-		//Halaman celengan
+		//Halaman penghargaan
 		public function penghargaan($username){
 
-			//$data = $this->Celengan_model->get_all_celengan($username);
+			$data['user_penghargan'] = $this->Penghargaan_model->get_all_penghargaan($username);
+			$dataaku['penghargaan'] = $this->Penghargaan_model->get_all_penghargaan($username);
+			$dataaku['jml_soal'] = $this->Penghargaan_model->get_jumlah_soal($username);
+			$dataaku['jml_jwb'] = $this->Penghargaan_model->get_jumlah_jawab($username);
 			$this->load->view('templates/header', $data);
 			$this->load->view('templates/header_bar', $data);
-			$this->load->view('penghargaan', $data);
+			$this->load->view('penghargaan', $dataaku);
 			$this->load->view('templates/footer', $data);
 			var_dump($data);
 		}
