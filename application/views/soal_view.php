@@ -16,7 +16,7 @@
 			</div>
 			</form>		
 			<?php $i=1 ?>
-			<?php foreach($data_soal as $t): //menampilkan hasil dari data_soal yang ada dicontroller ke dalam tabel?> 
+			<?php foreach($data_soal as $t)://menampilkan hasil dari data_soal yang ada dicontroller ke dalam tabel?> 
 			<div class="choice_list">		
 			<ul data-role="listview" data-inset="true" data-theme="d">
 				<li><h3><?php echo $t->text_soal ?> ?</h3>

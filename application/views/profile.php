@@ -17,7 +17,8 @@
 				<div class="ui-block-a" id="tampilskor" class="jawaban">
 					jawaban
 				</div> 
-				<div class="ui-block-b" id="tampilskor" class="soal">
+				<div class="ui-block-b" id="tampilskor" class="soal">								
+					<?php echo $jml_soal; ?><br/>
 					soal
 				</div> 
 			</div> 

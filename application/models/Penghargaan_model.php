@@ -10,11 +10,11 @@ class Penghargaan_model extends CI_Model{
 		$sql="select a.nm_penghargaan from user_penghargaan b, penghargaan a where a.id_penghargaan = b.id_penghargaan and username = ?"; 
 		$data = $this->db->query($sql,array($user));
 		return $data->row();
-	
 	}
+	
 	public function get_jumlah_soal($user){
-		$this->db->order_by("username", "desc");
-		$data = $this->db->get_where('soal', array('username' => $user));
+		$this->db->select('count(text_soal)');
+		$data = $this->db->get_where('soal', array('username' => $username));
 		$data = $data->num_rows();
 		return $data;
 	}
