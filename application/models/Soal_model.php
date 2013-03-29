@@ -58,6 +58,11 @@ class Soal_model extends CI_Model{
 		$data = $this->db->get_where('soal', array('tag' => $cari));
 		return $data->result();
 	}
+	
+	function jawab_soal_id($id_soal){
+		$data = $this->db->get_where('soal', array('id_soal' => $id_soal));
+		return $data;
+	}
 
 	//menambah flag
 	public function add_flag($id_soal){

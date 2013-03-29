@@ -135,7 +135,7 @@
 		   mmenjawab soal dengan id tertentu
 		*/
 		function jawab_id($id_soal){
-			$data['soal'] = $this->Soal_model->get_random_soal();
+			$data['soal'] = $this->Soal_model->jawab_soal_id($this->uri->segment(3));
 
 			$this->load->view('templates/header');
 			$this->load->view('templates/header_bar');
