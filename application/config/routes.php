@@ -43,10 +43,11 @@ $route['default_controller'] = "tanyoo/index";
 $route['user/(:any)'] = 'user/$1';
 $route['login/(:any)'] = 'login/$1';
 $route['soal/(:any)'] = 'soal/$1';
+$route['penghargaan/(:any)'] = 'penghargaan/$1';
 
 $route['u/(:any)'] = 'profil/index/$1';		//route ke profil dengan "u/[username]". "u" karena singkatan "user"
 
-$route['(:any)'] = 'tanyoo/$1';
+$route['(:any)'] = 'tanyoo/$1'; 
 
 
 // $route['mentoraa/(:any)'] = 'mentoraa/$1';
