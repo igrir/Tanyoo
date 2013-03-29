@@ -1,13 +1,10 @@
 
 		<div data-role="content"> 
-			<p class="text"><i></i></p> <!-- untuk menampilkan nama user -->
+			<p class="text"><i><?php echo $profil->username; ?></i></p> <!-- untuk menampilkan nama user -->
 			<div data-role="fieldcontain" class="ui-hide-label">
 				<div class="ui-body ui-body-d">
 				<div class="choice_list">		
-				<ul data-role="listview" data-inset="true" data-theme="d"> <!---menampilkan bio dari user-->
-					<li>
-							<?php echo $profil->username; ?>
-					</li>				
+				<ul data-role="listview" data-inset="true" data-theme="d"> <!---menampilkan bio dari user-->			
 					<li>
 							<?php echo $profil->bio; ?>
 					</li>

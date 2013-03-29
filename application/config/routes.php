@@ -49,7 +49,10 @@ $route['u/(:any)/celengan'] = 'profil/celengan/$1'; // route ke profile celengan
 
 $route['u/(:any)'] = 'profil/index/$1';		//route ke profil dengan "u/[username]". "u" karena singkatan "user"
 
+//routing ke CRUD celengan
+$route['celengan/(:any)'] = 'celengan/$1';
 
+//route ke profil
 $route['(:any)'] = 'tanyoo/$1'; 
 
 
