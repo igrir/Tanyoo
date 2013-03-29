@@ -5,8 +5,7 @@
 		<img src="<?php echo base_url()?>css/images/penghargaan.png" width="25px" height="25px">
 
 		<div data-role="fieldcontain" class="ui-hide-label">
-			
-		
+			<?php echo $cakep->nm_penghargaan;?>
 		</div>
 	</div>
 	<div id="user-info"></div>

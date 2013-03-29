@@ -8,13 +8,21 @@
 			parent::__construct();   
 
 			//load model database user
-			$this->load->model('User_model');
+			$this->load->model('Penghargaan_model');
 			
 		}
 		
 		public function index($username){
-			$result = $this->User_model->get_info_penghargaan($username);
+			$result = $this->Penghargaan_model->get_all_penghargaan($username);
 			var_dump($result);
+		}
+		
+		public function get_jumlah_soal($username){
+			$result = $this->Penghargaan_model->get_jumlah_soal($username);
+		}
+		
+		public function get_jumlah_jawab($username){
+			$result = $this->Penghargaan_model->get_jumlah_soal($username);
 		}
 
 	}
