@@ -52,8 +52,12 @@ $route['u/(:any)'] = 'profil/index/$1';		//route ke profil dengan "u/[username]"
 //routing ke CRUD celengan
 $route['celengan/(:any)'] = 'celengan/$1';
 
+//route ke jawab soal
+$route['jawab'] = 'soal/jawab';
+$route['jawab/(:any)'] = 'soal/jawab_id';	//menjawab soal dengan id tertentu
+
 //route ke profil
-$route['(:any)'] = 'tanyoo/$1'; 
+$route['(:any)'] = 'tanyoo/$1';
 
 
 // $route['mentoraa/(:any)'] = 'mentoraa/$1';

@@ -45,12 +45,12 @@
 				$this->load->view('soal_view');
 			}else{
 				$data = array(
-                            'text_soal' => $this->input->post('soal'),
-                            'jawaban' => $this->input->post('jawaban'),
+                            'text_soal' => $this->db->$this->input->post('soal'),
+                            'jawaban' => $this->db->$this->input->post('jawaban'),
 			    'flag' => 0,
                             'tag' => $this->input->post('tag'),
 			    'username' => $this->session->userdata('username'),
-			    'lock' => 0);
+			    'locked' => 0);
 				
 				$this->Soal_model->add_soal($data);
 
@@ -79,7 +79,7 @@
 				
 				$data = array(
 					'text_soal' => $this->input->post('soal'),
-					'lock' => $this->input->post('lock'),
+					'locked' => $this->input->post('lock'),
 					'jawaban' => $this->input->post('jawaban'),
 					'tag' => $this->input->post('tag'),
 					'username' => $this->session->userdata('username'));
@@ -108,5 +108,41 @@
 			$this->load->view('templates/footer_logout', $data);
 			
 		}
+
+		/* Fungsi: jawab
+		   akses: index.php/jawab/
+		   parameter: -
+		   output: NULL
+
+		   menampilkan soal yang didapat secara acak dari
+		   kesukaan pengguna
+		   Tapi sementara ini pakai dulu saja secara acak
+		*/
+		function jawab(){
+			$data['soal'] = $this->Soal_model->get_random_soal();
+
+			$this->load->view('templates/header');
+			$this->load->view('templates/header_bar');
+			$this->load->view('jawab_pertanyaan', $data);
+			$this->load->view('templates/footer_logout');
+		}
+
+		/* Fungsi: jawab_id
+		   akses: index.php/jawabid/[id_soal]
+		   parameter: $id_soal
+		   output: NULL
+
+		   mmenjawab soal dengan id tertentu
+		*/
+		function jawab_id($id_soal){
+			$data['soal'] = $this->Soal_model->get_random_soal();
+
+			$this->load->view('templates/header');
+			$this->load->view('templates/header_bar');
+			$this->load->view('jawab_pertanyaan', $data);
+			$this->load->view('templates/footer_logout');
+		}
+
+
 	}
 ?>

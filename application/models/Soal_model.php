@@ -38,6 +38,13 @@ class Soal_model extends CI_Model{
 			$data = $this->db->get_where('soal', array('id_soal' => $id_soal));
 			return $data;
 	}	
+
+	function get_random_soal(){
+		$query = 'SELECT * FROM `soal` WHERE locked=0 ORDER BY RAND() LIMIT 0,1';
+		$data = $this->db->query($query);
+
+		return $data->row();
+	}
 	
 	function simpan_ubah($id_soal, $data){
 		//$this->db->where("id_soal",$_POST['id_soal']);
