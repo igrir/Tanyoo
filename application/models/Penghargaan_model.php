@@ -21,7 +21,7 @@ class Penghargaan_model extends CI_Model{
 	
 	public function get_jumlah_jawab($user){
 		$this->db->order_by("id_log", "desc");
-		$data = $this->db->get_where('soal', array('username' => $user,'id_log'=>2));
+		$data = $this->db->get_where('log', array('username' => $user,'log_type'=>2));
 		$data = $data->num_rows();
 		return $data;
 	}
