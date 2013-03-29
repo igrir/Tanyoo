@@ -16,18 +16,14 @@
 			$this->load->library('session');
 		}
 
-		public function index($username, $page){
+		public function index($username){
 
-			if ($page == 'celengan') {
-				redirect('u/celengan/'.$username);
-			}else{
 				$data['profil'] = $this->User_model->get_user_by_username($username);
 				//var_dump($result);
 				$this->load->view('templates/header', $data);
 				$this->load->view('templates/header_bar', $data);
 				$this->load->view('profile', $data);
 				$this->load->view('templates/footer', $data);	
-			}
 
 			
 		}
