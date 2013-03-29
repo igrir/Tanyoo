@@ -22,8 +22,10 @@
 				</div> 
 			</div> 
 			<div data-role = "fieldcontain" class="ui-hide-label">
-				<a href="<?php echo base_url()?>index.php/"><img src="<?php echo base_url()?>css/images/celengan.png" width="25px" height="25px"></a>
+
+				<a href="<?php echo base_url()?>index.php/u/celengan/<?php echo $this->session->userdata('username')?>"><img src="<?php echo base_url()?>css/images/celengan.png" width="25px" height="25px"></a>
 				<a href="<?php echo base_url()?>penghargaan.php/"><img src="<?php echo base_url()?>css/images/penghargaan.png" width="25px" height="25px"></a>
+
 			</div>
 			
 			<p class="text">----------<i>penjawab</i>----------</p>
