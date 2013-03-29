@@ -1,3 +1,4 @@
+
 		<div data-role="content"> 
 			<p class="text"><i></i></p> <!-- untuk menampilkan nama user -->
 			<div data-role="fieldcontain" class="ui-hide-label">
@@ -5,7 +6,7 @@
 				<div class="choice_list">		
 				<ul data-role="listview" data-inset="true" data-theme="d"> <!---menampilkan bio dari user-->
 					<li>
-					
+							<?php echo $profil->username; ?>
 					</li>				
 				</ul>
 				</div>	
