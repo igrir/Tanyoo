@@ -13,8 +13,8 @@ class Penghargaan_model extends CI_Model{
 	}
 	
 	public function get_jumlah_soal($user){
-		$this->db->select('count(text_soal)');
-		$data = $this->db->get_where('soal', array('username' => $username));
+		$this->db->select('text_soal');
+		$data = $this->db->get_where('soal', array('username' => $user));
 		$data = $data->num_rows();
 		return $data;
 	}
