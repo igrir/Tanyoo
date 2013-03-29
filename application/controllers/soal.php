@@ -24,14 +24,12 @@
 		}
 		
 		function index(){
+			
 			$this->load->library('session');
-			
-			
 			$username = $this->session->userdata('username');
+			$data['data_soal']=$this->Soal_model->selectByUser($username);
 			
-
-			$data['data_soal']=$this->Soal_model->selectByUser($username); //data_soal menampung data dari soal_model dengan method selectAll
-			
+			$this->load->vars($data);
 			$this->load->view('templates/header', $data);
 			$this->load->view('templates/header_bar', $data);
 			$this->load->view('soal_view',$data); //soal_view menampung data dari $data
@@ -45,15 +43,15 @@
 				$this->load->view('soal_view');
 			}else{
 				$data = array(
-                            'text_soal' => $this->db->$this->input->post('soal'),
-                            'jawaban' => $this->db->$this->input->post('jawaban'),
-			    'flag' => 0,
-                            'tag' => $this->input->post('tag'),
-			    'username' => $this->session->userdata('username'),
-			    'lock' => 0);
-				
+					'text_soal' => $this->db->$this->input->post('soal'),
+					'jawaban' => $this->db->$this->input->post('jawaban'),
+					'flag' => 0,
+					'tag' => $this->input->post('tag'),
+					'username' => $this->session->userdata('username'),
+					'lock' => 0);
+		
 				$this->Soal_model->add_soal($data);
-
+				echo "masuk";
 				redirect('soal/index'); 
 			}			 
 		}

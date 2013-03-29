@@ -22,8 +22,8 @@
 
 						<label for="lock">Lock</label>
 							<select name="lock" data-role="slider" id="lock">
-								<option value="1" <?php if($row->locked == 1) echo "selected";?>>Lock</option>
-								<option Value="0" <?php if($row->locked == 0) echo "selected";?>>Open</option>
+								<option value="1" <?php if($row->lock == 1) echo "selected"; //awalnya locked ?>>Lock</option> 
+								<option Value="0" <?php if($row->lock == 0) echo "selected"; //awalnya locked?>>Open</option>
 							</select>
 						</label>
 						

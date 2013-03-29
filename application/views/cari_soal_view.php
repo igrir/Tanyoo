@@ -19,6 +19,7 @@
 				<ul data-role="listview" data-inset="true" data-theme="d" id="tag">
 					<li><h3><?php echo $t->text_soal ?> ?</h3>
 					<p><i>#<?php echo $t->tag ?></i></p>
+					<p><?php echo anchor('soal/jawab_id/'.$t->id_soal,'jawab');?>
 				</ul>
 				<?php $i++; ?>
 				<?php endforeach ?>						

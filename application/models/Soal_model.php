@@ -26,7 +26,6 @@ class Soal_model extends CI_Model{
 	//menambah soal baru
 	public function add_soal($data){
 		$this->db->insert('soal', $data); //insert ke tabel soal
-		//return $this->db->insert_id();
 	}
 
 	//mengedit soal
