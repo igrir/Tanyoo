@@ -7,11 +7,9 @@
 					</li>				
 					
 				</ul>
-				<?php echo form_open('soal/cek_jawab'); ?>
-					<input type="hidden" value="<?php echo $soal->id_soal?>" name="id"/>
-					<input type="text" name="jawaban" id="" placeholder="jawaban"/>
-					<button type="submit">jawab</button>
-				</form>
+				Jawaban benar.
+				<br/>
+				Jawaban soal ini: <?php echo $soal->jawaban ?>
 			</div>
 			<div data-role="fieldcontain" class="ui-hide-label">
 				

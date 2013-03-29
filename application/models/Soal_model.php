@@ -18,11 +18,6 @@ class Soal_model extends CI_Model{
 		return $data->result();
 	}
 
-	//return semua isi soal dalam bentuk array
-	public function get_info_soal($id_soal){
-
-	}
-
 	//menambah soal baru
 	public function add_soal($data){
 		$this->db->insert('soal', $data); //insert ke tabel soal

@@ -46,7 +46,7 @@
 			}else{
 				$data = array(
                             'text_soal' => $this->db->$this->input->post('soal'),
-                            'jawaban' => $this->db->$this->input->post('jawaban'),
+                            'jawaban' => $this->db->$this->input->post('jawaban') ,
 			    'flag' => 0,
                             'tag' => $this->input->post('tag'),
 			    'username' => $this->session->userdata('username'),
@@ -141,6 +141,43 @@
 			$this->load->view('templates/header_bar');
 			$this->load->view('jawab_pertanyaan', $data);
 			$this->load->view('templates/footer_logout');
+		}
+
+		/* Fungsi: cek_jawab
+		   akses: index.php/soal/cek_jawab
+		   parameter: -
+		   output: NULL
+
+		   mengecek jawaban
+		*/
+		function cek_jawab(){
+			if($_POST==NULL){
+				redirect('index');
+			}else{
+				$id_soal = $this->input->post('id');
+				$jawaban = $this->input->post('jawaban');
+
+				$info_soal = $this->Soal_model->selectsoal($id_soal);
+				$row = $info_soal->row();
+
+				$jawaban_benar = $row->jawaban;
+
+				$data['soal'] = $row;
+
+				//cek jawaban
+				if ( strtoupper($jawaban) == strtoupper($jawaban_benar) ) {
+					$this->load->view('templates/header');
+					$this->load->view('templates/header_bar');
+					$this->load->view('jawab_benar', $data);
+					$this->load->view('templates/footer_logout');
+				}else{
+					$this->load->view('templates/header');
+					$this->load->view('templates/header_bar');
+					$this->load->view('jawab_salah', $data);
+					$this->load->view('templates/footer_logout');
+				}
+
+			}
 		}
 
 
