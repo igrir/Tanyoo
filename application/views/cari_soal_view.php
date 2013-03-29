@@ -7,7 +7,7 @@
 					<td><input type="text" placeholder="Pencarian" name="cari" size="60px" ></td>
 				</tr>
 				<tr>
-					<td><input type="Submit" value="Cari" name="bcari" class="orange" data-ajax="false"/></td>
+					<td><input type="Submit" value="Cari" name="bcari" data-ajax="false" data-inline="true"/></td>
 				</tr>					
 			</table>
 		</form>	
@@ -15,19 +15,13 @@
 			if(isset($_POST['bcari'])){	?>
 				<?php $i=1 ?>
 				<?php foreach($data_soal as $t): //menampilkan hasil dari data_soal yang ada dicontroller ke dalam tabel?> 
-				<table>		
-				<tr>
-					<td><?php echo $t->text_soal ?> ? </td>
-				</tr>
-				<tr>
-					<td><?php echo $t->jawaban ?></td>
-				</tr>
-				<tr>
-					<td>#<?php echo $t->tag ?></td>
-				</tr>
+				<div class="choice_list">		
+				<ul data-role="listview" data-inset="true" data-theme="d" id="tag">
+					<li><h3><?php echo $t->text_soal ?> ?</h3>
+					<p><i>#<?php echo $t->tag ?></i></p>
+				</ul>
 				<?php $i++; ?>
-				<?php endforeach ?>					
-				</table>	
+				<?php endforeach ?>						
 		<?php
 			}
 		?>

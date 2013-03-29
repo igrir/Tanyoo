@@ -96,3 +96,8 @@ p.text{
 	text-align : center;
 	font-family: Bookman Old Style;
 }
+
+#id p{
+	font-weight:bold;
+	color : #A4A4A4;
+}
