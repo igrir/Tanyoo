@@ -8,6 +8,9 @@
 					<li>
 							<?php echo $profil->username; ?>
 					</li>				
+					<li>
+							<?php echo $profil->bio; ?>
+					</li>
 				</ul>
 				</div>	
 				</div>
@@ -23,8 +26,8 @@
 			</div> 
 			<div data-role = "fieldcontain" class="ui-hide-label">
 
-				<a href="<?php echo base_url()?>index.php/u/celengan/<?php echo $this->session->userdata('username')?>"><img src="<?php echo base_url()?>css/images/celengan.png" width="25px" height="25px"></a>
-				<a href="<?php echo base_url()?>index.php/u/penghargaan/<?php echo $this->session->userdata('username')?>"><img src="<?php echo base_url()?>css/images/penghargaan.png" width="25px" height="25px"></a>git
+				<a href="<?php echo base_url()?>index.php/u/<?php echo $this->session->userdata('username')?>/celengan/"><img src="<?php echo base_url()?>css/images/celengan.png" width="25px" height="25px"></a>
+				<a href="<?php echo base_url()?>index.php/u/<?php echo $this->session->userdata('username')?>/penghargaan/"><img src="<?php echo base_url()?>css/images/penghargaan.png" width="25px" height="25px"></a>
 
 			</div>
 			

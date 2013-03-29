@@ -9,7 +9,7 @@ class Celengan_model extends CI_Model{
 	//mendapatkan semua celengan dari username
 	public function get_all_celengan_user($username){
 		$data = $this->db->get_where('celengan', array('username'=>$username));
-		return $data->result();
+		return $data->row();
 	}
 
 	//menambah celengan baru

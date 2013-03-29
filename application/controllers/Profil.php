@@ -11,7 +11,7 @@
 
 			//load model database user
 			$this->load->model('User_model');
-			
+			$this->load->model('Celengan_model');
 			$this->load->helper('url');			
 			$this->load->library('session');
 		}
@@ -31,12 +31,11 @@
 		//Halaman celengan
 		public function celengan($username){
 
-			//$data = $this->Celengan_model->get_all_celengan($username);
+			$data['user_celengan'] = $this->Celengan_model->get_all_celengan_user($username);
 			$this->load->view('templates/header', $data);
 			$this->load->view('templates/header_bar', $data);
 			$this->load->view('celengan', $data);
 			$this->load->view('templates/footer', $data);
-			var_dump($data);
 		}
 		
 		//Halaman celengan

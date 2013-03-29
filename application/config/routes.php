@@ -43,9 +43,9 @@ $route['default_controller'] = "tanyoo/index";
 $route['user/(:any)'] = 'user/$1';
 $route['login/(:any)'] = 'login/$1';
 $route['soal/(:any)'] = 'soal/$1';
-$route['u/penghargaan/(:any)'] = 'profil/penghargaan/$1'; // route ke profile penghargaan
 
-$route['u/celengan/(:any)'] = 'profil/celengan/$1';		//route ke profil dengan "u/[username]". "u" karena singkatan "user"
+$route['u/(:any)/penghargaan'] = 'profil/penghargaan/$1'; // route ke profile penghargaan
+$route['u/(:any)/celengan'] = 'profil/celengan/$1'; // route ke profile celengan
 
 $route['u/(:any)'] = 'profil/index/$1';		//route ke profil dengan "u/[username]". "u" karena singkatan "user"
 
