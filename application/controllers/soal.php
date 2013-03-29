@@ -77,7 +77,7 @@
 				
 				$data = array(
 					'text_soal' => $this->input->post('soal'),
-					'lock' => $this->input->post('lock'),
+					'locked' => $this->input->post('lock'),
 					'jawaban' => $this->input->post('jawaban'),
 					'tag' => $this->input->post('tag'),
 					'username' => $this->session->userdata('username'));

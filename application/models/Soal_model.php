@@ -55,7 +55,7 @@ class Soal_model extends CI_Model{
 	
 	function jawab_soal_id($id_soal){
 		$data = $this->db->get_where('soal', array('id_soal' => $id_soal));
-		return $data;
+		return $data->row();
 	}
 
 	//menambah flag
