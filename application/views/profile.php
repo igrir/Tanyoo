@@ -7,7 +7,7 @@
 					<a href="">
 					<img src="<?php echo base_url()?>css/images/user.png"/>
 					<h3><?php echo $profil->bio; ?></h3>
-					<p>minat</p>
+					<p>minat : <?php echo $profil->minat; ?></p>
 					<a href="" data-rel="popout" data-position-to="window" data-transition="pop"></a>
 					</a>
 				</li>
