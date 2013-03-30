@@ -48,7 +48,7 @@
 			    'flag' => 0,
                             'tag' => $this->input->post('tag'),
 			    'username' => $this->session->userdata('username'),
-			    'locked' => 0);
+			    'lock' => 0);
 				
 				$this->Soal_model->add_soal($data);
 				redirect('soal/index'); 
@@ -76,7 +76,7 @@
 				
 				$data = array(
 					'text_soal' => $this->input->post('soal'),
-					'locked' => $this->input->post('lock'),
+					'lock' => $this->input->post('lock'),
 					'jawaban' => $this->input->post('jawaban'),
 					'tag' => $this->input->post('tag'),
 					'username' => $this->session->userdata('username'));
