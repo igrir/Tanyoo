@@ -17,6 +17,12 @@ class Celengan_model extends CI_Model{
 		$this->db->insert('celengan',$data);
 	}
 
+	//mendapatkan data celengan berdasarkan id
+	public function get_celengan_by_id($id_celengan){
+		$data = $this->db->get_where('celengan', array('id_celengan'=>$id_celengan));
+		return $data->row();
+	}
+
 	//menghapus celengan berdasarkan id celengan
 	public function delete_celengan($id){
 		$this->db->delete('celengan', array('id' => $id));
@@ -35,6 +41,19 @@ class Celengan_model extends CI_Model{
 	//menghapus isi celengan
 	public function delete_isi_celengan(){
 
+	}
+
+	//mengecek user memiliki celengan dengan id tersebut
+	public function is_user_have_celengan($username, $id_celengan){
+		$query = $this->db->get_where("celengan", array('id_celengan'=>$id_celengan, 'username'=>$username));
+		$num = $query->num_rows();
+
+		//kalau ada
+		if ($num > 0) {
+			return true;
+		}else{
+			return false;
+		}
 	}
 
 }

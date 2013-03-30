@@ -1,7 +1,6 @@
 
 	<div data-role="content"> 
-		<p class="text">-------<i>celengan soal</i>------</p>
-		<p class="text"><?php echo $profil->username; ?></p> <!--- tampilkan nama user -->
+		<p class="text">-------<i><?php echo $celengan->nama_celengan?></i>------</p>
 		<img src="<?php echo base_url()?>css/images/celengan.png" width="25px" height="25px">
 
 		<div data-role="fieldcontain" class="ui-hide-label">
@@ -9,17 +8,19 @@
 			<div class="choice_list">		<!-- menampilkan celengan yang sudah di buat -->
 			<ul data-role="listview" data-inset="true" data-theme="d">
 
-				<?php $banyak = count($user_celengan);
-				echo "banyak celengan ".$banyak;
+				<?php $banyak = count($isi_celengan);
+				echo "banyak soal dalam celengan: ".$banyak;
 				if ($banyak <= 0) {
 					?>
-						<li>Tidak ada celengan</li>					
+						<li>Tidak ada isi celengan</li>					
 					<?php
 				}else{
-					foreach($user_celengan as $celengan){
+					foreach($isi_celengan as $isi){
+						$teks_soal = $this->Soal_model->selectsoal($isi->id_soal)->row()->text_soal;
+
 					?>
 						<li>
-							<a href="<?php echo base_url()?>index.php/celengan/id/<?php echo $celengan->id_celengan?>"><?php echo $celengan->nama_celengan?></a>
+							<a href="<?php echo base_url()?>index.php/jawab/<?php echo $isi->id_soal?>"><?php echo $teks_soal ?></a>
 						</li>
 					<?php		
 					}
