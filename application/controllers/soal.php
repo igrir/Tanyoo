@@ -40,18 +40,17 @@
 			$this->load->library('session');
 			
 			if($_POST==NULL){
-				$this->load->view('soal_view');
+				redirect('soal/index'); 
 			}else{
 				$data = array(
-                            'text_soal' => $this->db->$this->input->post('soal'),
-                            'jawaban' => $this->db->$this->input->post('jawaban') ,
+                            'text_soal' => $this->input->post('soal'),
+                            'jawaban' => $this->input->post('jawaban') ,
 			    'flag' => 0,
                             'tag' => $this->input->post('tag'),
 			    'username' => $this->session->userdata('username'),
 			    'locked' => 0);
 				
 				$this->Soal_model->add_soal($data);
-				echo "masuk";
 				redirect('soal/index'); 
 			}			 
 		}
