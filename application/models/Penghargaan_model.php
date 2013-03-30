@@ -7,9 +7,16 @@ class Penghargaan_model extends CI_Model{
 
 	//return penghargaan yang dimiliki seseorang
 	public function get_all_penghargaan($user){
-		$sql="select a.nm_penghargaan from user_penghargaan b, penghargaan a where a.id_penghargaan = b.id_penghargaan and username = ?"; 
-		$data = $this->db->query($sql,array($user));
-		return $data->row();
+		$sql="select a.nm_penghargaan from user_penghargaan b, penghargaan a where a.id_penghargaan = b.id_penghargaan and b.username = ?"; 
+		$temp = $this->db->query($sql,array($user));
+		if($temp->num_rows()>0)
+		{
+			return $temp->result();
+		}
+		else
+		{
+			return false;
+		}
 	}
 	
 	public function get_jumlah_soal($user){
