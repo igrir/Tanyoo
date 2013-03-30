@@ -92,7 +92,7 @@
 
 		/* Fungsi: add_isi
 		   akses: index.php/celengan/add_isi
-		   parameter: $id_soal, $id_celengan
+		   parameter: $id_soal, $id_celengan (dari URL)
 		   output: NULL
 
 		   Proses memasukkan isi celengan
@@ -154,6 +154,99 @@
 				$this->load->view('templates/footer', $data);	
 			}
 		}
+
+		/* Fungsi: hapus_isi
+		   akses: index.php/celengan/hapus_isi
+		   parameter: $id_soal, $id_celengan (dari URL)
+		   output: NULL
+
+		   tampilan menghapus isi celengan
+		*/
+		function hapus_isi($id_soal){
+			//id celengan didapat dari URL yang dimasukkan
+			$id_celengan = $this->uri->segment(4,0);
+
+			if (isset($id_soal) && isset($id_celengan)) {
+				$username = $this->session->userdata('username');
+
+				//cek dulu apakah user sekarang memiliki celengan yang dimaksud
+				$cek_ada = $this->Celengan_model->is_user_have_celengan($username, $id_celengan);
+
+				if ($cek_ada) {
+						//kalau user punya celengan itu
+						//cek, apakah sudah ada di celengannya
+
+						$cek_ada_di_celengan = $this->Isi_celengan_model->is_celengan_have_soal_id($id_celengan, $id_soal);
+
+						//kalau ada, tuju ke konfirmasi hapus celengan
+						if ($cek_ada_di_celengan) {
+							
+							$data['celengan'] = $this->Celengan_model->get_celengan_by_id($id_celengan);
+							$data['isi_celengan'] = $this->Isi_celengan_model->get_all_isi_celengan($id_celengan);
+
+							$this->load->view('templates/header', $data);
+							$this->load->view('templates/header_bar', $data);
+							$this->load->view('konf_hapus_isi_celengan', $data);
+							$this->load->view('templates/footer', $data);
+
+						}else{	
+								//kalau sudah ada di celengan
+								//tampilkan celengan yang dituju
+								redirect("celengan/id/".$id_celengan);
+						}
+
+						
+				}
+			}
+		}
+
+		/* Fungsi: del_isi
+		   akses: index.php/celengan/del_isi
+		   parameter: -
+		   output: NULL
+
+		   Proses menghapus isi celengan
+		*/
+
+		function del_isi(){
+			$username = $this->session->userdata('username');
+
+			if ($_POST == NULL) {
+				redirect("u/".$username."/celengan");
+			}else{
+				$id_celengan = $this->input->post('id_celengan');
+				$id_soal = $this->input->post('id_soal');
+
+				//cek dulu apakah user sekarang memiliki celengan yang dimaksud
+				$cek_ada = $this->Celengan_model->is_user_have_celengan($username, $id_celengan);
+
+				if ($cek_ada) {
+						//kalau user punya celengan itu
+						//cek, apakah sudah ada di celengannya
+
+						$cek_ada_di_celengan = $this->Isi_celengan_model->is_celengan_have_soal_id($id_celengan, $id_soal);
+
+						//kalau memang ada, baru kita hapus
+						if ($cek_ada_di_celengan) {
+
+							$hapus = $this->Isi_celengan_model->delete_isi($id_celengan, $id_soal);
+
+							if ($hapus) {
+								redirect("celengan/id/".$id_celengan);
+							}
+
+
+						}else{	
+								//kalau sudah ada di celengan
+								//tampilkan celengan yang dituju
+								redirect("celengan/id/".$id_celengan);
+						}
+
+						
+				}
+			}
+		}
+
 	}
 
 ?>

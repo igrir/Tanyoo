@@ -21,6 +21,26 @@
 					?>
 						<li>
 							<a href="<?php echo base_url()?>index.php/jawab/<?php echo $isi->id_soal?>"><?php echo $teks_soal ?></a>
+
+							<?php
+								//cek apakah ini celengan sendiri untuk tombol delete
+
+								$username = $this->session->userdata('username');
+
+								$user_have = $this->Celengan_model->is_user_have_celengan($username, $celengan->id_celengan);
+
+								if ($user_have) {
+									?>
+										<a href="<?php echo base_url()?>index.php/celengan/hapus_isi/<?php echo $isi->id_soal?>/<?php echo $celengan->id_celengan?>" data-icon="delete">del</a>
+
+									<?php
+								}
+
+
+								
+							?>
+
+							
 						</li>
 					<?php		
 					}

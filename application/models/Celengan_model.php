@@ -28,18 +28,8 @@ class Celengan_model extends CI_Model{
 		$this->db->delete('celengan', array('id' => $id));
 	}
 
-	//edit dari celengan
+	//edit nama celengan
 	public function edit_celengan(){
-
-	}
-
-	//menambah isi
-	public function add_isi_celengan(){
-		
-	}
-
-	//menghapus isi celengan
-	public function delete_isi_celengan(){
 
 	}
 

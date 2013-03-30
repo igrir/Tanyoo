@@ -21,8 +21,10 @@ class Isi_celengan_model extends CI_Model{
 		return $query->result();
 	}
 
-	public function delete_isi(){
-
+	public function delete_isi($id_celengan, $id_soal){
+		$query = $this->db->delete('isi_celengan', array('id_celengan'=>$id_celengan,
+												'id_soal'=>$id_soal));
+		return $query;
 	}
 
 	//mengecek celengan X sudah punya soal Y
