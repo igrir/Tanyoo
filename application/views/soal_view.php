@@ -24,7 +24,7 @@
 					<h3><?php echo $t->text_soal ?> ?</h3>
 					<p>by <?php echo $t->username; ?></p>	
 					<p>#<?php echo $t->tag ?></p>				
-					<p><?php echo anchor('soal/ubah/'.$t->id_soal,'update',array('class'=>'update'));?></p>
+					<p><span class="ui-li-count"><?php echo anchor('soal/ubah/'.$t->id_soal,'update',array('class'=>'update'));?></p>
 				</li>
 			</ul>
 			<?php $i++; ?>
