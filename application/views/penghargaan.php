@@ -5,12 +5,16 @@
 		<img src="<?php echo base_url()?>css/images/penghargaan.png" width="25px" height="25px">
 		
 		<div data-role="fieldcontain" class="ui-hide-label">
-			<?php foreach($nama_penghargaan as $row):
+		<?php 	if($nama_penghargaan!=false){		
+					foreach($nama_penghargaan as $row):
 					echo $row->nm_penghargaan;
-				endforeach;
-					
+					endforeach;
+				}
+				else
+				
+				echo "Anda Belum Mempunyai Penghargaan";
 					?>
-			</div>			
+						
 		</div>
 	</div>
 	<div id="user-info"></div>
