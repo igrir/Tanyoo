@@ -42,12 +42,11 @@
 		//Halaman penghargaan
 		public function penghargaan($username){
 
-			$data['user_penghargan'] = $this->Penghargaan_model->get_all_penghargaan($username);
-			$dataaku['penghargaan'] = $this->Penghargaan_model->get_all_penghargaan($username);
+			$data['nama_penghargaan'] = $this->Penghargaan_model->get_all_penghargaan($username);
 			
 			$this->load->view('templates/header', $data);
 			$this->load->view('templates/header_bar', $data);
-			$this->load->view('penghargaan', $dataaku);
+			$this->load->view('penghargaan', $data);
 			$this->load->view('templates/footer', $data);
 			var_dump($data);
 		}

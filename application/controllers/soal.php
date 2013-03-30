@@ -56,7 +56,7 @@
 		}
 		
 		function ubah($id_soal){
-			
+				
 			$data['data_soal']=$this->Soal_model->selectsoal($this->uri->segment(3)); 
 		
 			$this->load->view('templates/header', $data);
@@ -125,14 +125,14 @@
 		}
 
 		/* Fungsi: jawab_id
-		   akses: index.php/jawabid/[id_soal]
+		   akses: index.php/jawab/[id_soal]
 		   parameter: $id_soal
 		   output: NULL
 
 		   mmenjawab soal dengan id tertentu
 		*/
 		function jawab_id($id_soal){
-			$data['soal'] = $this->Soal_model->jawab_soal_id($this->uri->segment(3));
+			$data['soal'] = $this->Soal_model->jawab_soal_id($this->uri->segment(2));
 
 			$this->load->view('templates/header');
 			$this->load->view('templates/header_bar');
