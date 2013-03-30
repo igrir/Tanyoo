@@ -11,7 +11,7 @@
 					<input type="text" name="jawaban" placeholder="Jawaban" >
 					<input type="text" name="tag" placeholder="Tag" >
 				
-					<input type="Submit" value="Post" name="post" data-inline="true" data-theme="e"/>
+					<input type="Submit" value="Post" name="post" data-inline="true" data-theme="b"/>
 				</div>
 			</div>
 			</form>	
@@ -19,12 +19,12 @@
 			<?php $i=1 ?>
 			<?php foreach($data_soal as $t):?> 
 			<div class="choice_list">		
-			<ul data-role="listview" data-inset="true" data-theme="d">
+			<ul data-role="listview" data-inset="true" data-theme="d" id="tampil-text">
 				<li>
 					<h3><?php echo $t->text_soal ?> ?</h3>
-					<p><i>#<?php echo $t->tag ?></i></p>				
-					<p><?php echo anchor('soal/ubah/'.$t->id_soal,'update',array('class'=>'update'));?>
-					<p><?php echo anchor('soal/jawab_id/'.$t->id_soal,'jawab');?>
+					<p>by <?php echo $t->username; ?></p>	
+					<p>#<?php echo $t->tag ?></p>				
+					<p><?php echo anchor('soal/ubah/'.$t->id_soal,'update',array('class'=>'update'));?></p>
 				</li>
 			</ul>
 			<?php $i++; ?>
@@ -32,8 +32,6 @@
 			
 			</ul>
 			</div>			
-			
-			<input type="button" onClick="logout();" value="Logout"/>
 		</div>
 	</div>
 	<div id="user-info"></div>

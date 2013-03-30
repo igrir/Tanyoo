@@ -39,7 +39,7 @@ background: url(images/statistik.png) 50% 50% no-repeat;
 background-size: 23px 23px; 
 } 
 
-#logo img { max-width: 70%; margin-left:45px; }
+#logo img { max-width: 70%; margin-left:45px; position:relative;}
 
 #atas img{
 	margin-top : 8px;
@@ -75,6 +75,13 @@ p.text{
 	font-family: Bookman Old Style;
 }
 
+p.text2{
+	font-size:22px;
+	color : #ffffff;
+	text-align : center;
+	font-family: Bookman Old Style;
+}
+
 #tampilskor .jawaban{
 	width : 32px;
 	height : 10px;
@@ -97,7 +104,21 @@ p.text{
 	font-family: Bookman Old Style;
 }
 
-#id p{
-	font-weight:bold;
-	color : #A4A4A4;
+
+
+/* custom icons */
+.ui-icon-edit {
+	background-image: url(images/edit.png) 50% 50% no-repeat;
+	background-size: 14px 14px; 
+}
+.ui-icon-jawab{
+	background-image: url(/images/);
+	background-repeat: no-repeat;
+	background-position: -36px 50%;
+}
+
+#tampil-text p{
+	font-size:12px;
+	color : grey;
+	font-family: Bookman Old Style;
 }
