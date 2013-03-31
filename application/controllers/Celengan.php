@@ -247,6 +247,62 @@
 			}
 		}
 
+		/* Fungsi: edit
+		   akses: index.php/celengan/edit
+		   parameter: -
+		   output: NULL
+
+		   menampilkan view edit
+		*/
+		function edit($id_celengan){
+
+			$data['celengan'] = $this->Celengan_model->get_celengan_by_id($id_celengan);
+
+			$this->load->view('templates/header', $data);
+			$this->load->view('templates/header_bar', $data);
+			$this->load->view('edit_celengan', $data);
+			$this->load->view('templates/footer', $data);
+		}
+
+		/* Fungsi: edit_celengan
+		   akses: index.php/celengan/edit_celengan
+		   parameter: -
+		   output: NULL
+
+		   menampilkan view edit
+		*/
+		function edit_celengan(){
+
+			$username = $this->session->userdata('username');
+			
+			$id_celengan = $this->input->post('id_celengan');
+			$nama_celengan = $this->input->post('nama_celengan');
+
+			//cek validasi
+			$this->form_validation->set_rules('nama_celengan', 'Nama celengan', 'required');
+			$this->form_validation->set_rules('id_celengan', 'id celengan', 'required');
+
+			if ($this->form_validation->run() == FALSE) {
+				redirect('u/'.$username.'/celengan/id/'.$id_celengan);
+			}else{
+				if ($_POST == NULL) {
+					redirect('u/'.$username.'/celengan/id/'.$id_celengan);
+				}else{
+
+					$update = $this->Celengan_model->update_celengan($id_celengan, $nama_celengan);
+					
+					if ($update) {
+						redirect('u/'.$username.'/celengan');
+					}
+					
+				}	
+			}
+
+			
+
+			
+		}
+
 	}
 
 ?>
