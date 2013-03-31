@@ -47,5 +47,16 @@ class User_model extends CI_Model{
 
 		return $this->db->insert('user', $data);
 	}
+	
+	//ubah profil
+	function selectuser($username){
+			$data = $this->db->get_where('user', array('username' => $username));
+			return $data;
+	}
+	
+	function simpan_profile_ubah($username, $data){
+		$this->db->where("username",$username);
+		$this->db->update("user",$data);
+	}
 
 }

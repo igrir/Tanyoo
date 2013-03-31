@@ -7,9 +7,10 @@
 					<a href="">
 					<img src="<?php echo base_url()?>css/images/user.png"/>
 					<h3><?php echo $profil->bio; ?></h3>
-					<p>minat : <?php echo $profil->minat; ?></p>
+					<p>minat : <?php echo $profil->minat; ?></p><br/>
+					<p><?php echo anchor('Profil/profile_ubah/'.$profil->username ,'update profile');?></p>
+			
 					<a href="" data-rel="popout" data-position-to="window" data-transition="pop"></a>
-					</a>
 				</li>
 				</ul>
 			</div>
