@@ -25,7 +25,7 @@
 				$this->load->view('templates/header', $data);
 				$this->load->view('templates/header_bar', $data);
 				$this->load->view('profile', $data);
-				$this->load->view('templates/footer', $data);	
+				$this->load->view('templates/footer_logout', $data);	
 				
 		}
 
@@ -36,7 +36,7 @@
 			$this->load->view('templates/header', $data);
 			$this->load->view('templates/header_bar', $data);
 			$this->load->view('celengan', $data);
-			$this->load->view('templates/footer', $data);
+			$this->load->view('templates/footer_logout', $data);
 		}
 		
 		//Halaman penghargaan
@@ -47,7 +47,7 @@
 			$this->load->view('templates/header', $data);
 			$this->load->view('templates/header_bar', $data);
 			$this->load->view('penghargaan', $data);
-			$this->load->view('templates/footer', $data);
+			$this->load->view('templates/footer_logout', $data);
 			var_dump($data);
 		}
 		

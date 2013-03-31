@@ -1,6 +1,6 @@
 
 	<div data-role="content" id="celengan"> 
-		<p class="text">-------<i>edit nama celengan</i>------</p>
+		<p class="text">--<i>edit nama celengan</i>--</p>
 		<p class="text"><?php echo $celengan->nama_celengan; ?></p> <!--- tampilkan nama user -->
 
 		<div data-role="fieldcontain" class="ui-hide-label">

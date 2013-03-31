@@ -4,34 +4,35 @@
 	
 				
 			<?php $row= $data_soal->row(); ?> 
-				<?php  $attributes = array( 'id' => 'soal'); // id = soal dipakai untuk validasi?>
-				<?php //echo form_open('soal/simpan_ubah', $attributes); ?>
+			<?php  $attributes = array( 'id' => 'soal'); // id = soal dipakai untuk validasi?>
+			<?php //echo form_open('soal/simpan_ubah', $attributes); ?>
+
+			<div class="ui-body ui-body-e ui-corner-all">
+				<form method="POST" action="<?php echo base_url()?>index.php/soal/simpan_ubah" data-ajax="false" >
+						<input type="hidden" name="id_soal" value="<?php echo $row->id_soal;?>"/> 		
 				
-				<form method="POST" action="<?php echo base_url()?>index.php/soal/simpan_ubah" data-ajax="false"  data-transition="pop">
-					<input type="hidden" name="id_soal" value="<?php echo $row->id_soal;?>"/> 		
-					<div data-role="fieldcontain">
 						<label for="soal">Soal : </label>
-						<textarea type="text" id="soal" placeholder="Soal" name="soal" class="required" title="soal harus diisi"><?php echo $row->text_soal;?></textarea>
-					</div>
-					<div data-role="fieldcontain">
+						<textarea id="soal" placeholder="Soal" name="soal" class="required" title="soal harus diisi"><?php echo $row->text_soal;?></textarea>
+				
+					
 						<label for="jawaban">Jawaban : </label>
-						<textarea type="text" id="jawaban" placeholder="Jawaban" name="jawaban" class="required" title="jawaban harus diisi"><?php echo $row->jawaban;?></textarea>
-					</div>
-					<div data-role="fieldcontain">
+						<textarea id="jawaban" placeholder="Jawaban" name="jawaban" class="required" title="jawaban harus diisi"><?php echo $row->jawaban;?></textarea>
+					
+					
 						<label for="tag">Tag : </label>
 						<input type="text" id="tag" placeholder="Tag" name="tag" class="required" value="<?php echo $row->tag;?>" title="tag harus diisi">
-					</div>
-					<div data-role="fieldcontain">
+					
+					
 						<label for="lock">Lock : </label>
 							<select name="lock" data-role="slider" id="lock">
 								<option value="1" <?php if($row->locked == 1) echo "selected"; //awalnya locked ?>>Lock</option> 
 								<option Value="0" <?php if($row->locked == 0) echo "selected"; //awalnya locked?>>Open</option>
 							</select>
 						</label>
-					</div>	
-
-					<button type="submit" data-inline="true">submit</button>
-					<a href="<?php echo base_url();?>index.php/soal/index" data-role="button" data-inline="true" data-theme="a">back</a>
+					
+					<div class="ui-grid-a">	
+						<div class="ui-block-a"><button type="submit" data-inline="true">submit</button></div>
+					</div>
 				</form>		
 			</div>
 	</div>
