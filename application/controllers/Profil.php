@@ -63,7 +63,7 @@
 		//ubah profil
 		function profile_ubah($username){
 		
-			$data['profil']=$this->User_model->selectuser($this->uri->segment(3)); 
+			$data['profil']=$this->User_model->selectuser($username); 
 			
 			//$this->load->vars($data);
 			$this->load->view('templates/header',$data);
