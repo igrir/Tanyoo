@@ -18,7 +18,7 @@
 					foreach($user_celengan as $celengan){
 					?>
 						<li>
-							<a href="<?php echo base_url()?>index.php/celengan/id/<?php echo $celengan->id_celengan?>"><?php echo $celengan->nama_celengan?></a>
+							<a href="<?php echo base_url()?>index.php/celengan/id/<?php echo $celengan->id_celengan?>"><?php echo $celengan->nama_celengan?></a><a href="<?php echo base_url()?>index.php/celengan/edit/<?php echo $celengan->id_celengan?>" data-icon="gear">edit</a>
 						</li>
 					<?php		
 					}
