@@ -1,5 +1,4 @@
-
-		<div data-role="content"> 
+	<div data-role="content"> 
 			<p class="text"><i><?php echo $profil->username; ?></i></p> <!-- untuk menampilkan nama user -->
 			<div data-role="fieldcontain" class="ui-hide-label">
 				<ul data-role="listview" data-split-icon="gear" data-split-theme="a" data-theme="d">
@@ -8,7 +7,7 @@
 					<img src="<?php echo base_url()?>css/images/user.png"/>
 					<h3><?php echo $profil->bio; ?></h3>
 					<p>minat : <?php echo $profil->minat; ?></p>
-					<a href="" data-rel="popout" data-position-to="window" data-transition="pop"></a> <!--untuk edit profile masukkan link disini-->
+					<a href="<?php echo base_url()?>index.php/Profil/profile_ubah/<?php echo $profil->username?>" data-rel="popout" data-position-to="window" data-transition="pop"></a> <!--untuk edit profile masukkan link disini-->
 					</a>
 				</li>
 				</ul>
