@@ -11,11 +11,10 @@
 				<?php echo form_open('soal/cek_jawab'); ?>
 					<input type="hidden" value="<?php echo $soal->id_soal?>" name="id"/>
 					<input type="text" name="jawaban" id="" placeholder="jawaban"/>
+					
 					<button type="submit" data-inline="true">jawab</button>
+					<a href="<?php echo base_url()?>index.php/jawab" data-role="button" data-ajax="false" data-inline="true" data-theme="b">acak</a>
 				</form>
-			</div>
-			 <div data-role="fieldcontain" class="ui-hide-label">
-				<a href="<?php echo base_url()?>index.php/jawab" data-role="button" data-ajax="false">acak</a>
 			</div>
 		</div> 
 

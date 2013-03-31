@@ -19,10 +19,10 @@
 			<?php $i=1 ?>
 			<?php foreach($data_soal as $t):?> 
 				
-			<ul data-role="listview" data-inset="true" data-theme="d" id="tampil-text" data-split-icon="gear" >
+			<ul data-role="listview" data-inset="true" data-theme="d" id="tampil-text" data-split-icon="gear">
 				<li>
 					<a href=""></a>
-					<h3 style="padding-left:10px; margin-top:-18px;"><?php echo $t->text_soal ?> ?</h3>
+					<p style="color:black; padding-left:10px;"><b><?php echo $t->text_soal ?> ?</b></p>
 					<p style="padding-left:10px;">by <?php echo $t->username; ?></p>	
 					<p style="padding-left:10px;">#<?php echo $t->tag ?></p>	
 					
