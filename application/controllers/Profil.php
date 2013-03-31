@@ -73,15 +73,20 @@
 		}
 		
 		function simpan_profile_ubah(){
-			$this->load->library('session');
-			$username = $this->input->post('username');
-			$data = array(
-				'bio' => $this->input->post('bio'),
-				'minat' => $this->input->post('minat'));
+
+			if ($_POST) {
+				$this->load->library('session');
+				$username = $this->input->post('username');
+				$data = array(
+					'bio' => $this->input->post('bio'),
+					'minat' => $this->input->post('minat'));
+				
+				$this->User_model->simpan_profile_ubah($username, $data);
+				
+				redirect('u/'.$username,'refresh');
+				//redirect('Profil/profile_ubah/'.$username,'refresh');
+			}
 			
-			$this->User_model->simpan_profile_ubah($username, $data);
-			
-			redirect('Profil/profile_ubah/'.$username,'refresh');
 			
 		}
 	}

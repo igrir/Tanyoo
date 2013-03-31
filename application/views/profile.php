@@ -7,7 +7,20 @@
 					<img src="<?php echo base_url()?>css/images/user.png"/>
 					<h3><?php echo $profil->bio; ?></h3>
 					<p>minat : <?php echo $profil->minat; ?></p>
-					<a href="<?php echo base_url()?>index.php/u/<?php echo $profil->username?>/profile_ubah/"><img src="<?php echo base_url()?>" data-rel="popout" data-position-to="window" data-transition="pop"></a> <!--untuk edit profile masukkan link disini-->
+
+
+					<?php
+
+						//cek dulu apakah ini user yang login
+						//dengan demikian user lain tidak bisa mengubah profil orang
+						$username = $this->session->userdata('username');
+
+						if ($username == $profil->username) {
+							?>
+								<a href="<?php echo base_url()?>index.php/u/<?php echo $profil->username?>/edit_profil" data-rel="popout" data-position-to="window" data-transition="pop"></a> <!--untuk edit profile masukkan link disini-->
+							<?php
+						}
+					?>
 					</a>
 				</li>
 				</ul>

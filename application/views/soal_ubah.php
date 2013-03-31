@@ -20,7 +20,7 @@
 					
 					
 						<label for="tag">Tag : </label>
-						<input type="text" id="tag" placeholder="Tag" name="tag" class="required" value="<?php echo $row->tag;?>" title="tag harus diisi">
+						<input type="text" id="tag" placeholder="Tag" name="tag" class="required" value="<?php echo htmlentities($row->tag, ENT_QUOTES);?>" title="tag harus diisi">
 					
 					
 						<label for="lock">Lock : </label>
