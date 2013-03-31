@@ -50,7 +50,7 @@
 				<?php } ?>				
 			</ul>
 			</div>	
-			<a href="<?php echo base_url()?>index.php/celengan/tambah" data-role="button">Tambah</a>
+
 			
 		</div>
 	</div>
