@@ -15,7 +15,7 @@
 			<h1>Halaman Login</h1> 
 		</div> 	
 		<div data-role="content"> 
-			<div class="ui-body ui-body-e">
+			<div class="ui-body ui-body-e ui-corner-all">
 			<!-- <?php echo form_open("login/check_login")?> -->
 			<form method="POST" action="<?php echo base_url()?>index.php/login/check_login" data-ajax="false">
 				<label for="username">username</label>

@@ -1,7 +1,7 @@
 
-	<div data-role="content"> 
-		<center><img src="<?php echo base_url()?>css/images/celengan.png" width="25px"></center>
-		<p class="text">-------<i>Tambahkan isi celengan</i>------</p>
+	<div data-role="content" id="celengan"> 
+		<img src="<?php echo base_url()?>css/images/celengan.png" width="70px" height="60px">
+		<p class="text"><i>Tambahkan isi celengan</i></p>
 		 <!--- tampilkan nama user -->
 		<!-- <p class="text"><?php echo $profil->username; ?></p> -->
 		

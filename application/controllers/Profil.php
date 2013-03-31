@@ -61,15 +61,15 @@
 		}
 		
 		//ubah profil
-		public function profile_ubah($username){
+		function profile_ubah($username){
 		
 			$data['profil']=$this->User_model->selectuser($this->uri->segment(3)); 
 			
 			//$this->load->vars($data);
-			$this->load->view('templates/header', $data);
-			$this->load->view('templates/header_bar', $data);
-			$this->load->view('profile_ubah', $data);
-			$this->load->view('templates/footer', $data);	
+			$this->load->view('templates/header',$data);
+			$this->load->view('templates/header_bar',$data);
+			$this->load->view('profile_ubah_view',$data);
+			$this->load->view('templates/footer',$data);	
 		}
 		
 		function simpan_profile_ubah(){

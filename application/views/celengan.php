@@ -1,8 +1,7 @@
 
-	<div data-role="content"> 
-		<p class="text">-------<i>celengan soal</i>------</p>
-		<p class="text"><?php echo $profil->username; ?></p> <!--- tampilkan nama user -->
-		<img src="<?php echo base_url()?>css/images/celengan.png" width="25px" height="25px">
+	<div data-role="content" id="celengan"> 
+		<p class="text"><i><?php echo $profil->username; ?></i></p> <!--- tampilkan nama user -->
+		<img src="<?php echo base_url()?>css/images/celengan.png" width="70px" height="60px">
 
 		<div data-role="fieldcontain" class="ui-hide-label">
 			
@@ -10,7 +9,7 @@
 			<ul data-role="listview" data-inset="true" data-theme="d">
 
 				<?php $banyak = count($user_celengan);
-				echo "banyak celengan ".$banyak;
+				echo "<p class='tengah'>banyak celengan : ".$banyak."</p>";
 				if ($banyak <= 0) {
 					?>
 						<li>Tidak ada celengan</li>					
@@ -31,7 +30,6 @@
 			</div>	
 			<a href="<?php echo base_url()?>index.php/celengan/tambah" data-role="button">Tambah</a>
 			
-			<input type="button" onClick="logout();" value="Logout"/>
 		</div>
 	</div>
 	<div id="user-info"></div>

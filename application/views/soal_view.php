@@ -5,7 +5,7 @@
 			<?php  $attributes = array( 'id' => 'soal'); // id = soal dipakai untuk validasi?>
 
 			<?php echo form_open('soal/add',$attributes); ?>
-			<div class="ui-body ui-body-d">
+			<div class="ui-body ui-body-d ui-corner-all">
 				<div data-role="fieldcontain">
 					<input type="text" name="soal" placeholder="Soal">
 					<input type="text" name="jawaban" placeholder="Jawaban" >
@@ -24,7 +24,7 @@
 					<h3><?php echo $t->text_soal ?> ?</h3>
 					<p>by <?php echo $t->username; ?></p>	
 					<p>#<?php echo $t->tag ?></p>				
-					<p><?php echo anchor('soal/ubah/'.$t->id_soal,'update',array('class'=>'update'));?></p>
+					<p data-role="button" data-inline="true" style="text-decoration:none"><?php echo anchor('soal/ubah/'.$t->id_soal,'update',array('class'=>'update'));?></p>
 				</li>
 			</ul>
 			<?php $i++; ?>

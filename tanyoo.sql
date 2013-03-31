@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Mar 29, 2013 at 06:56 AM
+-- Generation Time: Mar 30, 2013 at 09:26 PM
 -- Server version: 5.1.44
 -- PHP Version: 5.3.1
 
@@ -31,12 +31,17 @@ CREATE TABLE IF NOT EXISTS `celengan` (
   `username` varchar(32) NOT NULL,
   PRIMARY KEY (`id_celengan`),
   KEY `username` (`username`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=13 ;
 
 --
 -- Dumping data for table `celengan`
 --
 
+INSERT INTO `celengan` (`id_celengan`, `nama_celengan`, `username`) VALUES
+(9, 'giri', 'giri'),
+(10, 'Bank Fisika', 'giri'),
+(11, 'Komputer', 'giri'),
+(12, 'Oke', 'erwin');
 
 -- --------------------------------------------------------
 
@@ -55,6 +60,10 @@ CREATE TABLE IF NOT EXISTS `isi_celengan` (
 -- Dumping data for table `isi_celengan`
 --
 
+INSERT INTO `isi_celengan` (`id_celengan`, `id_soal`) VALUES
+(9, 2),
+(11, 9),
+(9, 10);
 
 -- --------------------------------------------------------
 
@@ -105,22 +114,25 @@ CREATE TABLE IF NOT EXISTS `soal` (
   `flag` int(11) NOT NULL,
   `tag` varchar(32) NOT NULL,
   `username` varchar(32) NOT NULL,
-  `lock` int(11) NOT NULL COMMENT '1 berarti lock, 0 nggak',
+  `locked` int(11) NOT NULL COMMENT '1 berarti lock, 0 nggak',
   PRIMARY KEY (`id_soal`),
   KEY `username` (`username`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
 
 --
 -- Dumping data for table `soal`
 --
 
-INSERT INTO `soal` (`id_soal`, `text_soal`, `jawaban`, `flag`, `tag`, `username`, `lock`) VALUES
-(2, 'Siapakah penemu lampu?', 'Thomas Alva Edison', 0, 'Penemu2 pengarang', 'giri', 0),
+INSERT INTO `soal` (`id_soal`, `text_soal`, `jawaban`, `flag`, `tag`, `username`, `locked`) VALUES
+(2, 'Siapakah penemu lampu?', 'Thomas Alva Edison', 0, 'Penemu2', 'giri', 0),
 (3, 'Siapakah penemu gravitasi dengan apel jatuh?', 'newton', 0, 'penemu', 'giri', 0),
-(4, 'aha', 'oho', 0, 'yaya', 'giri', 1),
-(5, '', '', 0, '', 'giri', 0),
-(6, 'a', 'b', 0, 'c', 'giri', 1),
-(7, '0', '0', 0, '0', 'giri', 0);
+(4, 'Bahasa sundanya "dua"?', 'dua', 0, 'yaya', 'giri', 0),
+(5, 'Bahasa jermannya "tiga"?', 'drei', 0, 'deutsch', 'giri', 0),
+(6, 'Bahasa inggrisnya "dua"', 'two', 0, 'english', 'giri', 0),
+(7, 'Bahasa inggrisnya "Satu" adalah?', 'one', 0, 'inggris', 'giri', 0),
+(8, 'Apa nama buah yang dimakan putri tidur?', 'apel', 0, 'dongeng', 'giri', 1),
+(9, 'komputer steve', 'apple', 0, 'komputer', 'giri', 0),
+(10, 'Presiden wanita Indonesia', 'mega', 0, 'Indonesia', 'giri', 0);
 
 -- --------------------------------------------------------
 

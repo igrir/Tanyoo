@@ -40,7 +40,7 @@ background-size: 23px 23px;
 } 
 
 #logo img { max-width: 70%; margin-left:45px; position:relative;}
-
+#celengan img{ max-width: 50%; margin-left:110px; position:relative; }
 #atas img{
 	margin-top : 8px;
 }
@@ -75,12 +75,37 @@ p.text{
 	font-family: Bookman Old Style;
 }
 
-p.text2{
-	font-size:22px;
+h3.text2{
 	color : #ffffff;
 	text-align : center;
+	padding : 10px 0 10px 0;
 	font-family: Bookman Old Style;
+	background:#E46E06;
 }
+
+
+h3.text3{
+	color : #ffffff;
+	text-align : center;
+	padding : 10px 0 10px 0;
+	font-family: Bookman Old Style;
+	background:#8A4B08;
+}
+
+h4.text4{
+	color : #000000;
+	text-align : center;
+	padding : 10px 0 10px 0;
+	font-family: Bookman Old Style;
+	background:#FFFFFF;
+}
+
+p.tengah{
+	text-align : center;
+	font-family: Bookman Old Style;
+	font-weight:bold;
+}
+
 
 #tampilskor .jawaban{
 	width : 32px;
@@ -108,14 +133,16 @@ p.text2{
 
 /* custom icons */
 .ui-icon-edit {
-	background-image: url(images/edit.png) 50% 50% no-repeat;
-	background-size: 14px 14px; 
+	background-image: url(images/edit.png);
+	background-repeat: no-repeat;
+	background-position: -36px 50%;
 }
 .ui-icon-jawab{
 	background-image: url(/images/);
 	background-repeat: no-repeat;
 	background-position: -36px 50%;
 }
+
 
 #tampil-text p{
 	font-size:12px;
