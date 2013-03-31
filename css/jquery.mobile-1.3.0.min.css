@@ -121,17 +121,11 @@ p.tengah{
 
 
 /* custom icons */
-.ui-icon-edit {
+.ui-split-icon-edit {
 	background-image: url(images/edit.png);
 	background-repeat: no-repeat;
 	background-position: -36px 50%;
 }
-.ui-icon-jawab{
-	background-image: url(/images/);
-	background-repeat: no-repeat;
-	background-position: -36px 50%;
-}
-
 
 #tampil-text p{
 	font-size:12px;
