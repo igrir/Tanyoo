@@ -92,6 +92,14 @@ h3.text3{
 	background:#8A4B08;
 }
 
+h4.text4{
+	color : #000000;
+	text-align : center;
+	padding : 10px 0 10px 0;
+	font-family: Bookman Old Style;
+	background:#FFFFFF;
+}
+
 p.tengah{
 	text-align : center;
 	font-family: Bookman Old Style;
@@ -141,4 +149,3 @@ p.tengah{
 	color : grey;
 	font-family: Bookman Old Style;
 }
-

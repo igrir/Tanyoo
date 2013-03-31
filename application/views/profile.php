@@ -8,7 +8,7 @@
 					<img src="<?php echo base_url()?>css/images/user.png"/>
 					<h3><?php echo $profil->bio; ?></h3>
 					<p>minat : <?php echo $profil->minat; ?></p>
-					<a href="" data-rel="popout" data-position-to="window" data-transition="pop"></a>
+					<a href="" data-rel="popout" data-position-to="window" data-transition="pop"></a> <!--untuk edit profile masukkan link disini-->
 					</a>
 				</li>
 				</ul>
@@ -16,7 +16,7 @@
 			<p class="text">----------<i>skor</i>----------</p>
 			<div class="ui-grid-a"> 
 				<div class="ui-block-a" id="tampilskor" class="jawaban">
-					<h3 class="text3">0</h3>
+					<h3 class="text3">0</h3> <!--isi dengan jumlah banyak menjawab-->
 					<p class="tengah">jawaban</p>
 				</div> 
 				<div class="ui-block-b" id="tampilskor" class="soal">	

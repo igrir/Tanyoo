@@ -11,8 +11,8 @@
 				}
 				else
 				
-				echo "Anda Belum Mempunyai Penghargaan";
-					?>
+				echo "<div class='ui-body ui-body-a ui-corner-all'><p style='text-align:center;'>Anda Belum Mempunyai Penghargaan</p></div>";
+		?>
 						
 		</div>
 	</div>

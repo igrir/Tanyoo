@@ -7,7 +7,7 @@
 		<div data-role="content"> 
 
 
-			<div class="ui-body ui-body-e">
+			<div class="ui-body ui-body-e ui-corner-all">
 			
 
 

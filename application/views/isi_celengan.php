@@ -1,7 +1,7 @@
 
-	<div data-role="content"> 
+	<div data-role="content" id="celengan"> 
 		<p class="text">-------<i><?php echo $celengan->nama_celengan?></i>------</p>
-		<img src="<?php echo base_url()?>css/images/celengan.png" width="25px" height="25px">
+		<img src="<?php echo base_url()?>css/images/celengan.png" width="70px" height="60px">
 
 		<div data-role="fieldcontain" class="ui-hide-label">
 			
@@ -31,7 +31,7 @@
 
 								if ($user_have) {
 									?>
-										<a href="<?php echo base_url()?>index.php/celengan/hapus_isi/<?php echo $isi->id_soal?>/<?php echo $celengan->id_celengan?>" data-icon="delete">del</a>
+										<a href="<?php echo base_url()?>index.php/celengan/hapus_isi/<?php echo $isi->id_soal?>/<?php echo $celengan->id_celengan?>" data-icon="delete" data-transition="pop" data-position-to="window">delete</a>
 
 									<?php
 								}
@@ -52,7 +52,6 @@
 			</div>	
 			<a href="<?php echo base_url()?>index.php/celengan/tambah" data-role="button">Tambah</a>
 			
-			<input type="button" onClick="logout();" value="Logout"/>
 		</div>
 	</div>
 	<div id="user-info"></div>

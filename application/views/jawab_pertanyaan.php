@@ -1,8 +1,8 @@
-		<div data-role="content"> 
+		<div data-role="content" id="celengan"> 
 			<p class="text"><i>-----------soal----------</i></p> 
 			<div data-role="fieldcontain" class="ui-hide-label">
 				<ul data-role="listview" data-inset="true" data-theme="d"> <!---menampilkan pertanyaan-->
-					<a href="<?php echo base_url()?>index.php/celengan/tambah_isi/<?php echo $soal->id_soal;?>"><img src="<?php echo base_url()?>css/images/celengan.png" width="40px"></a>
+					<a href="<?php echo base_url()?>index.php/celengan/tambah_isi/<?php echo $soal->id_soal;?>"><img src="<?php echo base_url()?>css/images/celengan.png" width="70px" height="60px"></a>
 					<li>
 						<?php echo $soal->text_soal?>
 					</li>				
