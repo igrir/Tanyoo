@@ -8,7 +8,8 @@
 					</li>				
 					
 				</ul>
-				<?php echo form_open('soal/cek_jawab'); ?>
+				<?php //echo form_open('soal/cek_jawab'); ?>
+				<form action="<?php echo base_url()?>index.php/soal/cek_jawab" data-transition="flip" method="POST">
 					<input type="hidden" value="<?php echo $soal->id_soal?>" name="id"/>
 					<input type="text" name="jawaban" id="" placeholder="jawaban"/>
 					
