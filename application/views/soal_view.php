@@ -14,29 +14,25 @@
 					<input type="Submit" value="Post" name="post" data-inline="true" data-theme="b"/>
 				</div>
 			</div>
-			</form>	
 
 			<?php $i=1 ?>
 			<?php foreach($data_soal as $t):?> 
-			<div class="choice_list">		
-			<ul data-role="listview" data-inset="true" data-theme="d" id="tampil-text">
-				<li>
-					<h3><?php echo $t->text_soal ?> ?</h3>
-					<p>by <?php echo $t->username; ?></p>	
-					<p>#<?php echo $t->tag ?></p>	
-					<br>
-				<!--ini linknya bisa di ganti ga?aku udah coba kalo pake a href gabisa, soalnya buttonnya jadi gamau kecil kalo ngelinknya begini-->
-				<!--<p data-role="button" data-inline="true" data-theme="a"><?php //echo anchor('soal/ubah/'.$t->id_soal,'edit',array('class'=>'update'));?><img src="<?php// echo base_url()?>css/images/edit.png" width="20px" style="float:right;"></p>-->
-				<a href="<?php echo base_url()?>index.php/soal/ubah/<?php echo $t->id_soal?>"><img src="<?php echo base_url()?>css/images/edit.png" width="20px" style="float:right;"></a>
 				
+			<ul data-role="listview" data-inset="true" data-theme="d" id="tampil-text" data-split-icon="gear" >
+				<li>
+					<a href=""></a>
+					<h3 style="padding-left:10px; margin-top:-18px;"><?php echo $t->text_soal ?> ?</h3>
+					<p style="padding-left:10px;">by <?php echo $t->username; ?></p>	
+					<p style="padding-left:10px;">#<?php echo $t->tag ?></p>	
+					
+					<a href="<?php echo base_url()?>index.php/soal/ubah/<?php echo $t->id_soal?>"></a>
 				</li>
 			</ul>
 			<?php $i++; ?>
 			<?php endforeach ?>	
 			
 			</ul>
-			</div>			
+		
 		</div>
 	</div>
 	<div id="user-info"></div>
-
