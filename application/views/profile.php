@@ -7,7 +7,7 @@
 					<img src="<?php echo base_url()?>css/images/user.png"/>
 					<h3><?php echo $profil->bio; ?></h3>
 					<p>minat : <?php echo $profil->minat; ?></p>
-					<a href="<?php echo base_url()?>index.php/Profil/profile_ubah/<?php echo $profil->username?>" data-rel="popout" data-position-to="window" data-transition="pop"></a> <!--untuk edit profile masukkan link disini-->
+					<a href="<?php echo base_url()?>index.php/u/<?php echo $profil->username?>/profile_ubah/"><img src="<?php echo base_url()?>" data-rel="popout" data-position-to="window" data-transition="pop"></a> <!--untuk edit profile masukkan link disini-->
 					</a>
 				</li>
 				</ul>
