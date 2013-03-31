@@ -23,8 +23,10 @@
 				<li>
 					<h3><?php echo $t->text_soal ?> ?</h3>
 					<p>by <?php echo $t->username; ?></p>	
-					<p>#<?php echo $t->tag ?></p>				
-					<p data-role="button" data-inline="true" style="text-decoration:none"><?php echo anchor('soal/ubah/'.$t->id_soal,'update',array('class'=>'update'));?></p>
+					<p>#<?php echo $t->tag ?></p>	
+					<br>
+					<!--ini linknya bisa di ganti ga?aku udah coba kalo pake a href gabisa, soalnya buttonnya jadi gamau kecil kalo ngelinknya begini-->
+					<p data-role="button" data-inline="true" data-theme="a"><?php echo anchor('soal/ubah/'.$t->id_soal,'edit',array('class'=>'update'));?><img src="<?php echo base_url()?>css/images/edit.png" width="20px" style="float:right;"></p>
 				</li>
 			</ul>
 			<?php $i++; ?>

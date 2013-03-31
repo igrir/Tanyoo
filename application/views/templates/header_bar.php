@@ -1,9 +1,10 @@
 
 
 <div data-role="page" data-theme="e" style="background:url(<?php echo base_url()?>css/images/back.png) no-repeat;background-size:100% 100%;">  
-		<div data-role="header" class="ui-navbar-custom" data-position="fixed" data-theme="a"> 
+		<div data-role="header" data-position="fixed" data-theme="a"> 
 			<div class="ui-grid-d" style="text-align:center;"> 
 				<div class="ui-block-a"><img src="<?php echo base_url()?>css/images/t.png" width="25px"></div> 
+
 				<div class="ui-block-b" id="atas"><a href="<?php echo base_url()?>index.php/home" data-ajax="false"><img src="<?php echo base_url()?>css/images/home.png" width="25px" height="25px"></a>
 				</div> 
 

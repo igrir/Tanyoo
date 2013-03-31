@@ -1,6 +1,6 @@
 
 	<div data-role="content" id="celengan"> 
-		<p class="text">-------<i><?php echo $celengan->nama_celengan?></i>------</p>
+		<p class="text">--<i><?php echo $celengan->nama_celengan?></i>--</p>
 		<img src="<?php echo base_url()?>css/images/celengan.png" width="70px" height="60px">
 
 		<div data-role="fieldcontain" class="ui-hide-label">
@@ -9,7 +9,7 @@
 			<ul data-role="listview" data-inset="true" data-theme="d">
 
 				<?php $banyak = count($isi_celengan);
-				echo "banyak soal dalam celengan: ".$banyak;
+				echo "<p class='tengah'>banyak soal dalam celengan: ".$banyak."</p>";
 				if ($banyak <= 0) {
 					?>
 						<li>Tidak ada isi celengan</li>					
