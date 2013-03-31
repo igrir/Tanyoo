@@ -25,8 +25,10 @@
 					<p>by <?php echo $t->username; ?></p>	
 					<p>#<?php echo $t->tag ?></p>	
 					<br>
-					<!--ini linknya bisa di ganti ga?aku udah coba kalo pake a href gabisa, soalnya buttonnya jadi gamau kecil kalo ngelinknya begini-->
-					<p data-role="button" data-inline="true" data-theme="a"><?php echo anchor('soal/ubah/'.$t->id_soal,'edit',array('class'=>'update'));?><img src="<?php echo base_url()?>css/images/edit.png" width="20px" style="float:right;"></p>
+				<!--ini linknya bisa di ganti ga?aku udah coba kalo pake a href gabisa, soalnya buttonnya jadi gamau kecil kalo ngelinknya begini-->
+				<!--<p data-role="button" data-inline="true" data-theme="a"><?php //echo anchor('soal/ubah/'.$t->id_soal,'edit',array('class'=>'update'));?><img src="<?php// echo base_url()?>css/images/edit.png" width="20px" style="float:right;"></p>-->
+				<a href="<?php echo base_url()?>index.php/soal/ubah/<?php echo $t->id_soal?>"><img src="<?php echo base_url()?>css/images/edit.png" width="20px" style="float:right;"></a>
+				
 				</li>
 			</ul>
 			<?php $i++; ?>
