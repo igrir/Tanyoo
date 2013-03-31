@@ -5,7 +5,7 @@
 				<li>
 					<a href="">
 					<img src="<?php echo base_url()?>css/images/user.png"/>
-					<h3><?php echo $profil->bio; ?></h3>
+					<h3 id="bio"><?php echo $profil->bio; ?></h3>
 					<p>minat : <?php echo $profil->minat; ?></p>
 
 					<?php
