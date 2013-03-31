@@ -32,7 +32,6 @@
 					
 					<div class="ui-grid-a">	
 						<div class="ui-block-a"><button type="submit" data-inline="true">submit</button></div>
-						<div class="ui-block-b"><a href="<?php echo base_url();?>index.php/soal/index" data-role="button" data-inline="true" data-theme="a">back</a></div>
 					</div>
 				</form>		
 			</div>
