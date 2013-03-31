@@ -83,7 +83,7 @@
 				
 				$this->Soal_model->simpan_ubah($id_soal, $data);
 				
-				redirect('soal/ubah/'.$id_soal,'refresh');
+				redirect('soal/index','refresh');
 			}
 		}
 		

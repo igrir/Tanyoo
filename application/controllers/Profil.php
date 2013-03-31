@@ -25,7 +25,7 @@
 				$this->load->view('templates/header', $data);
 				$this->load->view('templates/header_bar', $data);
 				$this->load->view('profile', $data);
-				$this->load->view('templates/footer', $data);	
+				$this->load->view('templates/footer_logout', $data);	
 				
 		}
 
@@ -36,7 +36,7 @@
 			$this->load->view('templates/header', $data);
 			$this->load->view('templates/header_bar', $data);
 			$this->load->view('celengan', $data);
-			$this->load->view('templates/footer', $data);
+			$this->load->view('templates/footer_logout', $data);
 		}
 		
 		//Halaman penghargaan
@@ -47,7 +47,7 @@
 			$this->load->view('templates/header', $data);
 			$this->load->view('templates/header_bar', $data);
 			$this->load->view('penghargaan', $data);
-			$this->load->view('templates/footer', $data);
+			$this->load->view('templates/footer_logout', $data);
 			var_dump($data);
 		}
 		
@@ -60,4 +60,28 @@
 			//var_dump($data);
 		}
 		
+		//ubah profil
+		function profile_ubah($username){
+		
+			$data['profil']=$this->User_model->selectuser($username); 
+			
+			//$this->load->vars($data);
+			$this->load->view('templates/header',$data);
+			$this->load->view('templates/header_bar',$data);
+			$this->load->view('profile_ubah_view',$data);
+			$this->load->view('templates/footer',$data);	
+		}
+		
+		function simpan_profile_ubah(){
+			$this->load->library('session');
+			$username = $this->input->post('username');
+			$data = array(
+				'bio' => $this->input->post('bio'),
+				'minat' => $this->input->post('minat'));
+			
+			$this->User_model->simpan_profile_ubah($username, $data);
+			
+			redirect('Profil/profile_ubah/'.$username,'refresh');
+			
+		}
 	}

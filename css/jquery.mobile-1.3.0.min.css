@@ -26,18 +26,7 @@ box-shadow: none!important;
 -webkit-border-radius: none !important; 
 border-radius: none !important; 
 } 
-#home .ui-icon { 
-background: url(images/home.png) 50% 50% no-repeat; 
-background-size: 23px 23px; 
-} 
-#profile .ui-icon { 
-background: url(images/profile.png) 50% 50%  no-repeat; 
-background-size: 23px 23px; 
-} 
-#statistik .ui-icon { 
-background: url(images/statistik.png) 50% 50% no-repeat; 
-background-size: 23px 23px; 
-} 
+
 
 #logo img { max-width: 70%; margin-left:45px; position:relative;}
 #celengan img{ max-width: 50%; margin-left:110px; position:relative; }
