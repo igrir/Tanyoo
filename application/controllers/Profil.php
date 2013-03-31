@@ -55,11 +55,9 @@
 		public function jml_soal($username){
 			$data['jml_soal'] = $this->Penghargaan_model->get_jumlah_soal($username);
 			$data['jml_jwb'] = $this->Penghargaan_model->get_jumlah_jawab($username);
-			
 			$this->load->view('profile', $data);
 			//var_dump($data);
-		}
-		
+		}		
 		//ubah profil
 		function profile_ubah($username){
 		
