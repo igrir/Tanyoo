@@ -23,7 +23,7 @@
 				
 				//var_dump($result);
 				$this->load->view('templates/header', $data);
-				$this->load->view('templates/header_bar', $data);
+				$this->load->view('templates/header_bar_profile', $data);
 				$this->load->view('profile', $data);
 				$this->load->view('templates/footer_logout', $data);	
 				
@@ -55,11 +55,9 @@
 		public function jml_soal($username){
 			$data['jml_soal'] = $this->Penghargaan_model->get_jumlah_soal($username);
 			$data['jml_jwb'] = $this->Penghargaan_model->get_jumlah_jawab($username);
-			
 			$this->load->view('profile', $data);
 			//var_dump($data);
-		}
-		
+		}		
 		//ubah profil
 		function profile_ubah($username){
 		
@@ -67,7 +65,7 @@
 			
 			//$this->load->vars($data);
 			$this->load->view('templates/header',$data);
-			$this->load->view('templates/header_bar',$data);
+			$this->load->view('templates/header_bar_profile',$data);
 			$this->load->view('profile_ubah_view',$data);
 			$this->load->view('templates/footer',$data);	
 		}

@@ -89,7 +89,7 @@
 		
 		function cari_soal(){ //menampilkan form pencarian
 			$this->load->view('templates/header');
-			$this->load->view('templates/header_bar');
+			$this->load->view('templates/header_bar_search');
 			$this->load->view('cari_soal_view');
 			$this->load->view('templates/footer_logout');
 		}
@@ -100,7 +100,7 @@
 			$data['data_soal']=$this->Soal_model->proses_cari_soal($cari);		
 			
 			$this->load->view('templates/header', $data);
-			$this->load->view('templates/header_bar', $data);
+			$this->load->view('templates/header_bar_search', $data);
 			$this->load->view('cari_soal_view',$data);
 			$this->load->view('templates/footer_logout', $data);
 			

@@ -49,7 +49,9 @@ class Soal_model extends CI_Model{
 	}
 	
 	function proses_cari_soal($cari){
-		$data = $this->db->get_where('soal', array('tag' => $cari));
+		$this->db->like('tag', $cari, 'both'); //%like%
+		$data = $this->db->get('soal');
+		//$data = $this->db->get_where('soal', array('tag' => $cari));
 		return $data->result();
 	}
 	

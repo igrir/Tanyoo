@@ -8,6 +8,7 @@
 					<h3 id="bio"><?php echo $profil->bio; ?></h3>
 					<p>minat : <?php echo $profil->minat; ?></p>
 
+
 					<?php
 
 						//cek dulu apakah ini user yang login
@@ -20,8 +21,6 @@
 							<?php
 						}
 					?>
-
-					
 					</a>
 				</li>
 				</ul>
