@@ -23,7 +23,7 @@
 				
 				//var_dump($result);
 				$this->load->view('templates/header', $data);
-				$this->load->view('templates/header_bar', $data);
+				$this->load->view('templates/header_bar_profile', $data);
 				$this->load->view('profile', $data);
 				$this->load->view('templates/footer_logout', $data);	
 				
@@ -67,7 +67,7 @@
 			
 			//$this->load->vars($data);
 			$this->load->view('templates/header',$data);
-			$this->load->view('templates/header_bar',$data);
+			$this->load->view('templates/header_bar_profile',$data);
 			$this->load->view('profile_ubah_view',$data);
 			$this->load->view('templates/footer',$data);	
 		}

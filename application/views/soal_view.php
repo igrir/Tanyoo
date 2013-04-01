@@ -17,7 +17,7 @@
 
 			<?php $i=1 ?>
 			<?php foreach($data_soal as $t):?> 
-				
+			<div class="choice_list">
 			<ul data-role="listview" data-inset="true" data-theme="d" id="tampil-text" data-split-icon="gear">
 				<li>
 					<a href=""></a>
@@ -28,6 +28,7 @@
 					<a href="<?php echo base_url()?>index.php/soal/ubah/<?php echo $t->id_soal?>"></a>
 				</li>
 			</ul>
+			</div>
 			<?php $i++; ?>
 			<?php endforeach ?>	
 			
