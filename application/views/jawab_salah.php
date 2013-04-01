@@ -3,8 +3,8 @@
 			
 				<ul data-role="listview" data-inset="true" data-theme="d"> <!---menampilkan pertanyaan-->
 					<li>
-						<h3><?php echo $soal->text_soal?></h3>
-						<p>by <?php echo $soal->username; ?></p>	
+						<?php echo $soal->text_soal?>
+						<p style="margin-top:5px">by <?php echo $soal->username; ?></p>	
 						<p>#<?php echo $soal->tag ?></p>	
 					</li>	
 					</li>				

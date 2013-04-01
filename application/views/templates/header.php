@@ -14,6 +14,15 @@
 			body.connected #logout { display: block; }
 			body.not_connected #login { display: block; }
 			body.not_connected #logout { display: none; }
+
+			/*****  Replace JQUERY Mobile  ******/
+			.ui-li{
+			    white-space: normal;
+			}
+
+			#bio .ul-li-heading{
+			    white-space: normal;
+			}
 		</style>
 
 	</head> 
