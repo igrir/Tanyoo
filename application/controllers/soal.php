@@ -21,6 +21,8 @@
 
 			// load library
 			$this->load->library(array('table','form_validation'));		
+
+			$this->load->model('Log_model');
 		}
 		
 		function index(){
@@ -148,6 +150,9 @@
 		   mengecek jawaban
 		*/
 		function cek_jawab(){
+
+			$username = $this->session->userdata('username');
+
 			if($_POST==NULL){
 				redirect('index');
 			}else{
@@ -163,6 +168,17 @@
 
 				//cek jawaban
 				if ( strtoupper($jawaban) == strtoupper($jawaban_benar) ) {
+
+					//masukkan ke log jawabannya benar
+
+					//cek dulu apakah user sudah pernah menjawab soal ini
+					if ($this->Log_model->cek_log_jawaban($username, $id_soal) == FALSE) {
+
+						$this->Log_model->add_log_jawaban($username, $id_soal);
+
+					}
+
+
 					$this->load->view('templates/header');
 					$this->load->view('templates/header_bar');
 					$this->load->view('jawab_benar', $data);
