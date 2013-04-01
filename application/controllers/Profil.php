@@ -15,9 +15,14 @@
 			$this->load->model('Penghargaan_model');
 			$this->load->helper('url');			
 			$this->load->library('session');
+
+			$this->load->library('sessionlogin');
 		}
 
 		public function index($username){
+				
+
+
 				$data['profil'] = $this->User_model->get_user_by_username($username);
 				$data['jml_soal'] = $this->Penghargaan_model->get_jumlah_soal($username);
 				
@@ -31,6 +36,8 @@
 
 		//Halaman celengan
 		public function celengan($username){
+			$this->sessionlogin->cek_login();
+
 			$data['profil'] = $this->User_model->get_user_by_username($username);
 			$data['user_celengan'] = $this->Celengan_model->get_all_celengan_user($username);
 			$this->load->view('templates/header', $data);
@@ -41,6 +48,7 @@
 		
 		//Halaman penghargaan
 		public function penghargaan($username){
+			$this->sessionlogin->cek_login();
 
 			$data['nama_penghargaan'] = $this->Penghargaan_model->get_all_penghargaan($username);
 			
@@ -53,6 +61,8 @@
 		
 		//Halaman jumlah soal
 		public function jml_soal($username){
+			$this->sessionlogin->cek_login();
+
 			$data['jml_soal'] = $this->Penghargaan_model->get_jumlah_soal($username);
 			$data['jml_jwb'] = $this->Penghargaan_model->get_jumlah_jawab($username);
 			$this->load->view('profile', $data);
@@ -60,6 +70,7 @@
 		}		
 		//ubah profil
 		function profile_ubah($username){
+			$this->sessionlogin->cek_login();
 		
 			$data['profil']=$this->User_model->selectuser($username); 
 			
@@ -71,6 +82,7 @@
 		}
 		
 		function simpan_profile_ubah(){
+			$this->sessionlogin->cek_login();
 
 			if ($_POST) {
 				$this->load->library('session');

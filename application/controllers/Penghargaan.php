@@ -9,6 +9,7 @@
 
 			//load model database user
 			$this->load->model('Penghargaan_model');
+			
 		}
 		
 		public function index($username){

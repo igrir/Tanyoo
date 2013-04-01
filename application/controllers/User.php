@@ -9,7 +9,7 @@
 
 			//load model database user
 			$this->load->model('user_model');
-			
+			$this->load->library('sessionlogin');
 		}
 
 		public function index(){
@@ -19,6 +19,8 @@
 
 		//API mendapatkan banyak user
 		public function get_num_user(){
+			$this->sessionlogin->cek_login();
+
 			$username = $_GET['username'];
 
 			$this->load->library('user_lib');
@@ -29,6 +31,8 @@
 		}
 
 		public function add_user(){
+			$this->sessionlogin->cek_login();
+			
 			$this->load->helper('url');
 
 			if($this->user_model->add_user()){

@@ -11,6 +11,7 @@
 
 		public function __construct(){
 			parent::__construct();
+			$this->load->library('sessionlogin');
 		}
 		
 		//comment lagi
@@ -46,6 +47,7 @@
 		}
 
 		public function tanya(){
+			$this->sessionlogin->cek_login();
 			$this->load->helper('form');
 			$this->load->library('form_validation');
 			$this->load->helper('url');
@@ -59,6 +61,7 @@
 		}
 
 		public function home(){
+			$this->sessionlogin->cek_login();
 			$this->load->helper('form');
 			$this->load->library('form_validation');
 			$this->load->helper('url');

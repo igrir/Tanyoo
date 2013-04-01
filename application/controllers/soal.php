@@ -23,10 +23,12 @@
 			$this->load->library(array('table','form_validation'));		
 
 			$this->load->model('Log_model');
+			$this->load->library('sessionlogin');
 		}
 		
 		function index(){
-			
+			$this->sessionlogin->cek_login();
+
 			$this->load->library('session');
 			$username = $this->session->userdata('username');
 			$data['data_soal']=$this->Soal_model->selectByUser($username);
@@ -39,6 +41,8 @@
 		}
 		
 		function add(){
+			$this->sessionlogin->cek_login();
+
 			$this->load->library('session');
 			
 			if($_POST==NULL){
@@ -58,7 +62,9 @@
 		}
 		
 		function ubah($id_soal){
-				
+			$this->sessionlogin->cek_login();
+
+
 			$data['data_soal']=$this->Soal_model->selectsoal($this->uri->segment(3)); 
 		
 			$this->load->view('templates/header', $data);
@@ -69,6 +75,8 @@
 		}
 		
 		function simpan_ubah(){
+			$this->sessionlogin->cek_login();
+
 			$this->load->library('session');
 			
 			if($_POST==NULL){
@@ -90,6 +98,8 @@
 		}
 		
 		function cari_soal(){ //menampilkan form pencarian
+			$this->sessionlogin->cek_login();
+
 			$this->load->view('templates/header');
 			$this->load->view('templates/header_bar_search');
 			$this->load->view('cari_soal_view');
@@ -97,6 +107,8 @@
 		}
 		
 		function proses_cari_soal(){ //memproses pencarian
+			$this->sessionlogin->cek_login();
+
 			$cari = $this->input->post('cari');
 			
 			$data['data_soal']=$this->Soal_model->proses_cari_soal($cari);		
@@ -118,6 +130,8 @@
 		   Tapi sementara ini pakai dulu saja secara acak
 		*/
 		function jawab(){
+			$this->sessionlogin->cek_login();
+
 			$data['soal'] = $this->Soal_model->get_random_soal();
 
 			$this->load->view('templates/header');
@@ -134,6 +148,8 @@
 		   mmenjawab soal dengan id tertentu
 		*/
 		function jawab_id($id_soal){
+			$this->sessionlogin->cek_login();
+
 			$data['soal'] = $this->Soal_model->jawab_soal_id($this->uri->segment(2));
 
 			$this->load->view('templates/header');
@@ -150,7 +166,8 @@
 		   mengecek jawaban
 		*/
 		function cek_jawab(){
-
+			$this->sessionlogin->cek_login();
+			
 			$username = $this->session->userdata('username');
 
 			if($_POST==NULL){

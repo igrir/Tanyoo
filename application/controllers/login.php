@@ -7,6 +7,7 @@
 		public function __construct(){
 			parent::__construct();
 			$this->load->model('user_model');
+			
 		}
 	
 		public function check_login(){ //index disini

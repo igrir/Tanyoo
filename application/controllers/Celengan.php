@@ -27,10 +27,14 @@
 			$this->load->library('session');
 			$this->load->library('form_validation');	//validasi data
 
+			$this->load->library('sessionlogin');
 			
 		}
 
 		function tambah(){
+			$this->sessionlogin->cek_login();
+
+
 			$username = $this->session->userdata('username');
 
 			$data['profil'] = $this->User_model->get_user_by_username($username);
@@ -42,6 +46,7 @@
 		}
 
 		function add(){
+			$this->sessionlogin->cek_login();
 
 			$username = $this->session->userdata('username');
 
@@ -76,6 +81,8 @@
 		   menampilkan tampilan menambah isi celengan
 		*/
 		function tambah_isi($id_soal){
+			$this->sessionlogin->cek_login();
+
 			$this->load->helper('url');
 
 			$username = $this->session->userdata('username');
@@ -98,6 +105,7 @@
 		   Proses memasukkan isi celengan
 		*/
 		function add_isi($id_soal){
+			$this->sessionlogin->cek_login();
 
 			//id celengan didapat dari URL yang dimasukkan
 			$id_celengan = $this->uri->segment(4,0);
@@ -145,6 +153,8 @@
 		   menampilkan isi dari celengan yang dituju
 		*/
 		function id($id_celengan){
+			$this->sessionlogin->cek_login();
+
 			if (isset($id_celengan)) {
 				$data['celengan'] = $this->Celengan_model->get_celengan_by_id($id_celengan);
 				$data['isi_celengan'] = $this->Isi_celengan_model->get_all_isi_celengan($id_celengan);
@@ -163,6 +173,8 @@
 		   tampilan menghapus isi celengan
 		*/
 		function hapus_isi($id_soal){
+			$this->sessionlogin->cek_login();
+
 			//id celengan didapat dari URL yang dimasukkan
 			$id_celengan = $this->uri->segment(4,0);
 
@@ -209,6 +221,8 @@
 		*/
 
 		function del_isi(){
+			$this->sessionlogin->cek_login();
+
 			$username = $this->session->userdata('username');
 
 			if ($_POST == NULL) {
@@ -255,6 +269,8 @@
 		   menampilkan view edit
 		*/
 		function edit($id_celengan){
+			$this->sessionlogin->cek_login();
+
 
 			$data['celengan'] = $this->Celengan_model->get_celengan_by_id($id_celengan);
 
@@ -272,6 +288,8 @@
 		   menampilkan view edit
 		*/
 		function edit_celengan(){
+			$this->sessionlogin->cek_login();
+
 
 			$username = $this->session->userdata('username');
 			
