@@ -6,7 +6,7 @@
 			<img src="<?php echo base_url()?>css/images/tagline.png" width="70%"></a>
 			<br>
 			<br>
-			<a href="#two" data-role="button" data-transition="flip">Login</a></p>
+			<a href="<?php echo base_url()?>index.php#two" data-role="button" data-transition="flip" data-ajax="false">Login</a></p>
 		</div> 
 	</div> 
 	

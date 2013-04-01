@@ -5,6 +5,7 @@
 		public function __construct(){
 			//parent::__construct();	     
 
+
 			
 		}
 
@@ -17,6 +18,8 @@
 			$CI = & get_instance();
 
 			$CI->load->library('session');
+			$CI->load->helper('url');
+
 			$logged_in = $CI->session->userdata('LOGGED_IN');
 
 			if (!$logged_in) {
