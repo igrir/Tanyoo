@@ -5,9 +5,9 @@
 				<li>
 					<a href="">
 					<img src="<?php echo base_url()?>css/images/user.png"/>
-					
-					<p><?php echo $profil->bio; ?></p>
+					<h3 id="bio"><?php echo $profil->bio; ?></h3>
 					<p>minat : <?php echo $profil->minat; ?></p>
+
 
 					<?php
 
@@ -21,8 +21,6 @@
 							<?php
 						}
 					?>
-
-					
 					</a>
 				</li>
 				</ul>

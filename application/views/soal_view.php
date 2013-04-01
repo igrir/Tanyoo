@@ -7,7 +7,8 @@
 			<?php echo form_open('soal/add',$attributes); ?>
 			<div class="ui-body ui-body-d ui-corner-all">
 				<div data-role="fieldcontain">
-					<input type="text" name="soal" placeholder="Soal">
+					<!-- <input type="text" name="soal" placeholder="Soal"> -->
+					<textarea name="soal" placeholder="Soal"></textarea>
 					<input type="text" name="jawaban" placeholder="Jawaban" >
 					<input type="text" name="tag" placeholder="Tag" >
 				
