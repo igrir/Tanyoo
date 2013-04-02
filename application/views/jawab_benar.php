@@ -34,6 +34,9 @@
 					//menampilkan jumlah flag
 					echo $num_flag;
 
+					//menampilkan penjawab
+					echo "p:".$num_penjawab;
+
 					?>
 					
 				</div>
