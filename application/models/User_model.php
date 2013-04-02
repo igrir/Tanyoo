@@ -36,6 +36,16 @@ class User_model extends CI_Model{
 		}
 	}
 
+
+	//fungsi menghitung apakah ada user dengan username yang dimaksud
+	public function count_this_user_exist($username){
+		$query = $this->db->get_where('user', array('username' => $username));
+
+		return $query->num_rows();
+
+
+	}
+
 	public function add_user(){
 		$data = array(
 				'username'  => $this->input->post('username'),

@@ -19,7 +19,6 @@
 
 		//API mendapatkan banyak user
 		public function get_num_user(){
-			$this->sessionlogin->cek_login();
 
 			$username = $_GET['username'];
 
@@ -31,14 +30,24 @@
 		}
 
 		public function add_user(){
-			$this->sessionlogin->cek_login();
-			
+
 			$this->load->helper('url');
 
-			if($this->user_model->add_user()){
-				redirect("index");
+			//cek dulu apa ada user yang sama di database
+			//kalau nggak ada baru dimasukkan
+
+			$user_exist = $this->user_model->count_this_user_exist($this->input->post('username'));
+			
+			if ($user_exist == 0) {
+				$add_user = $this->user_model->add_user();
+				if($add_user){
+					redirect("index");
+				}else{
+					echo "can't add database";
+				}
 			}else{
-				echo "can't add database";
+				redirect('register_w');
 			}
+
 		}
 	}

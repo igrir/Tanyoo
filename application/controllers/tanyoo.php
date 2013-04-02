@@ -39,7 +39,24 @@
 			$this->load->library('form_validation');
 			$this->load->helper('url');
 
+			$data['error'] = "";
 			$data['title'] = "Daftar";
+
+			$this->load->view('templates/header', $data);
+			$this->load->view('register', $data);
+			
+		}
+
+
+		//redirect register kalau ada yang salah
+		public function register_w(){
+			$this->load->helper('form');
+			$this->load->library('form_validation');
+			$this->load->helper('url');
+
+			$data['title'] = "Daftar";
+
+			$data['error'] = "Username sudah ada, gunakan username lain";
 
 			$this->load->view('templates/header', $data);
 			$this->load->view('register', $data);
