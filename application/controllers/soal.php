@@ -176,7 +176,7 @@
 			$this->sessionlogin->cek_login();
 
 			$username = $this->session->userdata('username');
-			$id_soal = $this->uri->segment(2);
+			$id_soal = $this->uri->segment(3);
 
 
 			$cek_sudah_dihapus = $this->Soal_model->is_soal_deleted($id_soal);
