@@ -61,5 +61,11 @@ class User_model extends CI_Model{
 		$this->db->where("username",$username);
 		$this->db->update("user",$data);
 	}
-
+	
+	//fungsi mengambil skor untuk penghargaan
+	function get_jumlah_skor($username){
+		$this->db->select('skor');
+		$query = $this->db->get_where('user', array('username' => $username));
+		return $query->row();
+	}
 }
