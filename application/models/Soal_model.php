@@ -41,17 +41,15 @@ class Soal_model extends CI_Model{
 	}
 	
 	function simpan_ubah($id_soal, $data){
-		//$this->db->where("id_soal",$_POST['id_soal']);
-		//$this->db->update("soal",$_POST);
 		$this->db->where("id_soal",$id_soal);
 		$this->db->update("soal",$data);
-		//redirect('','refresh');
 	}
 	
 	function proses_cari_soal($cari){
 		$this->db->like('tag', $cari, 'both'); //%like%
+		$this->db->limit(5); //batas soal yg muncul 
+		$this->db->order_by('tag', 'random'); //soal dirandom
 		$data = $this->db->get('soal');
-		//$data = $this->db->get_where('soal', array('tag' => $cari));
 		return $data->result();
 	}
 	
