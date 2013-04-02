@@ -34,5 +34,7 @@
 						<div class="ui-block-a"><button type="submit" data-inline="true">submit</button></div>
 					</div>
 				</form>		
+				dijawab: <?php echo $num_penjawab?>,
+				flag: <?php echo $num_flag?>
 			</div>
 	</div>

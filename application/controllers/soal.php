@@ -64,9 +64,12 @@
 		function ubah($id_soal){
 			$this->sessionlogin->cek_login();
 
+			$id_soal = $this->uri->segment(3);
 
-			$data['data_soal']=$this->Soal_model->selectsoal($this->uri->segment(3)); 
-		
+			$data['data_soal']= $this->Soal_model->selectsoal($id_soal); 
+			$data['num_penjawab'] = $this->Log_model->get_num_penjawab($id_soal);
+			$data['num_flag'] = $this->Log_model->get_num_flag($id_soal);
+
 			$this->load->view('templates/header', $data);
 			$this->load->view('templates/header_bar', $data);
 			$this->load->view('soal_ubah',$data);
@@ -209,11 +212,17 @@
 					}
 
 
+					$data['soal'] = $row;
+					$data['flagged'] = $this->Log_model->cek_log_flag($username, $row->id_soal);
+
 					$this->load->view('templates/header');
 					$this->load->view('templates/header_bar');
 					$this->load->view('jawab_benar', $data);
 					$this->load->view('templates/footer_logout');
 				}else{
+					$data['soal'] = $row;
+					$data['flagged'] = $this->Log_model->cek_log_flag($username, $row->id_soal);
+
 					$this->load->view('templates/header');
 					$this->load->view('templates/header_bar');
 					$this->load->view('jawab_salah', $data);
@@ -239,8 +248,27 @@
 			$query = $this->Log_model->add_log_flag($username, $id_soal);
 
 			if ($query) {
-				redirect('jawab/'.$id_soal);
+				redirect('soal/flagged/'.$id_soal);
 			}
+		}
+
+		/* Fungsi: flagged
+		   akses: index.php/soal/flagged
+		   parameter: $id_soal
+		   output: NULL
+
+		   tampilan soal sudah di flag
+		*/
+		function flagged($id_soal){
+			$info_soal = $this->Soal_model->selectsoal($id_soal);
+			$row = $info_soal->row();
+
+			$data['soal'] = $row;
+
+			$this->load->view('templates/header');
+			$this->load->view('templates/header_bar');
+			$this->load->view('flagged_soal', $data);
+			$this->load->view('templates/footer_logout');
 		}
 
 		/* Fungsi: unflag_soal

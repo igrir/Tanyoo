@@ -36,6 +36,31 @@ class Log_model extends CI_Model{
 		}
 	}
 
+	/* Fungsi: get_num_penjawab
+	   parameter: $id_soal
+	   output : INTEGER
+	   
+	   mendapatkan banyak penjawab soal terkait
+	*/
+	public function get_num_penjawab($id_soal){
+		$query = $this->db->get_where('log', array('id_soal'=>$id_soal,
+												   'log_type'=>1));
+		return $query->num_rows();
+	}
+
+	/* Fungsi: get_num_flag
+	   parameter: $id_soal
+	   output : INTEGER
+	   
+	   mendapatkan banyak flag terkait
+	*/
+	public function get_num_flag($id_soal){
+		$query = $this->db->get_where('log', array('id_soal'=>$id_soal,
+												   'log_type'=>2));
+		return $query->num_rows();
+	}
+
+
 	/* Fungsi: get_skor
 	   parameter: $username
 	   output : INTEGER

@@ -15,11 +15,11 @@
 
 					if ($flagged) {
 						?>
-						<a href="<?php echo base_url()?>index.php/soal/unflag_soal/<?php echo $soal->id_soal?>">unflag</a>
+						<a href="<?php echo base_url()?>index.php/soal/unflag_soal/<?php echo $soal->id_soal?>" data-ajax="false">unflag</a>
 					<?php
 					}else{
 						?>
-						<a href="<?php echo base_url()?>index.php/soal/flag_soal/<?php echo $soal->id_soal?>">flag</a>
+						<a href="<?php echo base_url()?>index.php/soal/flag_soal/<?php echo $soal->id_soal?>" data-ajax="false">flag</a>
 					<?php
 					}
 

@@ -16,6 +16,26 @@
 					<p style="color:#ffffff">Jawaban benar : <?php echo $soal->jawaban ?></p>
 					</li>
 				</ul>
+				<!-- Disini buat menu-menu, edited by giri -->
+				<div style="text-align: right;">
+					<a href="<?php echo base_url()?>index.php/celengan/tambah_isi/<?php echo $soal->id_soal;?>"><img src="<?php echo base_url()?>css/images/celengan.png" width="30px"></a>
+
+					<?php
+
+					if ($flagged) {
+						?>
+						<a href="<?php echo base_url()?>index.php/soal/unflag_soal/<?php echo $soal->id_soal?>">unflag</a>
+					<?php
+					}else{
+						?>
+						<a href="<?php echo base_url()?>index.php/soal/flag_soal/<?php echo $soal->id_soal?>">flag</a>
+					<?php
+					}
+
+					?>
+					
+				</div>
+
 			
 				<a href="<?php echo base_url()?>index.php/jawab" data-role="button" data-ajax="false">acak</a>
 
