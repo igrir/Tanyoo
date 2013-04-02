@@ -93,7 +93,48 @@
 				
 				$this->User_model->simpan_profile_ubah($username, $data);
 				
-				redirect('u/'.$username,'refresh');
+				//ubah password jika password dimasukkan
+				$password = $this->input->post('password');
+				$password_b1 = $this->input->post('password_b1');
+				$password_b2 = $this->input->post('password_b2');
+
+				if (isset($password)) {
+					
+					//cek apakah password benar
+					if ($this->User_model->check_username_password($username, $password) == TRUE) {
+						
+						if ($password_b1 == $password_b2) {
+							
+							$this->User_model->change_password($username, $password_b1);
+							redirect('u/'.$username,'refresh');
+
+						}else{
+							//kalau salah kembalikan ke ubah profile dan tampilan password yang dimasukkan tidak sama
+							$data['profil'] = $this->User_model->selectuser($username); 
+							$data['error'] = 'password baru yang dimasukkan tidak sama';
+							//$this->load->vars($data);
+							$this->load->view('templates/header',$data);
+							$this->load->view('templates/header_bar_profile',$data);
+							$this->load->view('profile_ubah_view',$data);
+							$this->load->view('templates/footer',$data);
+						}
+					}else{
+						//kalau salah kembalikan ke ubah profile dan tampilan data error salah	
+						$data['profil'] = $this->User_model->selectuser($username); 
+						$data['error'] = 'password yang dimasukkan salah';
+						//$this->load->vars($data);
+						$this->load->view('templates/header',$data);
+						$this->load->view('templates/header_bar_profile',$data);
+						$this->load->view('profile_ubah_view',$data);
+						$this->load->view('templates/footer',$data);
+					}
+					
+				}else{
+					redirect('u/'.$username,'refresh');	
+				}
+
+
+				
 				//redirect('Profil/profile_ubah/'.$username,'refresh');
 			}
 			
