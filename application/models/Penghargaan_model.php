@@ -19,6 +19,8 @@ class Penghargaan_model extends CI_Model{
 		}
 	}
 	
+	//!!!!!!!!!!!!!!WARNING
+	// SEBAIKNYA INI DI MODEL SOAL KARENA MENUNJUK KE TABEL SOAL
 	public function get_jumlah_soal($user){
 		$this->db->select('text_soal');
 		$data = $this->db->get_where('soal', array('username' => $user));
@@ -26,6 +28,8 @@ class Penghargaan_model extends CI_Model{
 		return $data;
 	}
 	
+	//!!!!!!!!!!!!!!WARNING
+	// SEBAIKNYA INI DI MODEL LOG KARENA MENUNJUK KE TABEL LOG
 	public function get_jumlah_jawab($user){
 		$this->db->order_by("id_log", "desc");
 		$data = $this->db->get_where('log', array('username' => $user,'log_type'=>2));
@@ -33,11 +37,20 @@ class Penghargaan_model extends CI_Model{
 		return $data;
 	}
 	public function add_penghargaan($user,$id_peng){
-		$sql="select * from user_penghargaan where username=?,id_penghargaan=?"; 
+		$sql="select * from user_penghargaan where username=? and id_penghargaan=?"; 
 		$temp = $this->db->query($sql,array($user,$id_peng));
 		if($temp->num_rows()==0)
 		{
-			$this->db->insert('user_penghargaan',$id_peng,$username);
+			$data = array(
+				'id_penghargaan' => $id_peng,
+				'username' => $user,
+			);
+			$this->db->insert('user_penghargaan',$data);
 		}
+	}
+	public function data_penghargaan()
+	{
+		$data = $this->db->query('SELECT * FROM penghargaan');
+		return $data;
 	}
 }

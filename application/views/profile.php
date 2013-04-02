@@ -7,6 +7,7 @@
 					<img src="<?php echo base_url()?>css/images/user.png"/>
 					<h3 id="bio"><?php echo $profil->bio; ?></h3>
 					<p>minat : <?php echo $profil->minat; ?></p>
+					<p>skor : <?php echo $skor; ?></p>
 
 
 					<?php
@@ -28,7 +29,7 @@
 			<p class="text">----------<i>skor</i>----------</p>
 			<div class="ui-grid-a"> 
 				<div class="ui-block-a" id="tampilskor" class="jawaban">
-					<h3 class="text3">0</h3> <!--isi dengan jumlah banyak menjawab-->
+					<h3 class="text3"><?php echo $skor; ?></h3> <!--isi dengan jumlah banyak menjawab-->
 					<p class="tengah">jawaban</p>
 				</div> 
 				<div class="ui-block-b" id="tampilskor" class="soal">	

@@ -33,6 +33,9 @@
 					<div class="ui-grid-a">	
 						<div class="ui-block-a"><button type="submit" data-inline="true">submit</button></div>
 					</div>
-				</form>		
+				</form>	
+				<a href="<?php echo base_url()?>index.php/soal/hapus/<?php echo $row->id_soal?>" data-rel="dialog">Hapus soal ini</a>	
+				dijawab: <?php echo $num_penjawab?>,
+				flag: <?php echo $num_flag?>
 			</div>
 	</div>

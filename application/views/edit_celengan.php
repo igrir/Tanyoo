@@ -14,6 +14,8 @@
 					<input type="Submit" value="Edit" data-inline="true" data-theme="e" data-ajax="false"/>
 				</div>
 			</div>
+
+			<a href="<?php echo base_url()?>index.php/celengan/hapus_celengan/<?php echo $celengan->id_celengan?>" data-rel="dialog">Hapus celengan ini</a>
 		</div>
 	</div>
 	<div id="user-info"></div>

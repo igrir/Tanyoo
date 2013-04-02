@@ -36,6 +36,29 @@ class User_model extends CI_Model{
 		}
 	}
 
+	//MENGECEK USER DAN PASSWORD BENAR
+	//digunakan untuk mengecek dengan inputan dari parameter
+	public function check_username_password($username, $password){
+		$query = $this->db->get_where('user', array('username' => $username,
+													'password' => $password));
+
+		if ($query->num_rows == 1) {
+			return true;
+		}else{
+			return false;
+		}
+	}
+
+
+	//fungsi menghitung apakah ada user dengan username yang dimaksud
+	public function count_this_user_exist($username){
+		$query = $this->db->get_where('user', array('username' => $username));
+
+		return $query->num_rows();
+
+
+	}
+
 	public function add_user(){
 		$data = array(
 				'username'  => $this->input->post('username'),
@@ -61,5 +84,18 @@ class User_model extends CI_Model{
 		$this->db->where("username",$username);
 		$this->db->update("user",$data);
 	}
+	
+	//fungsi mengambil skor untuk penghargaan
+	function get_jumlah_skor($username){
 
+		//cara mendapatkan skor didapat dari LOG sebenarnya
+		$this->db->select('skor');
+		$query = $this->db->get_where('user', array('username' => $username));
+		return $query->row();
+	}
+
+	function change_password($username, $password){
+		$this->db->where("username", $username);
+		$this->db->update('user', array('password'=>$password));
+	}
 }

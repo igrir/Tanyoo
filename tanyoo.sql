@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 3.2.4
+-- version 3.3.9
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Mar 30, 2013 at 09:26 PM
--- Server version: 5.1.44
--- PHP Version: 5.3.1
+-- Generation Time: Apr 02, 2013 at 09:20 
+-- Server version: 5.5.8
+-- PHP Version: 5.3.5
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 
@@ -77,12 +77,14 @@ CREATE TABLE IF NOT EXISTS `log` (
   `id_soal` int(11) NOT NULL,
   `log_type` int(11) NOT NULL COMMENT 'jawab soal = 1, flag = 2',
   PRIMARY KEY (`id_log`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1 COMMENT='tabel yang menjelaskan penggunaan user terhadap menjawab soa' AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COMMENT='tabel yang menjelaskan penggunaan user terhadap menjawab soa' AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `log`
 --
 
+INSERT INTO `log` (`id_log`, `username`, `id_soal`, `log_type`) VALUES
+(1, 'giri', 6, 1);
 
 -- --------------------------------------------------------
 
@@ -92,14 +94,26 @@ CREATE TABLE IF NOT EXISTS `log` (
 
 CREATE TABLE IF NOT EXISTS `penghargaan` (
   `id_penghargaan` int(11) NOT NULL AUTO_INCREMENT,
-  `nm_penghargaan` varchar(32) NOT NULL,
+  `nm_penghargaan` varchar(100) NOT NULL,
+  `Tanya` int(11) NOT NULL,
+  `Jawab` int(11) NOT NULL,
+  `Skor` int(11) NOT NULL,
   PRIMARY KEY (`id_penghargaan`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=13 ;
 
 --
 -- Dumping data for table `penghargaan`
 --
 
+INSERT INTO `penghargaan` (`id_penghargaan`, `nm_penghargaan`, `Tanya`, `Jawab`, `Skor`) VALUES
+(1, 'Selamat Anda Telah Menjawab 10 Pertanyaan', 0, 10, 0),
+(2, 'Selamat Anda Telah Bertanya 10 Pertanyaan', 10, 0, 0),
+(3, 'Selamat Anda Mendapatkan Menjadi Newbie', 10, 10, 0),
+(4, 'Selamat Anda Telah Menjawab 50 Pertanyaan', 0, 50, 0),
+(5, 'Selamat Anda Telah Bertanya 50 Pertanyaan', 50, 0, 0),
+(6, 'Selamat Anda Mendapatkan Menjadi Tanyooku', 50, 50, 0),
+(7, 'Selamat Skor Anda Telah Mencapai 10', 0, 0, 10),
+(8, 'Selamat Skor Anda Telah Mencapai 50', 0, 0, 50);
 
 -- --------------------------------------------------------
 
@@ -117,7 +131,7 @@ CREATE TABLE IF NOT EXISTS `soal` (
   `locked` int(11) NOT NULL COMMENT '1 berarti lock, 0 nggak',
   PRIMARY KEY (`id_soal`),
   KEY `username` (`username`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=24 ;
 
 --
 -- Dumping data for table `soal`
@@ -132,7 +146,20 @@ INSERT INTO `soal` (`id_soal`, `text_soal`, `jawaban`, `flag`, `tag`, `username`
 (7, 'Bahasa inggrisnya "Satu" adalah?', 'one', 0, 'inggris', 'giri', 0),
 (8, 'Apa nama buah yang dimakan putri tidur?', 'apel', 0, 'dongeng', 'giri', 1),
 (9, 'komputer steve', 'apple', 0, 'komputer', 'giri', 0),
-(10, 'Presiden wanita Indonesia', 'mega', 0, 'Indonesia', 'giri', 0);
+(10, 'Presiden wanita Indonesia', 'mega', 0, 'Indonesia', 'giri', 0),
+(11, 'a', 'a', 0, 'a', 'giri', 0),
+(12, 'b', 'b', 0, 'b', 'giri', 0),
+(13, 'a', 'a', 0, '', 'giri', 0),
+(14, 'a', 'a', 0, 'a', 'giri', 0),
+(15, 'b', 'b', 0, 'b', 'giri', 0),
+(16, 'c', 'c', 0, 'c', 'giri', 0),
+(17, 'd', 'd', 0, 'd', 'giri', 0),
+(18, 'f', 'f', 0, 'f', 'giri', 0),
+(19, 'h', 'h', 0, 'h', 'giri', 0),
+(20, 'j', 'j', 0, 'j', 'giri', 0),
+(21, 'i', 'i', 0, 'i', 'giri', 0),
+(22, 'l', 'l', 0, 'l', 'giri', 0),
+(23, 'a`', 'a', 0, 'a', 'giri', 0);
 
 -- --------------------------------------------------------
 
@@ -172,7 +199,7 @@ CREATE TABLE IF NOT EXISTS `user` (
 
 INSERT INTO `user` (`username`, `password`, `id_fb`, `skor`, `bio`, `minat`) VALUES
 ('erwin', '123', '', 0, 'erwingw', 'komputer'),
-('giri', '123', '', 0, '123123', '1 2 3'),
+('giri', '123', '', 30, '123123', '1 2 3'),
 ('giri2', '123', '', 0, '123', '123'),
 ('igrir', '123', '1227196016', 0, 'Penyuka penanya jawaban', 'biologi fisika matematika'),
 ('indana', '123', '', 0, 'indana zf', 'fisika kimia');

@@ -16,6 +16,7 @@
 			
 				<form action="<?php echo base_url()?>index.php/user/add_user" method="post" accept-charset="utf-8">
 
+				<?php echo $error?>
 				<div data-role="fieldcontain" class="ui-hide-label">
 					<label for="username">Nama Tampilan</label>
 					<input type="text" name="username" id="username" value="" placeholder="Nama Tampilan"/>

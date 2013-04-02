@@ -155,14 +155,23 @@
 		function id($id_celengan){
 			$this->sessionlogin->cek_login();
 
-			if (isset($id_celengan)) {
-				$data['celengan'] = $this->Celengan_model->get_celengan_by_id($id_celengan);
-				$data['isi_celengan'] = $this->Isi_celengan_model->get_all_isi_celengan($id_celengan);
-				$this->load->view('templates/header', $data);
-				$this->load->view('templates/header_bar', $data);
-				$this->load->view('isi_celengan', $data);
-				$this->load->view('templates/footer', $data);	
+			$username = $this->session->userdata('username');
+
+			//cek celengan ini ada
+			if ($this->Celengan_model->get_celengan_by_id($id_celengan)) {
+				if (isset($id_celengan)) {
+					$data['celengan'] = $this->Celengan_model->get_celengan_by_id($id_celengan);
+					$data['isi_celengan'] = $this->Isi_celengan_model->get_all_isi_celengan($id_celengan);
+					$this->load->view('templates/header', $data);
+					$this->load->view('templates/header_bar', $data);
+					$this->load->view('isi_celengan', $data);
+					$this->load->view('templates/footer', $data);	
+				}
+			}else{
+				redirect('u/'.$username.'/celengan');
 			}
+
+			
 		}
 
 		/* Fungsi: hapus_isi
@@ -317,6 +326,40 @@
 			}
 		}
 
+		/* Fungsi: hapus_celengan
+		   akses: index.php/celengan/hapus_celengan
+		   parameter: $id_celengan
+		   output: NULL
+
+		   menampilkan konfirmasi hapus celengan
+		*/
+
+		function hapus_celengan($id_celengan){
+			$data['celengan'] = $this->Celengan_model->get_celengan_by_id($id_celengan);
+			$this->load->view('templates/header', $data);
+			$this->load->view('hapus_celengan', $data);
+			$this->load->view('templates/footer', $data);
+		}
+
+		/* Fungsi: del
+		   akses: index.php/celengan/del_celengan
+		   parameter: -
+		   output: NULL
+
+		   proses menghapus celengan
+		*/
+		function del_celengan(){
+			$username = $this->session->userdata('username');
+
+			if ($_POST) {
+				$id_celengan = $this->input->post('id_celengan');
+
+				if (isset($id_celengan) ) {
+					$this->Celengan_model->delete_celengan($id_celengan);
+					redirect('u/'.$username.'/celengan');
+				}
+			}
+		}
 	}
 
 ?>
