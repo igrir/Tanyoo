@@ -15,8 +15,8 @@
 			$this->load->model('Penghargaan_model');
 			$this->load->helper('url');			
 			$this->load->library('session');
-
 			$this->load->library('sessionlogin');
+			$this->load->library('penghargaan');
 		}
 
 		public function index($username){
@@ -25,6 +25,7 @@
 
 				$data['profil'] = $this->User_model->get_user_by_username($username);
 				$data['jml_soal'] = $this->Penghargaan_model->get_jumlah_soal($username);
+				$data['skor'] = $this->User_model->get_jumlah_skor($username);
 				
 				//var_dump($result);
 				$this->load->view('templates/header', $data);
@@ -37,7 +38,6 @@
 		//Halaman celengan
 		public function celengan($username){
 			$this->sessionlogin->cek_login();
-
 			$data['profil'] = $this->User_model->get_user_by_username($username);
 			$data['user_celengan'] = $this->Celengan_model->get_all_celengan_user($username);
 			$this->load->view('templates/header', $data);
@@ -49,7 +49,7 @@
 		//Halaman penghargaan
 		public function penghargaan($username){
 			$this->sessionlogin->cek_login();
-
+			$this->penghargaan->cek_penghargaan($username);
 			$data['nama_penghargaan'] = $this->Penghargaan_model->get_all_penghargaan($username);
 			
 			$this->load->view('templates/header', $data);

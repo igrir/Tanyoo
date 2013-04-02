@@ -33,11 +33,20 @@ class Penghargaan_model extends CI_Model{
 		return $data;
 	}
 	public function add_penghargaan($user,$id_peng){
-		$sql="select * from user_penghargaan where username=?,id_penghargaan=?"; 
+		$sql="select * from user_penghargaan where username=? and id_penghargaan=?"; 
 		$temp = $this->db->query($sql,array($user,$id_peng));
 		if($temp->num_rows()==0)
 		{
-			$this->db->insert('user_penghargaan',$id_peng,$username);
+			$data = array(
+				'id_penghargaan' => $id_peng,
+				'username' => $user,
+			);
+			$this->db->insert('user_penghargaan',$data);
 		}
+	}
+	public function data_penghargaan()
+	{
+		$data = $this->db->query('SELECT * FROM penghargaan');
+		return $data;
 	}
 }
