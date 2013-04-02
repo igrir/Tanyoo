@@ -13,7 +13,7 @@
 					<?php echo $soal->text_soal?>
 				</li>				
 			</ul>
-			<a href="<?php echo base_url()?>index.php/soal/unflag_soal/<?php echo $soal->id_soal?>" data-ajax="false">Unflag soal ini</a>
+			<a href="<?php echo base_url()?>index.php/soal/unflag_soal/<?php echo $soal->id_soal?>" data-ajax="false"><img src="<?php echo base_url()?>css/images/unflag.png" width="30px"></a>
 			<a href="<?php echo base_url()?>index.php/jawab" data-role="button" data-icon="arrow-r" data-iconpos="right">Jawab pertanyaan lagi</a>
 
 		</div>

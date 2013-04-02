@@ -32,9 +32,10 @@
 					
 					<div class="ui-grid-a">	
 						<div class="ui-block-a"><button type="submit" data-inline="true">submit</button></div>
+						<div class="ui-block-b"><a href="<?php echo base_url()?>index.php/soal/hapus/<?php echo $row->id_soal?>" data-rel="dialog" data-role="button" data-theme="a" data-inline="true" data-position-to="window">Hapus</a></div>
 					</div>
 				</form>	
-				<a href="<?php echo base_url()?>index.php/soal/hapus/<?php echo $row->id_soal?>" data-rel="dialog">Hapus soal ini</a>	
+					
 				dijawab: <?php echo $num_penjawab?>,
 				flag: <?php echo $num_flag?>
 			</div>

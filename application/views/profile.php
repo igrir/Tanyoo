@@ -4,7 +4,7 @@
 				<ul data-role="listview" data-split-icon="gear" data-split-theme="a" data-theme="d">
 				<li>
 					<a href="">
-					<img src="<?php echo base_url()?>css/images/user.png"/>
+					<img src="<?php echo base_url()?>css/images/user.png" style="padding:10px;">
 					<h3 id="bio"><?php echo $profil->bio; ?></h3>
 					<p>minat : <?php echo $profil->minat; ?></p>
 					<p>skor : <?php echo $skor; ?></p>
@@ -38,8 +38,8 @@
 				</div> 
 			</div> 
 			
-			<a href="<?php echo base_url()?>index.php/u/<?php echo $profil->username?>/celengan/"><img src="<?php echo base_url()?>css/images/celengan.png" width="70px" height="60px"></a>
-			<a href="<?php echo base_url()?>index.php/u/<?php echo $profil->username?>/penghargaan/"><img src="<?php echo base_url()?>css/images/penghargaan.png" width="60px" height="60px"></a>
+			<a href="<?php echo base_url()?>index.php/u/<?php echo $profil->username?>/celengan/"><img src="<?php echo base_url()?>css/images/t_celengan.png" width="60px" height="60px"></a>
+			<a href="<?php echo base_url()?>index.php/u/<?php echo $profil->username?>/penghargaan/"><img src="<?php echo base_url()?>css/images/t_penghargaan.png" width="60px" height="60px"></a>
 				
 			
 			<p class="text">----------<i>penjawab</i>----------</p>
