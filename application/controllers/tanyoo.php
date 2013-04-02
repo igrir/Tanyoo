@@ -98,4 +98,18 @@
 			
 		}
 
+		public function statistik(){
+			$this->sessionlogin->cek_login();
+			$this->load->helper('form');
+			$this->load->library('form_validation');
+			$this->load->helper('url');
+
+			$data['title'] = "Statistik";
+
+			$this->load->view('templates/header', $data);
+			$this->load->view('templates/header_bar_statistik', $data);
+			$this->load->view('statistik', $data);
+			$this->load->view('templates/footer_logout', $data);
+		}
+
 	}

@@ -14,6 +14,8 @@
 			$this->load->model('Celengan_model');
 			$this->load->model('Penghargaan_model');
 			$this->load->model('Log_model');
+			$this->load->model('Soal_model');
+
 			$this->load->helper('url');			
 			$this->load->library('session');
 			$this->load->library('sessionlogin');

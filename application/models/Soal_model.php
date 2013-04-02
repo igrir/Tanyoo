@@ -38,8 +38,8 @@ class Soal_model extends CI_Model{
 	}
 	
 	function selectsoal ($id_soal){
-			$deleted = array(3);
-			$this->db->where_not_in('locked', $deleted);
+			// $deleted = array(3);
+			// $this->db->where_not_in('locked', $deleted);
 			$data = $this->db->get_where('soal', array('id_soal' => $id_soal));
 
 			return $data;
@@ -72,11 +72,24 @@ class Soal_model extends CI_Model{
 		return $data->row();
 	}
 
+	// "menghapus" soal
 	function delete_soal($id_soal){
 		$this->db->where("id_soal", $id_soal);
 		$data = $this->db->update("soal", array('locked'=>3));
 
 		return $data;
+	}
+
+	function is_soal_deleted($id_soal){
+		$data = $this->db->get_where('soal', array('locked'  => 3,
+												   'id_soal' => $id_soal));
+		$num = $data->num_rows();
+
+		if ($num == 0) {
+			return false;
+		}else{
+			return true;
+		}
 	}
 
 	//dapat jumlah semua soal
@@ -87,7 +100,7 @@ class Soal_model extends CI_Model{
 		return $query->num_rows();
 	}
 
-	public function get_jumlah_soal($user){
+	function get_jumlah_soal($user){
 		$this->db->select('text_soal');
 		$data = $this->db->get_where('soal', array('username' => $user));
 		$data = $data->num_rows();

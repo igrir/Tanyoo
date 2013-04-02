@@ -176,21 +176,34 @@
 			$this->sessionlogin->cek_login();
 
 			$username = $this->session->userdata('username');
+			$id_soal = $this->uri->segment(2);
 
-			$soal = $this->Soal_model->jawab_soal_id($this->uri->segment(2));
 
-			//$data['soal'] = $this->Soal_model->jawab_soal_id($this->uri->segment(2));
-			$data['soal'] = $soal;
-			$data['flagged'] = $this->Log_model->cek_log_flag($username, $soal->id_soal);
-			$data['num_penjawab'] = $this->Log_model->get_num_penjawab($soal->id_soal);
-			$data['num_flag'] = $this->Log_model->get_num_flag($soal->id_soal);
+			$cek_sudah_dihapus = $this->Soal_model->is_soal_deleted($id_soal);
 
-			$data['dijawab'] = $this->Log_model->cek_log_jawaban($username, $soal->id_soal);
+			$soal = $this->Soal_model->jawab_soal_id($id_soal);
 
-			$this->load->view('templates/header');
-			$this->load->view('templates/header_bar');
-			$this->load->view('jawab_pertanyaan', $data);
-			$this->load->view('templates/footer_logout');
+			if ($cek_sudah_dihapus == TRUE) {
+				$this->load->view('templates/header');
+				$this->load->view('templates/header_bar');
+				$this->load->view('pertanyaan_hilang');
+				$this->load->view('templates/footer_logout');	
+			}else{
+				//$data['soal'] = $this->Soal_model->jawab_soal_id($this->uri->segment(2));
+				$data['soal'] = $soal;
+				$data['flagged'] = $this->Log_model->cek_log_flag($username, $soal->id_soal);
+				$data['num_penjawab'] = $this->Log_model->get_num_penjawab($soal->id_soal);
+				$data['num_flag'] = $this->Log_model->get_num_flag($soal->id_soal);
+
+				$data['dijawab'] = $this->Log_model->cek_log_jawaban($username, $soal->id_soal);
+
+				$this->load->view('templates/header');
+				$this->load->view('templates/header_bar');
+				$this->load->view('jawab_pertanyaan', $data);
+				$this->load->view('templates/footer_logout');	
+			}
+
+			
 		}
 
 		/* Fungsi: cek_jawab
