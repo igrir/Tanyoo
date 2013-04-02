@@ -87,6 +87,8 @@ class User_model extends CI_Model{
 	
 	//fungsi mengambil skor untuk penghargaan
 	function get_jumlah_skor($username){
+
+		//cara mendapatkan skor didapat dari LOG sebenarnya
 		$this->db->select('skor');
 		$query = $this->db->get_where('user', array('username' => $username));
 		return $query->row();

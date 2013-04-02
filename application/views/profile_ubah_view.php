@@ -13,11 +13,13 @@
 				<center><b>Ubah password</b></center>
 				<span style="font-size:0.8em">ubah password, jika anda ingin</span>
 				<br/>
+				<span style="font-size:0.8em; color:#df0000;">
 				<?php 
 					if (isset($error)) {
 						echo $error;
 					}
 				?>
+				</span>	
 				<br/>
 				<label for="password">Password lama</label>
 				<input type="password" name="password" id="password" value=""/>

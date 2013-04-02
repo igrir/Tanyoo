@@ -35,6 +35,14 @@ class Log_model extends CI_Model{
 		}
 	}
 
-
-
+	/* Fungsi: get_skor
+	   parameter: $username
+	   output : INTEGER
+	   
+	   mendapatkan skor dari username
+	*/
+	public function get_skor_from_username($username){
+		$query = $this->db->get_where('log', array('username'=>$username));
+		return $query->num_rows();
+	}
 }

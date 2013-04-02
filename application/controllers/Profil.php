@@ -13,6 +13,7 @@
 			$this->load->model('User_model');
 			$this->load->model('Celengan_model');
 			$this->load->model('Penghargaan_model');
+			$this->load->model('Log_model');
 			$this->load->helper('url');			
 			$this->load->library('session');
 			$this->load->library('sessionlogin');
@@ -21,17 +22,15 @@
 
 		public function index($username){
 				
-
-
 				$data['profil'] = $this->User_model->get_user_by_username($username);
 				$data['jml_soal'] = $this->Penghargaan_model->get_jumlah_soal($username);
-				$data['skor'] = $this->User_model->get_jumlah_skor($username);
+				$data['skor'] = $this->Log_model->get_skor_from_username($username);
 				
 				//var_dump($result);
 				$this->load->view('templates/header', $data);
 				$this->load->view('templates/header_bar_profile', $data);
 				$this->load->view('profile', $data);
-				$this->load->view('templates/footer_logout', $data);	
+				$this->load->view('templates/footer_logout', $data);
 				
 		}
 
