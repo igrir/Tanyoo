@@ -97,7 +97,7 @@
 				$password_b1 = $this->input->post('password_b1');
 				$password_b2 = $this->input->post('password_b2');
 
-				if (isset($password)) {
+				if (isset($password) && $password != '') {
 					
 					//cek apakah password benar
 					if ($this->User_model->check_username_password($username, $password) == TRUE) {
