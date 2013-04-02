@@ -23,7 +23,7 @@
 		public function index($username){
 				
 				$data['profil'] = $this->User_model->get_user_by_username($username);
-				$data['jml_soal'] = $this->Penghargaan_model->get_jumlah_soal($username);
+				$data['jml_soal'] = $this->Soal_model->get_jumlah_soal($username);
 				$data['skor'] = $this->Log_model->get_skor_from_username($username);
 				
 				//var_dump($result);

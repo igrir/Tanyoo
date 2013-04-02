@@ -137,20 +137,32 @@
 
 			$username = $this->session->userdata('username');
 
-			$soal = $this->Soal_model->get_random_soal();
+			$banyak_soal = $this->Soal_model->get_num_total_soal();
 
-			$data['soal'] = $soal;
-			$data['flagged'] = $this->Log_model->cek_log_flag($username, $soal->id_soal);
+			if ($banyak_soal <= 0) {
+				//kalau nggak ada soal
+				$this->load->view('templates/header');
+				$this->load->view('templates/header_bar');
+				$this->load->view('tidak_ada_pertanyaan');
+				$this->load->view('templates/footer_logout');
+			}else{
+				$soal = $this->Soal_model->get_random_soal();
+
+				$data['soal'] = $soal;
+				$data['flagged'] = $this->Log_model->cek_log_flag($username, $soal->id_soal);
+				
+				$data['num_penjawab'] = $this->Log_model->get_num_penjawab($soal->id_soal);
+				$data['num_flag'] = $this->Log_model->get_num_flag($soal->id_soal);
+
+				$data['dijawab'] = $this->Log_model->cek_log_jawaban($username, $soal->id_soal);
+
+				$this->load->view('templates/header');
+				$this->load->view('templates/header_bar');
+				$this->load->view('jawab_pertanyaan', $data);
+				$this->load->view('templates/footer_logout');
+			}
+
 			
-			$data['num_penjawab'] = $this->Log_model->get_num_penjawab($soal->id_soal);
-			$data['num_flag'] = $this->Log_model->get_num_flag($soal->id_soal);
-
-			$data['dijawab'] = $this->Log_model->cek_log_jawaban($username, $soal->id_soal);
-
-			$this->load->view('templates/header');
-			$this->load->view('templates/header_bar');
-			$this->load->view('jawab_pertanyaan', $data);
-			$this->load->view('templates/footer_logout');
 		}
 
 		/* Fungsi: jawab_id
@@ -309,6 +321,59 @@
 			}
 		}
 		
+
+		/* Fungsi: hapus
+		   akses: index.php/soal/hapus
+		   parameter: $id_soal
+		   output: NULL
+
+		   menanyakan konfirmasi hapus
+		*/
+
+		function hapus($id_soal){
+			$this->sessionlogin->cek_login();
+
+			$id_soal = $this->uri->segment(3);
+
+			$data['data_soal']= $this->Soal_model->selectsoal($id_soal); 
+			$data['num_penjawab'] = $this->Log_model->get_num_penjawab($id_soal);
+			$data['num_flag'] = $this->Log_model->get_num_flag($id_soal);
+
+			$this->load->view('templates/header', $data);
+			$this->load->view('hapus_pertanyaan',$data);
+			$this->load->view('templates/footer', $data);
+			
+		}
+		
+		/* Fungsi: del_soal
+		   akses: index.php/soal/del_soal
+		   parameter: -
+		   output: NULL
+
+		   Melakukan proses hapus soal.
+		   
+		   INFO:
+			Sebenarnya ini bukan hapus sebenarnya, hanya
+			locked diubah jadi 3, yang diartikan sebagai
+			hapus selamanya. Hal ini dilakukan supaya
+			kalau ada yang sudah pernah menjawab tidak ada
+			"keanehan" data
+		*/
+		function del_soal(){
+			$this->sessionlogin->cek_login();
+
+			$this->load->library('session');
+			
+			if($_POST==NULL){
+				redirect('soal/index');
+			}else{
+				$id_soal = $this->input->post('id_soal');
+				
+				$this->Soal_model->delete_soal($id_soal);
+				
+				redirect('soal/index','refresh');
+			}
+		}
 
 
 
