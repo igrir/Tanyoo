@@ -40,12 +40,6 @@
 					//menampilkan penjawab
 					echo "p:".$num_penjawab;
 
-					if ($dijawab) {
-						?>
-						kamu sudah pernah jawab
-						<?php
-					}
-					
 					?>
 					
 				</div>
