@@ -7,6 +7,7 @@
 		<?php 	if($nama_penghargaan!=false){		
 					foreach($nama_penghargaan as $row):
 					echo $row->nm_penghargaan;
+					echo "<hr/>";
 					endforeach;
 				}
 				else
