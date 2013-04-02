@@ -96,7 +96,7 @@
 				redirect('soal/index','refresh');
 			}
 		}
-		
+
 		function cari_soal(){ //menampilkan form pencarian
 			$this->sessionlogin->cek_login();
 
@@ -132,7 +132,12 @@
 		function jawab(){
 			$this->sessionlogin->cek_login();
 
-			$data['soal'] = $this->Soal_model->get_random_soal();
+			$username = $this->session->userdata('username');
+
+			$soal = $this->Soal_model->get_random_soal();
+
+			$data['soal'] = $soal;
+			$data['flagged'] = $this->Log_model->cek_log_flag($username, $soal->id_soal);
 
 			$this->load->view('templates/header');
 			$this->load->view('templates/header_bar');
@@ -147,10 +152,18 @@
 
 		   mmenjawab soal dengan id tertentu
 		*/
-		function jawab_id($id_soal){
+		function jawab_id(){
 			$this->sessionlogin->cek_login();
 
-			$data['soal'] = $this->Soal_model->jawab_soal_id($this->uri->segment(2));
+			$username = $this->session->userdata('username');
+
+			$soal = $this->Soal_model->jawab_soal_id($this->uri->segment(2));
+
+			//$data['soal'] = $this->Soal_model->jawab_soal_id($this->uri->segment(2));
+			$data['soal'] = $soal;
+			$data['flagged'] = $this->Log_model->cek_log_flag($username, $soal->id_soal);
+
+			
 
 			$this->load->view('templates/header');
 			$this->load->view('templates/header_bar');
@@ -209,6 +222,46 @@
 
 			}
 		}
+
+
+		/* Fungsi: flag_soal
+		   akses: index.php/soal/flag_soal
+		   parameter: $id_soal
+		   output: NULL
+
+		   memberi flag pada soal yang dimaksudkan
+		*/
+		function flag_soal($id_soal){
+			// $id_soal = $this->Soal_model->selectsoal($this->uri->segment(3));
+
+			$username = $this->session->userdata('username');
+
+			$query = $this->Log_model->add_log_flag($username, $id_soal);
+
+			if ($query) {
+				redirect('jawab/'.$id_soal);
+			}
+		}
+
+		/* Fungsi: unflag_soal
+		   akses: index.php/soal/unflag_soal
+		   parameter: $id_soal
+		   output: NULL
+
+		   memberi flag pada soal yang dimaksudkan
+		*/
+		function unflag_soal($id_soal){
+			// $id_soal = $this->Soal_model->selectsoal($this->uri->segment(3));
+
+			$username = $this->session->userdata('username');
+
+			$query = $this->Log_model->remove_log_flag($username, $id_soal);
+
+			if ($query) {
+				redirect('jawab/'.$id_soal);
+			}
+		}
+		
 
 
 	}

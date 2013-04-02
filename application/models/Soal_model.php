@@ -60,24 +60,4 @@ class Soal_model extends CI_Model{
 		return $data->row();
 	}
 
-	//menambah flag
-	public function add_flag($id_soal){
-
-	}
-
-	//mengurangi flag
-	public function decrease_flag($id_soal){
-
-	}
-
-	//memberi lock
-	public function set_lock(){
-
-	}
-
-	//melepaskan lock
-	public function unset_lock(){
-
-	}
-
 }
