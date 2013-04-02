@@ -46,7 +46,7 @@ class Soal_model extends CI_Model{
 	}
 	
 	function proses_cari_soal($cari){
-		$this->db->like('tag', $cari, 'both'); //%like%
+		$this->db->like('tag', $cari, 'both'); 
 		$this->db->limit(5); //batas soal yg muncul 
 		$this->db->order_by('tag', 'random'); //soal dirandom
 		$data = $this->db->get('soal');
