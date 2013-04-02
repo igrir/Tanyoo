@@ -141,6 +141,11 @@
 
 			$data['soal'] = $soal;
 			$data['flagged'] = $this->Log_model->cek_log_flag($username, $soal->id_soal);
+			
+			$data['num_penjawab'] = $this->Log_model->get_num_penjawab($soal->id_soal);
+			$data['num_flag'] = $this->Log_model->get_num_flag($soal->id_soal);
+
+			$data['dijawab'] = $this->Log_model->cek_log_jawaban($username, $soal->id_soal);
 
 			$this->load->view('templates/header');
 			$this->load->view('templates/header_bar');
@@ -165,8 +170,10 @@
 			//$data['soal'] = $this->Soal_model->jawab_soal_id($this->uri->segment(2));
 			$data['soal'] = $soal;
 			$data['flagged'] = $this->Log_model->cek_log_flag($username, $soal->id_soal);
+			$data['num_penjawab'] = $this->Log_model->get_num_penjawab($soal->id_soal);
+			$data['num_flag'] = $this->Log_model->get_num_flag($soal->id_soal);
 
-			
+			$data['dijawab'] = $this->Log_model->cek_log_jawaban($username, $soal->id_soal);
 
 			$this->load->view('templates/header');
 			$this->load->view('templates/header_bar');
@@ -214,6 +221,10 @@
 
 					$data['soal'] = $row;
 					$data['flagged'] = $this->Log_model->cek_log_flag($username, $row->id_soal);
+					$data['num_penjawab'] = $this->Log_model->get_num_penjawab($row->id_soal);
+					$data['num_flag'] = $this->Log_model->get_num_flag($row->id_soal);
+
+					$data['dijawab'] = $this->Log_model->cek_log_jawaban($username, $row->id_soal);
 
 					$this->load->view('templates/header');
 					$this->load->view('templates/header_bar');
@@ -222,6 +233,10 @@
 				}else{
 					$data['soal'] = $row;
 					$data['flagged'] = $this->Log_model->cek_log_flag($username, $row->id_soal);
+					$data['num_penjawab'] = $this->Log_model->get_num_penjawab($row->id_soal);
+					$data['num_flag'] = $this->Log_model->get_num_flag($row->id_soal);
+
+					$data['dijawab'] = $this->Log_model->cek_log_jawaban($username, $row->id_soal);
 
 					$this->load->view('templates/header');
 					$this->load->view('templates/header_bar');
@@ -264,6 +279,10 @@
 			$row = $info_soal->row();
 
 			$data['soal'] = $row;
+			$data['num_penjawab'] = $this->Log_model->get_num_penjawab($row->id_soal);
+			$data['num_flag'] = $this->Log_model->get_num_flag($row->id_soal);
+
+			$data['dijawab'] = $this->Log_model->cek_log_jawaban($username, $row->id_soal);
 
 			$this->load->view('templates/header');
 			$this->load->view('templates/header_bar');
@@ -290,6 +309,7 @@
 			}
 		}
 		
+
 
 
 	}

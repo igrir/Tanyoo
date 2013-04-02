@@ -31,7 +31,18 @@
 						<a href="<?php echo base_url()?>index.php/soal/flag_soal/<?php echo $soal->id_soal?>">flag</a>
 					<?php
 					}
+					//menampilkan jumlah flag
+					echo $num_flag;
 
+					//menampilkan penjawab
+					echo "p:".$num_penjawab;
+
+					if ($dijawab) {
+						?>
+						kamu sudah pernah jawab
+						<?php
+					}
+					
 					?>
 					
 				</div>
