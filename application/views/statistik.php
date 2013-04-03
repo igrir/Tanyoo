@@ -5,10 +5,18 @@
 
 		<ul data-role="listview" data-inset="true" data-theme="e"> 
 			<li>
-				<p>Banyak Soal : </p>
-				<p>Banyak Pengguna : </p>
-				<p>Peserta : </p>
-			</li>						
+				<h3>Statistik Tanyoo</h1>
+				<p>Banyak Pengguna : <?php echo $num_user?></p>
+				<p>Banyak Soal : <?php echo $num_soal?></p>
+				<p>Banyak jawaban  : <?php echo $num_jawaban_soal?></p>
+				<p>Banyak flag  : <?php echo $num_flagged_soal?></p>
+			</li>		
+
+			<li>
+				<h3>Statistik Kamu</h1>
+				<p>Banyak penjawab soalmu  : <?php echo $num_jawaban_soalmu?></p>
+				<p>Banyak flagmu  : <?php echo $num_flagged_soalmu?></p>
+			</li>					
 		</ul>
 		
 		<ul data-role="listview" data-inset="true" data-theme="d"> <!---menampilkan 3 nama peserta skor tertinggi-->
