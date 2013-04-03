@@ -189,8 +189,7 @@
 				$this->load->view('pertanyaan_hilang');
 				$this->load->view('templates/footer_logout');	
 			}else{
-				//$data['soal'] = $this->Soal_model->jawab_soal_id($this->uri->segment(2));
-				$data['soal'] = $soal;
+				$data['soal'] = $this->Soal_model->jawab_soal_id($this->uri->segment(2));
 				$data['flagged'] = $this->Log_model->cek_log_flag($username, $soal->id_soal);
 				$data['num_penjawab'] = $this->Log_model->get_num_penjawab($soal->id_soal);
 				$data['num_flag'] = $this->Log_model->get_num_flag($soal->id_soal);
