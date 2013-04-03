@@ -4,7 +4,7 @@
 	<div data-role="footer" data-position="fixed"> 
 	<div data-role="navbar">
 		<ul>
-			<li><a href="<?php echo base_url()?>index.php/u/about" data-rel="popout" data-position-to="window" data-transition="pop" data-ajax="false" data-theme="a" "><img src="<?php echo base_url()?>css/images/about.png" width="15px"></a></li>
+			<li><a href="<?php echo base_url()?>index.php/u/about" class="ui-btn-active ui-state-persist" data-rel="popout" data-position-to="window" data-transition="pop" data-ajax="false" data-theme="a" "><img src="<?php echo base_url()?>css/images/about.png" width="15px"></a></li>
 			<li><a href="<?php echo base_url()?>index.php/u/help" data-rel="popout" data-position-to="window" data-transition="pop" data-ajax="false" data-theme="a" "><img src="<?php echo base_url()?>css/images/help.png" width="15px"></a></li>
 			<li><a href="<?php echo base_url()?>index.php/login/logout" data-rel="popup" data-position-to="window" data-transition="pop" data-ajax="false" data-theme="a""><img src="<?php echo base_url()?>css/images/out.png" width="15px">&nbsp;logout</a></li>
 		</ul>

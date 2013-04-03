@@ -1,6 +1,4 @@
 	<div data-role="content"> 
-		<a href="<?php echo base_url()?>index.php/u/about" data-rel="popout" data-position-to="window" data-transition="pop">about</a>
-		<a href="<?php echo base_url()?>index.php/u/help" data-rel="popout" data-position-to="window" data-transition="pop">help</a>
 			<p class="text"><i><?php echo $profil->username; ?></i></p> <!-- untuk menampilkan nama user -->
 			<div data-role="fieldcontain" class="ui-hide-label">
 				<ul data-role="listview" data-split-icon="gear" data-split-theme="a" data-theme="d">

@@ -142,7 +142,7 @@
 			$this->load->view('templates/header');
 			$this->load->view('templates/header_bar_search');
 			$this->load->view('about');
-			$this->load->view('templates/footer_logout');
+			$this->load->view('templates/footer_logout_about');
 		}
 		
 		function help(){ //menampilkan tentang tanyoo
@@ -150,7 +150,7 @@
 			$this->load->view('templates/header');
 			$this->load->view('templates/header_bar_search');
 			$this->load->view('help');
-			$this->load->view('templates/footer_logout');
+			$this->load->view('templates/footer_logout_help');
 		}
 	
 	}
