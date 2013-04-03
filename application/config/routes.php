@@ -49,9 +49,9 @@ $route['u/(:any)/celengan'] = 'profil/celengan/$1'; // route ke profile celengan
 
 $route['u/(:any)/edit_profil'] = 'profil/profile_ubah/$1'; // route ke profile 
 $route['u/save_edit_profil'] = 'profil/simpan_profile_ubah'; // menyimpan perubahan profil
-//$route['u/(:any)/profile_ubah'] = 'profil/profile_ubah/$1'; // route ke profile_ubah_view
-
 $route['u/(:any)'] = 'profil/index/$1';		//route ke profil dengan "u/[username]". "u" karena singkatan "user"
+$route['u/about'] = 'profil/about'; //menampilkan halaman about
+$route['u/help'] = 'profil/help'; //menampilkan halaman help
 
 //routing ke CRUD celengan
 $route['celengan/(:any)'] = 'celengan/$1';

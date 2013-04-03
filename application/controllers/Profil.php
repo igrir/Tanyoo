@@ -144,4 +144,13 @@
 			$this->load->view('about');
 			$this->load->view('templates/footer_logout');
 		}
+		
+		function help(){ //menampilkan tentang tanyoo
+			//$this->sessionlogin->cek_login();
+			$this->load->view('templates/header');
+			$this->load->view('templates/header_bar_search');
+			$this->load->view('help');
+			$this->load->view('templates/footer_logout');
+		}
+	
 	}
