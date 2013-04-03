@@ -5,6 +5,13 @@ class User_model extends CI_Model{
 		$this->load->database();
 	}
 
+	//mendapatkan banyak pengguna keseluruhan
+	public function get_num_user(){
+		$query = $this->db->get('user')->num_rows();
+		return $query;
+	}
+
+
 	//cek banyak user yang dicari berdasarkan id fb nya
 	// public function get_number_user_by_fbid($id_facebook){
 	// 	$query = $this->db->get_where('user', array('id_fb' => $id_facebook));

@@ -176,12 +176,14 @@
 			$this->sessionlogin->cek_login();
 
 			$username = $this->session->userdata('username');
-			$id_soal = $this->uri->segment(3);
-
+			
+			$id_soal = $this->uri->segment(2);
 
 			$cek_sudah_dihapus = $this->Soal_model->is_soal_deleted($id_soal);
 
 			$soal = $this->Soal_model->jawab_soal_id($id_soal);
+
+
 
 			if ($cek_sudah_dihapus == TRUE) {
 				$this->load->view('templates/header');
@@ -189,8 +191,7 @@
 				$this->load->view('pertanyaan_hilang');
 				$this->load->view('templates/footer_logout');	
 			}else{
-				//$data['soal'] = $this->Soal_model->jawab_soal_id($this->uri->segment(2));
-				$data['soal'] = $soal;
+				$data['soal'] = $this->Soal_model->jawab_soal_id($this->uri->segment(2));
 				$data['flagged'] = $this->Log_model->cek_log_flag($username, $soal->id_soal);
 				$data['num_penjawab'] = $this->Log_model->get_num_penjawab($soal->id_soal);
 				$data['num_flag'] = $this->Log_model->get_num_flag($soal->id_soal);
@@ -298,6 +299,8 @@
 		   tampilan soal sudah di flag
 		*/
 		function flagged($id_soal){
+			$username = $this->session->userdata('username');
+
 			$info_soal = $this->Soal_model->selectsoal($id_soal);
 			$row = $info_soal->row();
 

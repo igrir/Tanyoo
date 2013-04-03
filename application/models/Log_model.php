@@ -125,4 +125,37 @@ class Log_model extends CI_Model{
 			return false;
 		}
 	}
+
+	/* Fungsi: get_num_answered_soal
+	   parameter: -
+	   output : INTEGER
+	   mendapatkan banyak jawaban
+	*/
+	public function get_num_answered_soal(){
+		$query = $this->db->get_where('log', array('log_type'=>1));
+		return $query->num_rows();
+	}
+
+	/* Fungsi: get_num_flagged_soal
+	   parameter: -
+	   output : INTEGER
+	   mendapatkan banyak flag
+	*/
+	public function get_num_flagged_soal(){
+		$query = $this->db->get_where('log', array('log_type'=>2));
+		return $query->num_rows();
+	}
+
+	/* Fungsi: get_num_flagged_user
+	   parameter: -
+	   output : INTEGER
+	   mendapatkan banyak flag dari user tertentu
+	*/
+	function get_num_flagged_user($user){
+
+		$query = "SELECT * FROM log, soal WHERE log.id_soal = soal.id_soal AND soal.username= ? AND log_type = 2";
+		$temp = $this->db->query($query,array($user));
+
+		return $temp->num_rows;
+	}
 }

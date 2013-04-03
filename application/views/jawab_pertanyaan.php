@@ -1,43 +1,52 @@
-		<div data-role="content" id="celengan"> 
+		<div data-role="content"> 
 			<p class="text"><i>-----------soal----------</i></p> 
-			<div data-role="fieldcontain" class="ui-hide-label">
+			<div data-role="fieldcontain" class="ui-hide-label" id="tampiltext">
 				<ul data-role="listview" data-inset="true" data-theme="d"> <!---menampilkan pertanyaan-->
 					<li>
 						<?php echo $soal->text_soal?>
+						<br><br><p style=" color:grey">by <?php echo $soal->username?></p>
+						<p style=" color:grey"><?php echo $soal->tag?></p>
 					</li>				
 					
 				</ul>
 				<!-- Disini buat menu-menu, edited by giri -->
-				<div style="text-align: right;">
-					<a href="<?php echo base_url()?>index.php/celengan/tambah_isi/<?php echo $soal->id_soal;?>"><img src="<?php echo base_url()?>css/images/celengan.png" width="30px"></a>
-
+				
+				<div class="ui-grid-d">
+					
+					<div class="ui-block-a" style="height:50px; width:10%"></div>
+					<div class="ui-block-b" style="height:50px; width:15%">
+						<a href="<?php echo base_url()?>index.php/celengan/tambah_isi/<?php echo $soal->id_soal;?>"><img src="<?php echo base_url()?>css/images/t_celengan.png" width="32px"></a>
+					</div>
 					<?php
 
 					if ($flagged) {
 						?>
-						<a href="<?php echo base_url()?>index.php/soal/unflag_soal/<?php echo $soal->id_soal?>" data-ajax="false">unflag</a>
+						<div class="ui-block-c" style="height:50px; width:15%">
+						<a href="<?php echo base_url()?>index.php/soal/unflag_soal/<?php echo $soal->id_soal?>" data-ajax="false"><img src="<?php echo base_url()?>css/images/flag.png" width="30px"></a>
+						</div>
 					<?php
 					}else{
 						?>
-						<a href="<?php echo base_url()?>index.php/soal/flag_soal/<?php echo $soal->id_soal?>" data-ajax="false">flag</a>
+						<div class="ui-block-c" style="height:50px; width:15%">
+						<a href="<?php echo base_url()?>index.php/soal/flag_soal/<?php echo $soal->id_soal?>" data-ajax="false"><img src="<?php echo base_url()?>css/images/unflag.png" width="30px"></a>
+						</div>
 					<?php
 					}
-
+				
 					//menampilkan jumlah flag
-					echo $num_flag;
+					echo "<div class='ui-block-d ui-body-e' style='height:40px; width:25%; margin-top:-10px;'> <div id='flag'><p>flag : ".$num_flag."</p></div></div>";
 
 					//menampilkan penjawab
-					echo "p:".$num_penjawab;
-
+					echo "<div class='ui-block-e ui-body-c' style='height:40px; width:35%; margin-top:-10px;'> <div id='flag'><p>penjawab : ".$num_penjawab."</p></div></div>";
+				echo "</div>";
 					if ($dijawab) {
 						?>
-						kamu sudah pernah jawab
+						<div class="ui-body-a ui-corner-all"><p style="text-align:center;">kamu sudah pernah jawab</p></div><br>
 						<?php
 					}
 
 					?>
-					
-				</div>
+				
 				<?php //echo form_open('soal/cek_jawab'); ?>
 				<form action="<?php echo base_url()?>index.php/soal/cek_jawab" data-transition="flip" method="POST">
 					<input type="hidden" value="<?php echo $soal->id_soal?>" name="id"/>

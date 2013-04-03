@@ -12,6 +12,10 @@
 		public function __construct(){
 			parent::__construct();
 			$this->load->library('sessionlogin');
+
+			$this->load->model('User_model');
+			$this->load->model('Soal_model');
+			$this->load->model('Log_model');
 		}
 		
 		//comment lagi
@@ -102,9 +106,19 @@
 			$this->sessionlogin->cek_login();
 			$this->load->helper('form');
 			$this->load->library('form_validation');
+			$this->load->library('session');
 			$this->load->helper('url');
 
+			$username = $this->session->userdata('username');
+
 			$data['title'] = "Statistik";
+			$data['num_user'] = $this->User_model->get_num_user();
+			$data['num_soal'] = $this->Soal_model->get_num_total_soal();
+			$data['num_jawaban_soal'] = $this->Log_model->get_num_answered_soal();
+			$data['num_flagged_soal'] = $this->Log_model->get_num_flagged_soal();
+
+			$data['num_jawaban_soalmu'] = $this->Soal_model->get_jumlah_penjawab($username);
+			$data['num_flagged_soalmu'] = $this->Log_model->get_num_flagged_user($username);
 
 			$this->load->view('templates/header', $data);
 			$this->load->view('templates/header_bar_statistik', $data);

@@ -98,11 +98,22 @@ class Soal_model extends CI_Model{
 		return $query->num_rows();
 	}
 
+
+	//DEPRECATED JANGAN DIPAKAI KARENA nggak mempertimbangkan soal dihapus
 	function get_jumlah_soal($user){
 		$this->db->select('text_soal');
 		$data = $this->db->get_where('soal', array('username' => $user));
 		$data = $data->num_rows();
 		return $data;
+	}
+
+	//mendapatkan banyak orang yang sudah menjawab soal
+	function get_jumlah_penjawab($user){
+
+		$query = "SELECT * FROM log, soal WHERE log.id_soal = soal.id_soal AND soal.username=?";
+		$temp = $this->db->query($query,array($user));
+
+		return $temp->num_rows();
 	}
 
 }
