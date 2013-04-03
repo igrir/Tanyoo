@@ -242,8 +242,6 @@
 						$this->Log_model->add_log_jawaban($username, $id_soal);
 
 					}
-
-
 					$data['soal'] = $row;
 					$data['flagged'] = $this->Log_model->cek_log_flag($username, $row->id_soal);
 					$data['num_penjawab'] = $this->Log_model->get_num_penjawab($row->id_soal);

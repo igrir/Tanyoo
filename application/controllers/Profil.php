@@ -133,12 +133,15 @@
 				}else{
 					redirect('u/'.$username,'refresh');	
 				}
-
-
-				
 				//redirect('Profil/profile_ubah/'.$username,'refresh');
-			}
-			
-			
+			}			
+		}
+		
+		function about(){ //menampilkan tentang tanyoo
+			//$this->sessionlogin->cek_login();
+			$this->load->view('templates/header');
+			$this->load->view('templates/header_bar_search');
+			$this->load->view('about');
+			$this->load->view('templates/footer_logout');
 		}
 	}
