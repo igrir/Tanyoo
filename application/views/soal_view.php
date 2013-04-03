@@ -16,6 +16,7 @@
 				</div>
 			</div>
 
+			<?php echo $pagination_link;?>
 			<?php $i=1 ?>
 			<?php foreach($data_soal as $t):?> 
 

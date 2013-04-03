@@ -27,19 +27,86 @@
 		}
 		
 		function index(){
+			// $this->sessionlogin->cek_login();
+
+			// $this->load->library('session');
+			// $username = $this->session->userdata('username');
+			// $data['data_soal']=$this->Soal_model->selectByUser($username);
+			
+			// $this->load->vars($data);
+			// $this->load->view('templates/header', $data);
+			// $this->load->view('templates/header_bar', $data);
+			// $this->load->view('soal_view',$data); //soal_view menampung data dari $data
+			// $this->load->view('templates/footer_logout', $data);
+
 			$this->sessionlogin->cek_login();
 
+			$this->load->library('pagination');
 			$this->load->library('session');
+
 			$username = $this->session->userdata('username');
-			$data['data_soal']=$this->Soal_model->selectByUser($username);
+			$per_page = 10;			//banyaknya konten ditampilkan
+
+			$halaman = $this->uri->segment(3);
+			if ($halaman == "") {
+				$halaman = 1;
+			}			
+
+			$config['base_url']   = base_url()."index.php/soal/index/";
+			$config['total_rows'] = $this->Soal_model->get_jumlah_soal($username);;
+			$config['per_page']   = $per_page;
+			$config['first_link'] = 'First';
+			$config['last_link'] = 'Last';
+			$this->pagination->initialize($config);			
+			
+			$data['data_soal']=$this->Soal_model->selectByUserPagination($username, $halaman, $per_page);
 			
 			$this->load->vars($data);
+
+			$data['pagination_link'] = $this->pagination->create_links();
+
 			$this->load->view('templates/header', $data);
 			$this->load->view('templates/header_bar', $data);
 			$this->load->view('soal_view',$data); //soal_view menampung data dari $data
 			$this->load->view('templates/footer_logout', $data);
 		}
-		
+
+		//soal dengan halaman
+		function p(){
+			$this->load->library('pagination');
+
+			$halaman = $this->uri->segment(3);
+			if ($halaman == "") {
+				$halaman = 1;
+			}
+
+			$per_page = 20;			//banyaknya konten ditampilkan
+
+			$username = $this->session->userdata('username');
+
+			$config['base_url']   = base_url()."index.php/soal/p/";
+			$config['total_rows'] = $this->Soal_model->get_jumlah_soal($username);;
+			$config['per_page']   = $per_page;
+
+			$this->pagination->initialize($config);
+
+			$this->sessionlogin->cek_login();
+
+			$this->load->library('session');
+			$username = $this->session->userdata('username');
+			$data['data_soal']=$this->Soal_model->selectByUserPagination($username, $halaman, $per_page);
+			
+			$this->load->vars($data);
+
+
+			$data['pagination_link'] = $this->pagination->create_links();
+
+			$this->load->view('templates/header', $data);
+			$this->load->view('templates/header_bar', $data);
+			$this->load->view('soal_view',$data); //soal_view menampung data dari $data
+			$this->load->view('templates/footer_logout', $data);
+		}
+
 		function add(){
 			$this->sessionlogin->cek_login();
 
