@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Apr 02, 2013 at 09:20 
+-- Generation Time: Apr 03, 2013 at 04:03 
 -- Server version: 5.5.8
 -- PHP Version: 5.3.5
 
@@ -75,16 +75,18 @@ CREATE TABLE IF NOT EXISTS `log` (
   `id_log` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(255) NOT NULL,
   `id_soal` int(11) NOT NULL,
-  `log_type` int(11) NOT NULL COMMENT 'jawab soal = 1, flag = 2',
+  `log_type` int(11) NOT NULL COMMENT 'jawab soal = 1, flag = 2, salah = 3',
+  `waktu` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'waktu menjawab, agar ada ranking 1',
   PRIMARY KEY (`id_log`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COMMENT='tabel yang menjelaskan penggunaan user terhadap menjawab soa' AUTO_INCREMENT=2 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COMMENT='tabel yang menjelaskan penggunaan user terhadap menjawab soa' AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `log`
 --
 
-INSERT INTO `log` (`id_log`, `username`, `id_soal`, `log_type`) VALUES
-(1, 'giri', 6, 1);
+INSERT INTO `log` (`id_log`, `username`, `id_soal`, `log_type`, `waktu`) VALUES
+(1, 'giri', 6, 1, '0000-00-00 00:00:00'),
+(2, 'giri', 1, 1, '2013-04-03 20:52:38');
 
 -- --------------------------------------------------------
 
@@ -99,7 +101,7 @@ CREATE TABLE IF NOT EXISTS `penghargaan` (
   `Jawab` int(11) NOT NULL,
   `Skor` int(11) NOT NULL,
   PRIMARY KEY (`id_penghargaan`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=13 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
 
 --
 -- Dumping data for table `penghargaan`
@@ -186,8 +188,6 @@ CREATE TABLE IF NOT EXISTS `static` (
 CREATE TABLE IF NOT EXISTS `user` (
   `username` varchar(32) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `id_fb` varchar(50) NOT NULL,
-  `skor` int(11) NOT NULL,
   `bio` varchar(250) NOT NULL,
   `minat` varchar(255) NOT NULL,
   PRIMARY KEY (`username`)
@@ -197,12 +197,12 @@ CREATE TABLE IF NOT EXISTS `user` (
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`username`, `password`, `id_fb`, `skor`, `bio`, `minat`) VALUES
-('erwin', '123', '', 0, 'erwingw', 'komputer'),
-('giri', '123', '', 30, '123123', '1 2 3'),
-('giri2', '123', '', 0, '123', '123'),
-('igrir', '123', '1227196016', 0, 'Penyuka penanya jawaban', 'biologi fisika matematika'),
-('indana', '123', '', 0, 'indana zf', 'fisika kimia');
+INSERT INTO `user` (`username`, `password`, `bio`, `minat`) VALUES
+('erwin', '123', 'erwingw', 'komputer'),
+('giri', '123', '123123', '1 2 3'),
+('giri2', '123', '123', '123'),
+('igrir', '123', 'Penyuka penanya jawaban', 'biologi fisika matematika'),
+('indana', '123', 'indana zf', 'fisika kimia');
 
 -- --------------------------------------------------------
 
@@ -221,6 +221,8 @@ CREATE TABLE IF NOT EXISTS `user_penghargaan` (
 -- Dumping data for table `user_penghargaan`
 --
 
+INSERT INTO `user_penghargaan` (`id_penghargaan`, `username`) VALUES
+(2, 'giri');
 
 --
 -- Constraints for dumped tables
