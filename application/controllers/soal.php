@@ -176,12 +176,14 @@
 			$this->sessionlogin->cek_login();
 
 			$username = $this->session->userdata('username');
-			$id_soal = $this->uri->segment(3);
-
+			
+			$id_soal = $this->uri->segment(2);
 
 			$cek_sudah_dihapus = $this->Soal_model->is_soal_deleted($id_soal);
 
 			$soal = $this->Soal_model->jawab_soal_id($id_soal);
+
+
 
 			if ($cek_sudah_dihapus == TRUE) {
 				$this->load->view('templates/header');
@@ -299,6 +301,8 @@
 		   tampilan soal sudah di flag
 		*/
 		function flagged($id_soal){
+			$username = $this->session->userdata('username');
+
 			$info_soal = $this->Soal_model->selectsoal($id_soal);
 			$row = $info_soal->row();
 
