@@ -158,4 +158,16 @@ class Log_model extends CI_Model{
 
 		return $temp->num_rows;
 	}
+
+	/* Fungsi: get_num_flagged_user
+	   parameter: -
+	   output : INTEGER
+	   mendapatkan banyak flag dari user tertentu
+	*/
+	function get_highscore($num){
+		$query = "SELECT COUNT(username) as skor, username FROM log GROUP BY username ORDER BY skor DESC LIMIT 0, ?";
+		$data = $this->db->query($query, array($num));
+
+		return $data->result();
+	}
 }
