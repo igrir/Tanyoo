@@ -7,7 +7,6 @@
 					</li>				
 					<a href="<?php echo base_url()?>index.php/soal/index" data-role="button" data-icon="plus" data-iconpos="right">Tulis Pertanyaan</a>
 				</ul>
-				<!-- Disini buat menu-menu, edited by giri -->
 				<div style="text-align: right;">
 
 				</div>

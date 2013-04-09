@@ -1,15 +1,27 @@
 		<div data-role="content"> 
 			<p class="text"><i>-----------soal----------</i></p> 
+			
 			<div data-role="fieldcontain" class="ui-hide-label" id="tampiltext">
 				<ul data-role="listview" data-inset="true" data-theme="d"> <!---menampilkan pertanyaan-->
 					<li>
+						<?
+						if ($dijawab) {
+							?>
+							 <img src="<?php echo base_url()?>css/images/notif.png" width="32px" height="32px" style="margin-right:-40px;" class="ui-li-icon">
+							<?php
+						}else{
+							?>
+							 <img src="<?php echo base_url()?>css/images/notifmati.png" width="32px" height="32px" style="margin-right:-40px;" class="ui-li-icon">
+							<?php
+						}
+						?>
 						<?php echo $soal->text_soal?>
 						<br><br><p style=" color:grey">by <?php echo $soal->username?></p>
 						<p style=" color:grey"><?php echo $soal->tag?></p>
 					</li>				
 					
 				</ul>
-				<!-- Disini buat menu-menu, edited by giri -->
+				
 				
 				<div class="ui-grid-d">
 					
@@ -34,19 +46,12 @@
 					}
 					?>
 					<!--menampilkan jumlah flag-->
-					<div class="ui-block-d" style="height:40px; width:20%;"> <img src="<?php echo base_url()?>css/images/notif.png" width="32px" height="32px"> <div id="flag"><p style="margin-top:-30px; margin-left:20px; font-size:20px"><b><?php echo $num_flag?></b></p></div></div>
+					<div class="ui-block-d" style="height:40px; width:20%;"><p style="margin-top:-15px; margin-left:20px; font-size:23px"> <div id="flag"><b><?php echo $num_flag?></b></p></div></div>
 
 					<!--menampilkan penjawab-->
-					<div class="ui-block-e" style="height:40px; width:20%;"> <img src="<?php echo base_url()?>css/images/orang.png" width="17px" height="27px" style="margin-top:5px;"> <div id="flag"><p style="margin-top:-30px; font-size:20px"><b><? echo $num_penjawab?></b></p></div></div>
+					<div class="ui-block-e" style="height:40px; width:20%;"> <img src="<?php echo base_url()?>css/images/orang.png" width="17px" height="27px" style="margin-top:5px;"> <div id="flag"><p style="margin-top:-28px; font-size:16px"><b><? echo $num_penjawab?></b></p></div></div>
 					</div>
-					<?
-					if ($dijawab) {
-						?>
-						<div class="ui-body-a ui-corner-all"><p style="text-align:center;">kamu sudah pernah jawab</p></div><br>
-						<?php
-					}
-
-					?>
+					
 				
 				<?php //echo form_open('soal/cek_jawab'); ?>
 				<form action="<?php echo base_url()?>index.php/soal/cek_jawab" data-transition="flip" method="POST">
