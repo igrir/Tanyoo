@@ -129,11 +129,22 @@ class Log_model extends CI_Model{
 	/* Fungsi: get_num_answered_soal
 	   parameter: -
 	   output : INTEGER
-	   mendapatkan banyak jawaban
+	   mendapatkan banyak jawaban dari seluruh peserta
 	*/
 	public function get_num_answered_soal(){
 		$query = $this->db->get_where('log', array('log_type'=>1));
 		return $query->num_rows();
+	}
+
+	/* Fungsi: get_answered_soal_from_username
+	   parameter: -
+	   output : 
+	   mendapatkan 10 jawaban teratas yang baru dijawab peserta
+	*/
+	public function get_answered_soal_from_username($username){
+		$this->db->order_by("waktu", "desc"); 
+		$query = $this->db->get_where('log', array('log_type'=>1, 'username'=>$username), 10, 0);
+		return $query->result();
 	}
 
 	/* Fungsi: get_num_flagged_soal

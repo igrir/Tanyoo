@@ -188,5 +188,15 @@
 			$this->load->view('templates/footer_logout', $data);
 
 		}
+
+		function jawab($username){	
+			$data['data_soal']		 = $this->Log_model->get_answered_soal_from_username($username);
+
+			$this->load->view('templates/header', $data);
+			$this->load->view('templates/header_bar', $data);
+			$this->load->view('profil_jawab_view',$data); //soal_view menampung data dari $data
+			$this->load->view('templates/footer_logout', $data);
+
+		}
 	
 	}

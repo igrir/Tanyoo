@@ -28,10 +28,13 @@
 			</div>
 			<p class="text">----------<i>skor</i>----------</p>
 			<div class="ui-grid-a"> 
-				<div class="ui-block-a" id="tampilskor" class="jawaban">
-					<h3 class="text3"><?php echo $skor; ?></h3> <!--isi dengan jumlah banyak menjawab-->
-					<p class="tengah">jawaban</p>
-				</div> 
+
+				<a href="<?php echo base_url()?>index.php/<?php echo $profil->username?>/jawab">
+					<div class="ui-block-a" id="tampilskor" class="jawaban">
+						<h3 class="text3"><?php echo $skor; ?></h3> <!--isi dengan jumlah banyak menjawab-->
+						<p class="tengah">jawaban</p>
+					</div> 
+				</a>
 
 				<a href="<?php echo base_url()?>index.php/<?php echo $profil->username?>/soal">
 					<div class="ui-block-b" id="tampilskor" class="soal">
