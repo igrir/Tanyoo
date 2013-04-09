@@ -22,8 +22,6 @@
 							<!-- Flag sama penjawabnya kalau bisa diganti sama ikon :) -->
 							<p style="">j:<?php echo $num_penjawab ?>,f:<?php echo $num_flag ?></p>	
 						</a>
-
-					
 				</li>
 			</ul>
 			</div>
