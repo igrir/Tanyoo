@@ -32,10 +32,13 @@
 					<h3 class="text3"><?php echo $skor; ?></h3> <!--isi dengan jumlah banyak menjawab-->
 					<p class="tengah">jawaban</p>
 				</div> 
-				<div class="ui-block-b" id="tampilskor" class="soal">	
-					<h3 class="text2"><?php echo $jml_soal; ?></h3>
-					<p class="tengah">soal</p>
-				</div> 
+
+				<a href="<?php echo base_url()?>index.php/<?php echo $profil->username?>/soal">
+					<div class="ui-block-b" id="tampilskor" class="soal">
+						<h3 class="text2"><?php echo $jml_soal; ?></h3>
+						<p class="tengah">soal</p>
+					</div> 
+				</a>
 			</div> 
 			
 			<a href="<?php echo base_url()?>index.php/u/<?php echo $profil->username?>/celengan/"><img src="<?php echo base_url()?>css/images/t_celengan.png" width="60px" height="60px"></a>
