@@ -1,6 +1,4 @@
 	<div data-role="content"> 
-		<a href="<?php echo base_url()?>index.php/u/about" data-rel="popout" data-position-to="window" data-transition="pop">about</a>
-		<a href="<?php echo base_url()?>index.php/u/help" data-rel="popout" data-position-to="window" data-transition="pop">help</a>
 			<p class="text"><i><?php echo $profil->username; ?></i></p> <!-- untuk menampilkan nama user -->
 			<div data-role="fieldcontain" class="ui-hide-label">
 				<ul data-role="listview" data-split-icon="gear" data-split-theme="a" data-theme="d">
@@ -30,14 +28,20 @@
 			</div>
 			<p class="text">----------<i>skor</i>----------</p>
 			<div class="ui-grid-a"> 
-				<div class="ui-block-a" id="tampilskor" class="jawaban">
-					<h3 class="text3"><?php echo $skor; ?></h3> <!--isi dengan jumlah banyak menjawab-->
-					<p class="tengah">jawaban</p>
-				</div> 
-				<div class="ui-block-b" id="tampilskor" class="soal">	
-					<h3 class="text2"><?php echo $jml_soal; ?></h3>
-					<p class="tengah">soal</p>
-				</div> 
+
+				<a href="<?php echo base_url()?>index.php/<?php echo $profil->username?>/jawab">
+					<div class="ui-block-a" id="tampilskor" class="jawaban">
+						<h3 class="text3"><?php echo $skor; ?></h3> <!--isi dengan jumlah banyak menjawab-->
+						<p class="tengah">jawaban</p>
+					</div> 
+				</a>
+
+				<a href="<?php echo base_url()?>index.php/<?php echo $profil->username?>/soal">
+					<div class="ui-block-b" id="tampilskor" class="soal">
+						<h3 class="text2"><?php echo $jml_soal; ?></h3>
+						<p class="tengah">soal</p>
+					</div> 
+				</a>
 			</div> 
 			
 			<a href="<?php echo base_url()?>index.php/u/<?php echo $profil->username?>/celengan/"><img src="<?php echo base_url()?>css/images/t_celengan.png" width="60px" height="60px"></a>

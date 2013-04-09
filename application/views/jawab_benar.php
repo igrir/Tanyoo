@@ -17,28 +17,35 @@
 					</li>
 				</ul>
 				<!-- Disini buat menu-menu, edited by giri -->
-				<div style="text-align: right;">
-					<a href="<?php echo base_url()?>index.php/celengan/tambah_isi/<?php echo $soal->id_soal;?>"><img src="<?php echo base_url()?>css/images/celengan.png" width="30px"></a>
-
+				<div class="ui-grid-d">
+					
+					<div class="ui-block-a" style="height:50px; width:10%"></div>
+					<div class="ui-block-b" style="height:50px; width:15%">
+						<a href="<?php echo base_url()?>index.php/celengan/tambah_isi/<?php echo $soal->id_soal;?>"><img src="<?php echo base_url()?>css/images/t_celengan.png" width="32px"></a>
+					</div>
 					<?php
 
 					if ($flagged) {
 						?>
-						<a href="<?php echo base_url()?>index.php/soal/unflag_soal/<?php echo $soal->id_soal?>"><img src="<?php echo base_url()?>css/images/unflag.png" width="30px"></a>
+						<div class="ui-block-c" style="height:50px; width:15%">
+						<a href="<?php echo base_url()?>index.php/soal/unflag_soal/<?php echo $soal->id_soal?>" data-ajax="false"><img src="<?php echo base_url()?>css/images/flag.png" width="30px"></a>
+						</div>
 					<?php
 					}else{
 						?>
-						<a href="<?php echo base_url()?>index.php/soal/flag_soal/<?php echo $soal->id_soal?>"><img src="<?php echo base_url()?>css/images/flag.png" width="30px"></a>
+						<div class="ui-block-c" style="height:50px; width:15%">
+						<a href="<?php echo base_url()?>index.php/soal/flag_soal/<?php echo $soal->id_soal?>" data-ajax="false"><img src="<?php echo base_url()?>css/images/unflag.png" width="30px"></a>
+						</div>
 					<?php
 					}
-					//menampilkan jumlah flag
-					echo $num_flag;
-
-					//menampilkan penjawab
-					echo "p:".$num_penjawab;
-
+			
 					?>
 					
+					<!--menampilkan jumlah flag-->
+					<div class="ui-block-d" style="height:40px; width:20%;"><p style="margin-top:-15px; margin-left:20px; font-size:23px"> <div id="flag"><b><?php echo $num_flag?></b></p></div></div>
+
+					<!--menampilkan penjawab-->
+					<div class="ui-block-e" style="height:40px; width:20%;"> <img src="<?php echo base_url()?>css/images/orang.png" width="17px" height="27px" style="margin-top:5px;"> <div id="flag"><p style="margin-top:-28px; font-size:16px"><b><? echo $num_penjawab?></b></p></div></div>
 				</div>
 
 			

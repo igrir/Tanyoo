@@ -1,7 +1,7 @@
 
-	<div data-role="content" id="celengan"> 
+	<div data-role="content"> 
 		<p class="text"><i><?php echo $profil->username; ?></i></p> <!--- tampilkan nama user -->
-		<img src="<?php echo base_url()?>css/images/celengan.png" width="70px" height="60px">
+		<center><img src="<?php echo base_url()?>css/images/celengan.png" width="70px" height="60px"></center>
 
 		<div data-role="fieldcontain" class="ui-hide-label">
 			

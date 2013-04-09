@@ -2,12 +2,14 @@
 		<div data-role="header" data-position="inline" data-theme="e"> 
 			<h1>Selamat Datang</h1> 
 		</div> 	
+		<center>
 		<div data-role="content" id="logo"> 
-			<img src="<?php echo base_url()?>css/images/tagline.png" width="70%"></a>
+			<img src="<?php echo base_url()?>css/images/tagline.png" width="50%"></a>
 			<br>
 			<br>
 			<a href="<?php echo base_url()?>index.php#two" data-role="button" data-transition="flip" data-ajax="false">Login</a></p>
 		</div> 
+		</center>
 	</div> 
 	
 	<div data-role="page" id="two" data-add-back-btn="true" data-theme="e" style="background:url(<?php echo base_url()?>css/images/back.png) no-repeat;background-size:100% 100%;">  

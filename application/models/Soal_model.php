@@ -27,6 +27,17 @@ class Soal_model extends CI_Model{
 		return $data->result();
 	}
 
+	//mengambil soal-soal berdasarkan user tertentu menggunakan pagination
+	function selectByUserPagination($user, $page, $limit){
+		$this->db->order_by("id_soal", "desc"); 
+
+		$deleted = array(3);
+		$this->db->where_not_in('locked', $deleted);
+
+		$data = $this->db->get_where('soal', array('username' => $user), $limit, $page-1);
+		return $data->result();
+	}
+
 	//menambah soal baru
 	public function add_soal($data){
 		$this->db->insert('soal', $data); //insert ke tabel soal
@@ -102,6 +113,8 @@ class Soal_model extends CI_Model{
 	//DEPRECATED JANGAN DIPAKAI KARENA nggak mempertimbangkan soal dihapus
 	function get_jumlah_soal($user){
 		$this->db->select('text_soal');
+		$deleted = array(3);
+		$this->db->where_not_in('locked', $deleted);
 		$data = $this->db->get_where('soal', array('username' => $user));
 		$data = $data->num_rows();
 		return $data;
