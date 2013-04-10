@@ -181,4 +181,16 @@ class Log_model extends CI_Model{
 		$data = $this->db->query($penjawab, array($username));		
 		return $data->result();;
 	}
+
+  /* Fungsi: get_answered_soal_from_username
+     parameter: -
+     output : 
+     mendapatkan 10 jawaban teratas yang baru dijawab peserta
+  */
+  public function get_answered_soal_from_username($username){
+    $this->db->order_by("waktu", "desc"); 
+    $query = $this->db->get_where('log', array('log_type'=>1, 'username'=>$username), 10, 0);
+    return $query->result();
+  }
+
 }
