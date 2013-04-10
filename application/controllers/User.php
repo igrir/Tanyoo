@@ -57,7 +57,7 @@
 							$add_user = $this->user_model->add_user();
 						
 							if($add_user){
-								redirect("index");
+								redirect("congrats_r");
 							}else{
 								echo "can't add database";
 							}

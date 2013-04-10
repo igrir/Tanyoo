@@ -27,6 +27,8 @@
 				<button type="submit" data-inline="true">login</button>
 				
 			</form>
+			<hr/>
+			<a href="<?php echo base_url() ?>index.php/reset_pass">lupa password?</a> <br/>
 			belum punya akun daftar <a href="<?php echo base_url() ?>index.php/register">disini</a>
 			</div>
 			

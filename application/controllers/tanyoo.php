@@ -78,6 +78,14 @@
 			
 		}
 
+		//selamat telah registrasi
+		public function congrats_r(){
+			$this->load->helper('url');
+			$data['title'] = "Selamat";
+			$this->load->view('templates/header', $data);
+			$this->load->view('congrats_r', $data);
+		}
+
 		public function tanya(){
 			$this->sessionlogin->cek_login();
 			$this->load->helper('form');
@@ -136,6 +144,157 @@
 			$this->load->view('templates/header_bar_statistik', $data);
 			$this->load->view('statistik', $data);
 			$this->load->view('templates/footer_logout', $data);
+		}
+
+
+		public function reset_pass(){
+			$this->load->helper("url");
+
+			$hal = $this->uri->segment(2);
+
+			$data['title'] = "reset kata kunci";
+
+			$data['error'] = "";
+			if ($hal == "") {
+				$this->load->view('templates/header', $data);
+				$this->load->view('reset_password', $data);	
+			}else{
+				if ($hal == 2){
+					$this->load->view('templates/header', $data);
+					$this->load->view('reset_password2', $data);	
+				}if ($hal == 3){
+					$data['error'] = "tidak ada pengguna dengan nama tersebut di database";
+					$this->load->view('templates/header', $data);
+					$this->load->view('reset_password', $data);
+				}
+			}
+			
+		}
+
+		//proses reset password
+		public function proc_reset_pass(){
+
+			$this->load->helper('url');
+
+			$this->load->model("Password_reset_model");
+			$this->load->model("User_model");
+
+			//cek apakah ada user dari username yang diminta
+
+			$username = $this->input->post("username");
+
+			if ($this->User_model->get_number_user_by_username($username) == 1) {
+
+				$user = $this->User_model->get_user_by_username($username);
+
+				$email = $user->email;
+
+				//link random
+				$random = "";
+
+				$random .= $this->Password_reset_model->get_last_id();
+				$random .= md5(time());
+				$random .= md5($random);
+				$random .= rand(0,500);
+				$random = md5($random);
+				$random .= md5(time());
+				$random .= md5(time());
+				$random .= md5($random);
+				$random .= rand(0,500);
+				$random = md5($random);
+				$random .= md5(time());
+				$random = md5($random);
+				$random .= rand(0,500);
+				$random = md5($random);
+				$random .= rand(0,500);
+				$random .= rand(0,1000);
+				$random .= md5(time());
+				$random .= rand(0,500);
+				$random .= md5(time());
+				$random .= rand(0,500);
+				$random .= md5(rand(0,1000));
+
+				$masukkan = $this->Password_reset_model->add_pr($user->username, $email, $random);
+				if ($masukkan) {
+					redirect("reset_pass/2");
+				}
+
+			}else{
+				redirect("reset_pass/3");
+			}
+					
+		}
+
+		//halaman mengetik password hasil reset
+		public function resetme($randkey){
+			$this->load->helper('url');
+
+			$this->load->model("Password_reset_model");
+			$this->load->model("User_model");
+
+			$ps = $this->Password_reset_model->get_from_randkey($randkey);
+
+			$data['error'] = "";
+			
+			//cek error-error
+			$info = $this->uri->segment(3);
+			if ($info != "") {
+				if ($info == 1) {
+					$data['error'] = "Jangan lupa masukkan password anda";
+				}
+			}
+
+
+			if ($ps->num_rows() == 1 ) {
+
+				$r_ps = $ps->row();
+
+				//cek apakah kurang dari sama dengan 30 menit
+				$now = time();
+				$time = strtotime($r_ps->time);
+				$diff = $now-$time;
+				$diff_minute =  floor($diff/60);
+
+				if ($diff_minute <= 30) {
+					$data['title'] = "reset kata kunci";
+					$data['randkey'] = $randkey;
+					$this->load->view('templates/header', $data);
+					$this->load->view('reset_password3', $data);		
+				}else{
+					//set timeout
+					$this->Password_reset_model->set_used($r_ps->id_reset, 2);
+
+					redirect("reset_pass");	
+				}
+			}else{
+				redirect("reset_pass");	
+			}
+		}
+
+		//proses mereset
+		public function proc_resetme(){
+			$this->load->helper('url');
+			$this->load->model("User_model");
+			$this->load->model("Password_reset_model");
+
+			$password = $this->input->post('password');
+			$randkey  = $this->input->post('randkey');
+
+			$ps = $this->Password_reset_model->get_from_randkey($randkey);
+
+			if ($password == "") {
+				redirect("resetme/".$randkey."1");
+			}else{
+				$ps = $this->Password_reset_model->get_from_randkey($randkey);
+				$r_ps = $ps->row();
+				
+				$this->User_model->change_password($r_ps->username, $password);
+
+				//reset sudah tidak bisa dipake lagi
+				$this->Password_reset_model->set_used($r_ps->id_reset, 2);
+
+				redirect("#two");
+			}
 		}
 
 	}
