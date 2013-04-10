@@ -20,15 +20,16 @@
 			$this->load->library('session');
 			$this->load->library('sessionlogin');
 			$this->load->library('penghargaan');
+			
+
 		}
 
 		public function index($username){
 				
-				$data['username'] = $username;
-
 				$data['profil'] = $this->User_model->get_user_by_username($username);
 				$data['jml_soal'] = $this->Soal_model->get_jumlah_soal($username);
 				$data['skor'] = $this->Log_model->get_skor_from_username($username);
+				$data['penjawab'] = $this->Log_model->get_penjawab_soal($username);
 				
 				//var_dump($result);
 				$this->load->view('templates/header', $data);
@@ -154,49 +155,14 @@
 			$this->load->view('help');
 			$this->load->view('templates/footer_logout_help');
 		}
+		
+		//Halaman penjawab
+		public function penjawab_soal($username){
+			$this->sessionlogin->cek_login();
 
-		function soal($username){
-			$this->load->library('pagination');
-
-
-			$per_page = 10;			//banyaknya konten ditampilkan
-
-			$halaman = $this->uri->segment(4);
-			if ($halaman == "" || $halaman < 0) {
-				$halaman = 1;
-			}
-
-			$config['base_url']   = "http://localhost/lab/tanyoo/index.php/giri/soal/";
-			$config['total_rows'] = $this->Soal_model->get_jumlah_soal($username);
-			$config['per_page']   = $per_page;
-			$config['use_page_numbers'] = TRUE;
-			$config['first_link'] = 'First';
-			$config['last_link']  = 'Last';
-			//$config['cur_tag_open'] = 'aha';
-			//$config['cur_tag_close'] = 'oho';
-			$this->pagination->initialize($config);
-			
-			$data['data_soal']		 = $this->Soal_model->selectByUserPagination($username, $halaman, $per_page);
-
-			$this->load->vars($data);
-
-			$data['pagination_link'] = $this->pagination->create_links();
-
-			$this->load->view('templates/header', $data);
-			$this->load->view('templates/header_bar', $data);
-			$this->load->view('profil_soal_view',$data); //soal_view menampung data dari $data
-			$this->load->view('templates/footer_logout', $data);
-
-		}
-
-		function jawab($username){	
-			$data['data_soal']		 = $this->Log_model->get_answered_soal_from_username($username);
-
-			$this->load->view('templates/header', $data);
-			$this->load->view('templates/header_bar', $data);
-			$this->load->view('profil_jawab_view',$data); //soal_view menampung data dari $data
-			$this->load->view('templates/footer_logout', $data);
-
-		}
+			$data['penjawab'] = $this->Log_model->get_penjawab_soal($username);
+			$this->load->view('profile', $data);
+			//var_dump($data);
+		}	
 	
 	}

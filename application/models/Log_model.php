@@ -129,22 +129,11 @@ class Log_model extends CI_Model{
 	/* Fungsi: get_num_answered_soal
 	   parameter: -
 	   output : INTEGER
-	   mendapatkan banyak jawaban dari seluruh peserta
+	   mendapatkan banyak jawaban
 	*/
 	public function get_num_answered_soal(){
 		$query = $this->db->get_where('log', array('log_type'=>1));
 		return $query->num_rows();
-	}
-
-	/* Fungsi: get_answered_soal_from_username
-	   parameter: -
-	   output : 
-	   mendapatkan 10 jawaban teratas yang baru dijawab peserta
-	*/
-	public function get_answered_soal_from_username($username){
-		$this->db->order_by("waktu", "desc"); 
-		$query = $this->db->get_where('log', array('log_type'=>1, 'username'=>$username), 10, 0);
-		return $query->result();
 	}
 
 	/* Fungsi: get_num_flagged_soal
@@ -180,5 +169,16 @@ class Log_model extends CI_Model{
 		$data = $this->db->query($query, array($num));
 
 		return $data->result();
+	}
+	
+	/* Fungsi: get_penjawab soal
+	   parameter: -
+	   output : array
+	   mendapatkan penjawab dari soal tertentu
+	*/
+	function get_penjawab_soal($username){
+		$penjawab = "select l.username from log l, soal s where l.id_soal=s.id_soal and l.username=s.username  AND s.username= ? order by waktu DESC LIMIT 5";
+		$data = $this->db->query($penjawab, array($username));		
+		return $data->result();;
 	}
 }

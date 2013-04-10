@@ -40,6 +40,7 @@
 			</div>
 			<?php $i++; ?>
 			<?php endforeach ?>	
+			
 			</ul>
 		
 		</div>
