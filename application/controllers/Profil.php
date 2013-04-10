@@ -97,7 +97,8 @@
 				$username = $this->input->post('username');
 				$data = array(
 					'bio' => $this->input->post('bio'),
-					'minat' => $this->input->post('minat'));
+					'minat' => $this->input->post('minat'),
+					'email' => $this->input->post('email'));
 				
 				$this->User_model->simpan_profile_ubah($username, $data);
 				

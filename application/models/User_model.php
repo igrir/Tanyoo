@@ -82,7 +82,7 @@ class User_model extends CI_Model{
 	function selectuser($username){
 			// $data = $this->db->get_where('user', array('username' => $username));
 			// return $data;
-		$this->db->select('username, bio, minat');
+		$this->db->select('email, username, bio, minat');
 		$query = $this->db->get_where('user', array('username' => $username));
 		return $query->row();
 	}

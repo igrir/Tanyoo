@@ -9,6 +9,8 @@
 				<textarea type="text" name="bio" id="bio"><?php echo $profil->bio;?></textarea>
 				<label for="minat">Minat</label>
 				<input type="text" name="minat" id="minat" value="<?php echo $profil->minat;?>"/>
+				<label for="minat">Email</label>
+				<input type="text" name="email" id="email" value="<?php echo $profil->email;?>"/>
 				<hr/>
 				<center><b>Ubah password</b></center>
 				<span style="font-size:0.8em">ubah password, jika anda ingin</span>
