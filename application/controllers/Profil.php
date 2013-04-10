@@ -74,14 +74,7 @@
 			//var_dump($data);
 		}		
 		
-		//Halaman penjawab
-		public function penjawab_soal($username){
-			$this->sessionlogin->cek_login();
-
-			$data['penjawab'] = $this->Log_model->get_penjawab_soal($username);
-			$this->load->view('profile', $data);
-			//var_dump($data);
-		}	
+	
 		
 		//ubah profil
 		function profile_ubah($username){
