@@ -16,8 +16,18 @@
 						}
 						?>
 						<?php echo $soal->text_soal?>
-						<br><br><p style=" color:grey">by <?php echo $soal->username?></p>
+						<br><br><p style=" color:grey">by <a href="<?php echo base_url()?>index.php/u/<?php echo $soal->username; ?>"><?php echo $soal->username?></a></p>
 						<p style=" color:grey"><?php echo $soal->tag?></p>
+						
+						<?php 
+							$pemilik = $soal->username;
+							// echo $pemilik;
+							// echo $username;
+							if($username == $pemilik){?>
+								<a href="<?php echo base_url()?>index.php/soal/ubah/<?php echo $soal->id_soal?>">edit</a>
+							<?php
+							}
+						?>
 					</li>				
 					
 				</ul>
@@ -65,5 +75,3 @@
 		</div> 
 
 		<div id="user-info"></div>
-		
-	
