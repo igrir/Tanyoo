@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 3.3.9
+-- version 3.2.4
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Apr 03, 2013 at 04:03 
--- Server version: 5.5.8
--- PHP Version: 5.3.5
+-- Generation Time: Apr 11, 2013 at 12:08 AM
+-- Server version: 5.1.44
+-- PHP Version: 5.3.1
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 
@@ -31,17 +31,12 @@ CREATE TABLE IF NOT EXISTS `celengan` (
   `username` varchar(32) NOT NULL,
   PRIMARY KEY (`id_celengan`),
   KEY `username` (`username`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=13 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `celengan`
 --
 
-INSERT INTO `celengan` (`id_celengan`, `nama_celengan`, `username`) VALUES
-(9, 'giri', 'giri'),
-(10, 'Bank Fisika', 'giri'),
-(11, 'Komputer', 'giri'),
-(12, 'Oke', 'erwin');
 
 -- --------------------------------------------------------
 
@@ -60,10 +55,6 @@ CREATE TABLE IF NOT EXISTS `isi_celengan` (
 -- Dumping data for table `isi_celengan`
 --
 
-INSERT INTO `isi_celengan` (`id_celengan`, `id_soal`) VALUES
-(9, 2),
-(11, 9),
-(9, 10);
 
 -- --------------------------------------------------------
 
@@ -78,15 +69,35 @@ CREATE TABLE IF NOT EXISTS `log` (
   `log_type` int(11) NOT NULL COMMENT 'jawab soal = 1, flag = 2, salah = 3',
   `waktu` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'waktu menjawab, agar ada ranking 1',
   PRIMARY KEY (`id_log`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COMMENT='tabel yang menjelaskan penggunaan user terhadap menjawab soa' AUTO_INCREMENT=3 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COMMENT='tabel yang menjelaskan penggunaan user terhadap menjawab soa' AUTO_INCREMENT=30 ;
 
 --
 -- Dumping data for table `log`
 --
 
-INSERT INTO `log` (`id_log`, `username`, `id_soal`, `log_type`, `waktu`) VALUES
-(1, 'giri', 6, 1, '0000-00-00 00:00:00'),
-(2, 'giri', 1, 1, '2013-04-03 20:52:38');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `password_reset`
+--
+
+CREATE TABLE IF NOT EXISTS `password_reset` (
+  `id_reset` int(11) NOT NULL AUTO_INCREMENT,
+  `username` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `random` varchar(1000) NOT NULL,
+  `used` int(11) NOT NULL COMMENT '0 = belum dipake, 1 = sudah dipake, 2=timeout',
+  `time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id_reset`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
+
+--
+-- Dumping data for table `password_reset`
+--
+
+INSERT INTO `password_reset` (`id_reset`, `username`, `email`, `random`, `used`, `time`) VALUES
+(6, 'giri', 'giri.prahasta@student.upi.edu', '32b452785032a305736e946e88131b1c21398942f6d3c093c8bdfd27fa23850cb0d9e841142f6d3c093c8bdfd27fa23850cb0d9e8253a86c450b76fb8c371afead6410d55534', 2, '2013-04-10 23:33:43');
 
 -- --------------------------------------------------------
 
@@ -133,35 +144,12 @@ CREATE TABLE IF NOT EXISTS `soal` (
   `locked` int(11) NOT NULL COMMENT '1 berarti lock, 0 nggak',
   PRIMARY KEY (`id_soal`),
   KEY `username` (`username`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=24 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `soal`
 --
 
-INSERT INTO `soal` (`id_soal`, `text_soal`, `jawaban`, `flag`, `tag`, `username`, `locked`) VALUES
-(2, 'Siapakah penemu lampu?', 'Thomas Alva Edison', 0, 'Penemu2', 'giri', 0),
-(3, 'Siapakah penemu gravitasi dengan apel jatuh?', 'newton', 0, 'penemu', 'giri', 0),
-(4, 'Bahasa sundanya "dua"?', 'dua', 0, 'yaya', 'giri', 0),
-(5, 'Bahasa jermannya "tiga"?', 'drei', 0, 'deutsch', 'giri', 0),
-(6, 'Bahasa inggrisnya "dua"', 'two', 0, 'english', 'giri', 0),
-(7, 'Bahasa inggrisnya "Satu" adalah?', 'one', 0, 'inggris', 'giri', 0),
-(8, 'Apa nama buah yang dimakan putri tidur?', 'apel', 0, 'dongeng', 'giri', 1),
-(9, 'komputer steve', 'apple', 0, 'komputer', 'giri', 0),
-(10, 'Presiden wanita Indonesia', 'mega', 0, 'Indonesia', 'giri', 0),
-(11, 'a', 'a', 0, 'a', 'giri', 0),
-(12, 'b', 'b', 0, 'b', 'giri', 0),
-(13, 'a', 'a', 0, '', 'giri', 0),
-(14, 'a', 'a', 0, 'a', 'giri', 0),
-(15, 'b', 'b', 0, 'b', 'giri', 0),
-(16, 'c', 'c', 0, 'c', 'giri', 0),
-(17, 'd', 'd', 0, 'd', 'giri', 0),
-(18, 'f', 'f', 0, 'f', 'giri', 0),
-(19, 'h', 'h', 0, 'h', 'giri', 0),
-(20, 'j', 'j', 0, 'j', 'giri', 0),
-(21, 'i', 'i', 0, 'i', 'giri', 0),
-(22, 'l', 'l', 0, 'l', 'giri', 0),
-(23, 'a`', 'a', 0, 'a', 'giri', 0);
 
 -- --------------------------------------------------------
 
@@ -190,6 +178,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `password` varchar(255) NOT NULL,
   `bio` varchar(250) NOT NULL,
   `minat` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
   PRIMARY KEY (`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -197,12 +186,10 @@ CREATE TABLE IF NOT EXISTS `user` (
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`username`, `password`, `bio`, `minat`) VALUES
-('erwin', '123', 'erwingw', 'komputer'),
-('giri', '123', '123123', '1 2 3'),
-('giri2', '123', '123', '123'),
-('igrir', '123', 'Penyuka penanya jawaban', 'biologi fisika matematika'),
-('indana', '123', 'indana zf', 'fisika kimia');
+INSERT INTO `user` (`username`, `password`, `bio`, `minat`, `email`) VALUES
+('erwin', '123', 'erwingw', 'komputer', 'giri.prahasta@student.upi.edu'),
+('giri', 'giri123', 'Orang ganteng', 'gitu', 'giri.prahasta@student.upi.edu'),
+('madelhaq', '12345', 'senyum selalu', 'fisika', 'giri.prahasta@student.upi.edu');
 
 -- --------------------------------------------------------
 
@@ -221,8 +208,6 @@ CREATE TABLE IF NOT EXISTS `user_penghargaan` (
 -- Dumping data for table `user_penghargaan`
 --
 
-INSERT INTO `user_penghargaan` (`id_penghargaan`, `username`) VALUES
-(2, 'giri');
 
 --
 -- Constraints for dumped tables
