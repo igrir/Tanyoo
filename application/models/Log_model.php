@@ -174,7 +174,7 @@ class Log_model extends CI_Model{
 	/* Fungsi: get_penjawab soal
 	   parameter: -
 	   output : array
-	   mendapatkan penjawab dari soal tertentu
+	   mendapatkan 5 penjawab dari soal tertentu
 	*/
 	function get_penjawab_soal($username){
 		$penjawab = "select l.username from log l, soal s where l.id_soal=s.id_soal and l.username=s.username  AND s.username= ? order by waktu DESC LIMIT 5";

@@ -74,14 +74,7 @@
 			//var_dump($data);
 		}		
 		
-		//Halaman penjawab
-		public function penjawab_soal($username){
-			$this->sessionlogin->cek_login();
-
-			$data['penjawab'] = $this->Log_model->get_penjawab_soal($username);
-			$this->load->view('profile', $data);
-			//var_dump($data);
-		}	
+	
 		
 		//ubah profil
 		function profile_ubah($username){
@@ -202,7 +195,7 @@
 	    }
 
 	    function jawab($username){  
-	      $data['data_soal']     = $this->Log_model->get_answered_soal_from_username($username);
+	      $data['data_soal']= $this->Log_model->get_answered_soal_from_username($username);
 
 	      $this->load->view('templates/header', $data);
 	      $this->load->view('templates/header_bar', $data);

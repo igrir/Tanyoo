@@ -222,7 +222,8 @@
 				$data['num_flag'] = $this->Log_model->get_num_flag($soal->id_soal);
 
 				$data['dijawab'] = $this->Log_model->cek_log_jawaban($username, $soal->id_soal);
-
+				$data['username'] = $username;
+				
 				$this->load->view('templates/header');
 				$this->load->view('templates/header_bar');
 				$this->load->view('jawab_pertanyaan', $data);
