@@ -49,6 +49,10 @@
 				
 			
 			<p class="text">----------<i>penjawab</i>----------</p>
+			<?php foreach($penjawab as $t):
+				echo $t->username;
+
+			endforeach ?>	
 		</div> 
 
 		<div id="user-info"></div>
