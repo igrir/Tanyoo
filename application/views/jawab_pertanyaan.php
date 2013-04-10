@@ -23,7 +23,7 @@
 							$pemilik = $soal->username;
 							// echo $pemilik;
 							// echo $username;
-							if($username == $pemilik){?>
+							if($this->session->userdata('username') == $pemilik){?>
 								<a href="<?php echo base_url()?>index.php/soal/ubah/<?php echo $soal->id_soal?>">edit</a>
 							<?php
 							}
