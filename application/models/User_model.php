@@ -72,7 +72,8 @@ class User_model extends CI_Model{
 				'password'  => $this->input->post('password'),
 				'skor'  => 0,
 				'bio' => $this->input->post('bio'),
-				'minat' => $this->input->post('minat')
+				'minat' => $this->input->post('minat'),
+				'email' => $this->input->post('email')
 				);
 
 		return $this->db->insert('user', $data);
