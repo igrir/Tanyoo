@@ -53,14 +53,25 @@
 
 
 		//redirect register kalau ada yang salah
-		public function register_w(){
+		public function register_w($error){
 			$this->load->helper('form');
 			$this->load->library('form_validation');
 			$this->load->helper('url');
 
 			$data['title'] = "Daftar";
 
-			$data['error'] = "Username sudah ada, gunakan username lain";
+			$data['error'] = "";
+
+			if ($error == 1) {
+				$data['error'] = "Nama tampilan sudah ada, gunakan nama lain";
+			}else if ($error == 2) {
+				$data['error'] = "Nama tampilan hanya gunakan hanya huruf, angka, atau _ (underscore)";
+			}else if ($error == 3) {
+				$data['error'] = "Pastikan email yang anda masukkan benar";
+			}else if ($error == 4) {
+				$data['error'] = "Jangan lupa masukkan password anda";
+			}
+			
 
 			$this->load->view('templates/header', $data);
 			$this->load->view('register', $data);

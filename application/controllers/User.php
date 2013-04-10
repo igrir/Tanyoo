@@ -32,21 +32,40 @@
 		public function add_user(){
 
 			$this->load->helper('url');
+			$this->load->library('tanyoo_validate');
 
 			//cek dulu apa ada user yang sama di database
 			//kalau nggak ada baru dimasukkan
 
 			$user_exist = $this->user_model->count_this_user_exist($this->input->post('username'));
 			
+			$email = $this->input->post('email');
+			$username = $this->input->post('username');
+			$password = $this->input->post('password');
+
 			if ($user_exist == 0) {
-				$add_user = $this->user_model->add_user();
-				if($add_user){
-					redirect("index");
+
+				if ($this->tanyoo_validate->validateRestrictedChar($username) == false) {
+					redirect('register_w/2');
 				}else{
-					echo "can't add database";
+					if ($this->tanyoo_validate->validateEmail($email) == false) {
+						redirect('register_w/3');
+					}else{
+						if ($password == "") {
+							redirect('register_w/4');
+						}else{
+							$add_user = $this->user_model->add_user();
+						
+							if($add_user){
+								redirect("index");
+							}else{
+								echo "can't add database";
+							}
+						}	
+					}
 				}
 			}else{
-				redirect('register_w');
+				redirect('register_w/1');
 			}
 
 		}

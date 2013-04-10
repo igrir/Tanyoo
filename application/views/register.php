@@ -1,15 +1,5 @@
 
-	<script>
 
-	$(document).ready(function(){
-		$("#register_form").validate(
-			submitHandler: function(form){
-				alert("Action login");
-			}
-		);
-	});
-
-	</script>
 
 	<div data-role="page" id="one" data-theme="e" style="background:url(<?php echo base_url()?>css/images/back.png) no-repeat;background-size:100% 100%;" data-add-back-btn="true">  
 		<div data-role="header" data-position="inline" data-theme="e"> 
@@ -21,8 +11,6 @@
 
 			<div class="ui-body ui-body-e ui-corner-all">
 			
-
-
 				<div id="gambar"></div>
 
 			
@@ -31,31 +19,31 @@
 				<?php echo $error?>
 				<div data-role="fieldcontain" class="ui-hide-label">
 					<label for="username">Nama Tampilan</label>
-					<input type="text" name="username" id="username" value="" placeholder="Nama Tampilan" class="required"/>
+					<input type="text" name="username" id="username" value="" placeholder="Nama Tampilan"/>
 					<span id="peringatan"></span>
 					<small><i>hanya gunakan 1 kata tanpa spasi</i></small>
 				</div>
 			<div data-role="fieldcontain" class="ui-hide-label">
 				<label for="password">Password</label>
-				<input type="password" name="password" id="password" value="" placeholder="Password" class="required"/>
+				<input type="password" name="password" id="password" value="" placeholder="Password"/>
 
 				<br/>
-				<input type="text" name="email" id="email" value="" placeholder="Email" class="required email"/>
+				<input type="text" name="email" value="" placeholder="Email"/>
 				<br/>
 
 				<label for="username">Bio</label>
-				<textarea id="bio" name="bio" placeholder="Bio" class="required" required></textarea>
+				<textarea id="bio" name="bio" placeholder="Bio" required></textarea>
 
 				<br/>
 				
 				<br/>
 
 				<label for="minat">Minat</label>
-				<input type="text" name="minat" id="minat" value="" placeholder="Minat, pisahkan dengan spasi" class="required" required/>
+				<input type="text" name="minat" id="minat" value="" placeholder="Minat, pisahkan dengan spasi" required/>
 				<br/>
 
 				<div id="submit_area">
-					<button type="submit">Register</button>
+					<button type="submit" onClick="return validate();">Register</button>
 				</div>
 				
 			</div>
