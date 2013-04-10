@@ -170,15 +170,26 @@ class Log_model extends CI_Model{
 		return $temp->num_rows;
 	}
 
-	/* Fungsi: get_num_flagged_user
+	/* Fungsi: get_highscore
 	   parameter: -
 	   output : INTEGER
-	   mendapatkan banyak flag dari user tertentu
+	   mendapatkan highscore
 	*/
 	function get_highscore($num){
 		$query = "SELECT COUNT(username) as skor, username FROM log GROUP BY username ORDER BY skor DESC LIMIT 0, ?";
 		$data = $this->db->query($query, array($num));
 
 		return $data->result();
+	}
+	
+	/* Fungsi: get_penjawab soal
+	   parameter: -
+	   output : array
+	   mendapatkan penjawab dari soal tertentu
+	*/
+	function get_penjawab_soal($username){
+		$penjawab = "select l.username from log l, soal s where l.id_soal=s.id_soal and l.username=s.username  AND s.username= ? order by waktu DESC LIMIT 5";
+		$data = $this->db->query($penjawab, array($username));		
+		return $data->result();;
 	}
 }

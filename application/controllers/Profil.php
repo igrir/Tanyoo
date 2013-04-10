@@ -25,10 +25,10 @@
 		public function index($username){
 				
 				$data['username'] = $username;
-
 				$data['profil'] = $this->User_model->get_user_by_username($username);
 				$data['jml_soal'] = $this->Soal_model->get_jumlah_soal($username);
 				$data['skor'] = $this->Log_model->get_skor_from_username($username);
+				$data['penjawab'] = $this->Log_model->get_penjawab_soal($username);
 				
 				//var_dump($result);
 				$this->load->view('templates/header', $data);
@@ -71,6 +71,16 @@
 			$this->load->view('profile', $data);
 			//var_dump($data);
 		}		
+		
+		//Halaman penjawab
+		public function penjawab_soal($username){
+			$this->sessionlogin->cek_login();
+
+			$data['penjawab'] = $this->Log_model->get_penjawab_soal($username);
+			$this->load->view('profile', $data);
+			//var_dump($data);
+		}	
+		
 		//ubah profil
 		function profile_ubah($username){
 			$this->sessionlogin->cek_login();

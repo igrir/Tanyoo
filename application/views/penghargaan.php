@@ -13,7 +13,7 @@
 					echo "<ul data-role='listview' data-inset='true' data-theme='d' id='tampil-text'> ";?>
 					<li>
 					<img src="<?php echo base_url()?>css/images/penghargaan.png" width="32px" height="32px" class="ui-li-icon">
-					<?echo $row->nm_penghargaan;
+					<?php echo $row->nm_penghargaan;
 					echo "</li>";
 					echo "</ul>";
 					endforeach;

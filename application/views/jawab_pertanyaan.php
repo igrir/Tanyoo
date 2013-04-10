@@ -4,7 +4,7 @@
 			<div data-role="fieldcontain" class="ui-hide-label" id="tampiltext">
 				<ul data-role="listview" data-inset="true" data-theme="d"> <!---menampilkan pertanyaan-->
 					<li>
-						<?
+						<?php
 						if ($dijawab) {
 							?>
 							 <img src="<?php echo base_url()?>css/images/notif.png" width="32px" height="32px" style="margin-right:-40px;" class="ui-li-icon">
