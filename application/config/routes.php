@@ -47,20 +47,11 @@ $route['soal/(:any)'] = 'soal/$1';
 $route['u/(:any)/penghargaan'] = 'profil/penghargaan/$1'; // route ke profile penghargaan
 $route['u/(:any)/celengan'] = 'profil/celengan/$1'; // route ke profile celengan
 
-//route ke soal yang pernah dibuat user
-$route['(:any)/soal'] = 'profil/soal/$1';
-$route['(:any)/soal/(:any)'] = 'profil/soal/$1/$2';
-
-//route ke soal yang pernah dijawab user
-$route['(:any)/jawab'] = 'profil/jawab/$1';
-
-
 $route['u/(:any)/edit_profil'] = 'profil/profile_ubah/$1'; // route ke profile 
 $route['u/save_edit_profil'] = 'profil/simpan_profile_ubah'; // menyimpan perubahan profil
+$route['u/(:any)'] = 'profil/index/$1';		//route ke profil dengan "u/[username]". "u" karena singkatan "user"
 $route['u/about'] = 'profil/about'; //menampilkan halaman about
 $route['u/help'] = 'profil/help'; //menampilkan halaman help
-
-$route['u/(:any)'] = 'profil/index/$1';		//route ke profil dengan "u/[username]". "u" karena singkatan "user"
 
 //routing ke CRUD celengan
 $route['celengan/(:any)'] = 'celengan/$1';

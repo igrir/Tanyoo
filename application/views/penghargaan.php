@@ -18,14 +18,15 @@
 					echo "</ul>";
 					endforeach;
 					
-				}
-				else
+				}else{
 				
-				echo "<div class='ui-body ui-body-a ui-corner-all'><p style='text-align:center;'>Anda Belum Mempunyai Penghargaan</p></div>";
+					echo "<div class='ui-body ui-body-a ui-corner-all'><p style='text-align:center;'>Anda Belum Mempunyai Penghargaan</p></div>";
+				}
 		?>
 						
 		</div>
 	</div>
-	<div id="user-info"></div>
+	<div id="user-info">
+</div>
 	
 	<!---menampilkan pertanyaan-->

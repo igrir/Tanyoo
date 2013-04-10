@@ -36,6 +36,7 @@ class Penghargaan_model extends CI_Model{
 		$data = $data->num_rows();
 		return $data;
 	}
+	
 	public function add_penghargaan($user,$id_peng){
 		$sql="select * from user_penghargaan where username=? and id_penghargaan=?"; 
 		$temp = $this->db->query($sql,array($user,$id_peng));

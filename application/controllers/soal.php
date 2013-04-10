@@ -48,7 +48,7 @@
 			$per_page = 10;			//banyaknya konten ditampilkan
 
 			$halaman = $this->uri->segment(3);
-			if ($halaman == "" || $halaman < 0) {
+			if ($halaman == "") {
 				$halaman = 1;
 			}			
 

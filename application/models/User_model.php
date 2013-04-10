@@ -70,6 +70,7 @@ class User_model extends CI_Model{
 		$data = array(
 				'username'  => $this->input->post('username'),
 				'password'  => $this->input->post('password'),
+				'skor'  => 0,
 				'bio' => $this->input->post('bio'),
 				'minat' => $this->input->post('minat')
 				);
