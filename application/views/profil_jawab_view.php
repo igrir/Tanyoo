@@ -1,6 +1,6 @@
 
 	<div data-role="content"> 
-		<p class="text">-------<i>10 jawaban terakhir</i>------</p>
+		<p class="text">---<i>10 jawaban terakhir</i>---</p>
 		<div data-role="fieldcontain" class="ui-hide-label">			
 
 			<?php $i=1;

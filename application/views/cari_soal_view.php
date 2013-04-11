@@ -7,7 +7,7 @@
 					<td><input type="text" placeholder="Pencarian" name="cari" size="60px" required></td>
 				</tr>
 				<tr>
-					<td><input type="Submit" value="Cari" name="bcari" data-ajax="false" data-inline="true"/></td>
+					<td><input type="Submit" value="cari" name="bcari" data-ajax="false" data-inline="true"/></td>
 				</tr>					
 			</table>
 		</form>	

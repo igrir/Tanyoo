@@ -29,6 +29,8 @@
 								<option Value="0" <?php if($row->locked == 0) echo "selected"; //awalnya locked?>>Open</option>
 							</select>
 						</label>
+						dijawab: <?php echo $num_penjawab?>,
+						flag: <?php echo $num_flag?>
 					
 					<div class="ui-grid-a">	
 						<div class="ui-block-a"><button type="submit" data-inline="true">submit</button></div>
@@ -36,7 +38,6 @@
 					</div>
 				</form>	
 					
-				dijawab: <?php echo $num_penjawab?>,
-				flag: <?php echo $num_flag?>
+				
 			</div>
 	</div>

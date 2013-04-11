@@ -26,7 +26,7 @@
 			
 			<li data-role="list-divider" data-theme="e">Rangking <?php echo $count?></li>
 			<li>
-				<a href="<?php echo base_url()?>index.php/u/<?php echo $hs->username?>"><p><?php echo $hs->username;?></p></a> <!--masukkan nama-->
+				<a href="<?php echo base_url()?>index.php/u/<?php echo $hs->username?>"><h4><?php echo $hs->username;?></h4></a> <!--masukkan nama-->
 			</li>
 
 			<?php 

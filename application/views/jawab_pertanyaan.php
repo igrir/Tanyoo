@@ -1,7 +1,7 @@
 		<div data-role="content"> 
 			<p class="text"><i>-----------soal----------</i></p> 
 			
-			<div data-role="fieldcontain" class="ui-hide-label" id="tampiltext">
+			<div data-role="fieldcontain" class="ui-hide-label" id="tampiltext" >
 				<ul data-role="listview" data-inset="true" data-theme="d"> <!---menampilkan pertanyaan-->
 					<li>
 						<?php
@@ -15,19 +15,10 @@
 							<?php
 						}
 						?>
+						
 						<?php echo $soal->text_soal?>
 						<br><br><p style=" color:grey">by <a href="<?php echo base_url()?>index.php/u/<?php echo $soal->username; ?>"><?php echo $soal->username?></a></p>
 						<p style=" color:grey"><?php echo $soal->tag?></p>
-						
-						<?php 
-							$pemilik = $soal->username;
-							// echo $pemilik;
-							// echo $username;
-							if($this->session->userdata('username') == $pemilik){?>
-								<a href="<?php echo base_url()?>index.php/soal/ubah/<?php echo $soal->id_soal?>">edit</a>
-							<?php
-							}
-						?>
 					</li>				
 					
 				</ul>
@@ -35,7 +26,17 @@
 				
 				<div class="ui-grid-d">
 					
-					<div class="ui-block-a" style="height:50px; width:30%"></div>
+					<div class="ui-block-a" style="height:50px; width:30%">
+						<?php 
+							$pemilik = $soal->username;
+							if($this->session->userdata('username') == $pemilik){?>
+								<a href="<?php echo base_url()?>index.php/soal/ubah/<?php echo $soal->id_soal?>">
+									edit<img src="<?php echo base_url()?>css/images/edit.png" width="32px" style="margin-left:20px;">
+								</a>
+							<?php
+							}
+						?>
+					</div>
 					<div class="ui-block-b" style="height:50px; width:15%">
 						<a href="<?php echo base_url()?>index.php/celengan/tambah_isi/<?php echo $soal->id_soal;?>"><img src="<?php echo base_url()?>css/images/t_celengan.png" width="32px"></a>
 					</div>
@@ -61,6 +62,8 @@
 					<!--menampilkan penjawab-->
 					<div class="ui-block-e" style="height:40px; width:20%;"> <img src="<?php echo base_url()?>css/images/orang.png" width="17px" height="27px" style="margin-top:5px;"> <div id="flag"><p style="margin-top:-28px; font-size:16px"><b><? echo $num_penjawab?></b></p></div></div>
 					</div>
+					
+					
 					
 				
 				<?php //echo form_open('soal/cek_jawab'); ?>

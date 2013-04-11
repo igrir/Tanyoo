@@ -30,15 +30,15 @@
 					<div class="ui-grid-a"> 
 				<a href="<?php echo base_url()?>index.php/<?php echo $profil->username?>/jawab">
 		          <div class="ui-block-a" id="tampilskor" class="jawaban">
-		            <h3 class="text3"><?php echo $skor; ?></h3> <!--isi dengan jumlah banyak menjawab-->
-		            <p class="tengah">jawaban</p>
+		            <h3 class="text3"><?php echo $skor; ?></h3>
+		            <p class="tengah" style="color:black;">jawaban</p>
 		          </div> 
 		        </a>
 		
 		        <a href="<?php echo base_url()?>index.php/<?php echo $profil->username?>/soal">
 		          <div class="ui-block-b" id="tampilskor" class="soal">
 		            <h3 class="text2"><?php echo $jml_soal; ?></h3>
-		            <p class="tengah">soal</p>
+		            <p class="tengah" style="color:black;">soal</p>
 		          </div> 
 		        </a>
 			</div> 
@@ -48,9 +48,16 @@
 				
 			
 			<p class="text">----------<i>penjawab</i>----------</p>
-			<?php foreach($penjawab as $t):
-				echo $t->username;
-			endforeach ?>	
+			<ol data-role="listview" data-inset="true" data-theme="e">
+				<?php 
+					foreach($penjawab as $t):?>
+					<li>
+						<a href="<?php echo base_url()?>index.php/u/<?php echo $t->username?>"><?php echo $t->username;?></a>
+					</li>
+				<?
+					endforeach 
+				?>	
+			</ol>
 		</div> 
 
 		<div id="user-info"></div>

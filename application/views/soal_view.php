@@ -28,7 +28,7 @@
 			<ul data-role="listview" data-inset="true" data-theme="d" id="tampil-text" data-split-icon="gear">
 				<li>
 					<a href=""></a>
-					<p style="color:black; padding-left:10px;"><b><?php echo $t->text_soal ?> ?</b></p>
+					<p style="color:black; padding-left:10px; font-size:15px"><b><?php echo $t->text_soal ?> ?</b></p>
 					<p style="padding-left:10px;">by <?php echo $t->username; ?></p>	
 					<p style="padding-left:10px;">#<?php echo $t->tag ?></p>	
 					<a href="<?php echo base_url()?>index.php/soal/ubah/<?php echo $t->id_soal?>"></a>
