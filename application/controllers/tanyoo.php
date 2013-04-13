@@ -226,17 +226,15 @@
 					//kirimkan password ke email pengguna
 					$to = $email;
 					$subject = "Permintaan setel ulang kata kunci. Halo ".$user->username."!";
-					$message = "Halo ".$user->username."! Kami mendapatkan informasi bahwa
+					$message = "Halo ".$user->username."!
+								Kami mendapatkan informasi bahwa
 								kamu meminta untuk reset password. Jika kamu tidak merasa
 								memintanya kamu bisa mengabaikan email ini. Bila kamu
 								memang meminta reset password maka ini adalah link untukmu reset
 								password akunmu. Mohon diperhatikan link ini hanya aktif dalam waktu
-								30 menit<br/>
-								<a href='".$alamat_reset_random."'>".$alamat_reset_random."</a>
-								<br/>
-								<br/>
-								<br/>
-								Tanyoo<br/>
+								30 menit:
+								".$alamat_reset_random."
+								Tanyoo
 								Berbagi - Bertanya - Ilmu Pengetahuan";
 					$from = "noreply@tanyoo.prahasta.com";
 					$headers = "From: ". $from;
