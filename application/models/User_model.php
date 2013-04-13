@@ -34,7 +34,7 @@ class User_model extends CI_Model{
 	//digunakan pada login
 	public function check_user(){
 		$query = $this->db->get_where('user', array('username' => $this->input->post('username'),
-													'password' => $this->input->post('password')));
+													'password' => md5($this->input->post('password'))));
 
 		if ($query->num_rows == 1) {
 			return true;
@@ -47,7 +47,7 @@ class User_model extends CI_Model{
 	//digunakan untuk mengecek dengan inputan dari parameter
 	public function check_username_password($username, $password){
 		$query = $this->db->get_where('user', array('username' => $username,
-													'password' => $password));
+													'password' => md5($password)));
 
 		if ($query->num_rows == 1) {
 			return true;
@@ -69,7 +69,7 @@ class User_model extends CI_Model{
 	public function add_user(){
 		$data = array(
 				'username'  => $this->input->post('username'),
-				'password'  => $this->input->post('password'),
+				'password'  => md5($this->input->post('password')),
 				'bio' => $this->input->post('bio'),
 				'minat' => $this->input->post('minat'),
 				'email' => $this->input->post('email')
@@ -103,6 +103,6 @@ class User_model extends CI_Model{
 
 	function change_password($username, $password){
 		$this->db->where("username", $username);
-		$this->db->update('user', array('password'=>$password));
+		$this->db->update('user', array('password'=> md5($password)));
 	}
 }
