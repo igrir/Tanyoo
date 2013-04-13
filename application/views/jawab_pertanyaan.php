@@ -1,5 +1,5 @@
 		<div data-role="content"> 
-			<p class="text"><i>-----------soal----------</i></p> 
+			<!-- <p class="text"><i>-----------soal----------</i></p>  -->
 			
 			<div data-role="fieldcontain" class="ui-hide-label" id="tampiltext" >
 				<ul data-role="listview" data-inset="true" data-theme="d"> <!---menampilkan pertanyaan-->

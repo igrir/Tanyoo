@@ -23,7 +23,11 @@
 				$this->session->set_userdata($newdata);
 				redirect('home');
 			}else{
-				redirect('tanyoo/index');
+				$data['title'] = "Login to Tanyoo";
+				$data['error'] = "Nampaknya anda salah memasukkan username atau password";
+				$this->load->view('templates/header', $data);
+				$this->load->view('login_err', $data);
+				$this->load->view('templates/footer', $data);	
 			}			
 		}
 

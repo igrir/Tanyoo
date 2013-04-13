@@ -1,6 +1,6 @@
 
 	<div data-role="content"> 
-		<p class="text">-------<i>beri pertanyaan</i>------</p>
+		<!-- <p class="text">-------<i>beri pertanyaan</i>------</p> -->
 		<div data-role="fieldcontain" class="ui-hide-label">
 			<?php  $attributes = array( 'id' => 'soal'); // id = soal dipakai untuk validasi?>
 
