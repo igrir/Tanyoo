@@ -245,7 +245,7 @@
 
 			$username = $this->session->userdata('username');
 			
-			$id_soal = $this->uri->segment(3); // awalnya segment 2
+			$id_soal = $this->uri->segment(2); // awalnya segment 2
 
 			$cek_sudah_dihapus = $this->Soal_model->is_soal_deleted($id_soal);
 
@@ -259,7 +259,8 @@
 				$this->load->view('pertanyaan_hilang');
 				$this->load->view('templates/footer_logout');	
 			}else{
-				$data['soal'] = $this->Soal_model->jawab_soal_id($this->uri->segment(3)); // awalnya segment 2
+				$data['soal'] = $this->Soal_model->jawab_soal_id($id_soal); // awalnya segment 2
+
 				$data['flagged'] = $this->Log_model->cek_log_flag($username, $soal->id_soal);
 				$data['num_penjawab'] = $this->Log_model->get_num_penjawab($soal->id_soal);
 				$data['num_flag'] = $this->Log_model->get_num_flag($soal->id_soal);

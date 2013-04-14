@@ -16,6 +16,7 @@
 						}
 						?>
 						
+
 						<?php echo $soal->text_soal?>
 						<br><br><p style=" color:grey">by <a href="<?php echo base_url()?>index.php/u/<?php echo $soal->username; ?>"><?php echo $soal->username?></a></p>
 						<p style=" color:grey"><?php echo $soal->tag?></p>
