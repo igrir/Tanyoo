@@ -54,7 +54,7 @@
 					<li>
 						<a href="<?php echo base_url()?>index.php/u/<?php echo $t->username?>"><?php echo $t->username;?></a>
 					</li>
-				<?
+				<?php
 					endforeach 
 				?>	
 			</ol>

@@ -191,7 +191,11 @@ class Log_model extends CI_Model{
 	   mendapatkan 5 penjawab dari soal tertentu
 	*/
 	function get_penjawab_soal($username){
-		$penjawab = "select l.username from log l, soal s where l.id_soal=s.id_soal AND s.username= ? GROUP BY username order by waktu DESC LIMIT 5";
+		$penjawab = "SELECT distinct l.username 
+						FROM log l, soal s, user u 
+						WHERE l.id_soal = s.id_soal AND s.username = u.username AND u.username = ? 
+						ORDER BY waktu
+						LIMIT 0 , 5";
 		$data = $this->db->query($penjawab, array($username));		
 		return $data->result();
 	}
