@@ -16,7 +16,9 @@
 				
 				<center><img src="<?php echo base_url()?>css/images/logo.png" width="80px"></img><br><br></center>
 			</div>
-		
+
+			<a data-role="button" href="<?php echo base_url()?>index.php/privacy_policy">Kebijakan Privasi</a>
+
 		</div> 
 
 		<div id="user-info"></div>

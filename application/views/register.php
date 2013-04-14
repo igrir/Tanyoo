@@ -18,30 +18,34 @@
 
 				<?php echo $error?>
 				<div data-role="fieldcontain" class="ui-hide-label">
-					<label for="username">Username</label>
+					Username
 					<input type="text" name="username" id="username" value="" placeholder="Username"/>
 					<span id="peringatan"></span>
 					<small><i>hanya gunakan 1 kata tanpa spasi</i></small>
 				</div>
 			<div data-role="fieldcontain" class="ui-hide-label">
-				<label for="password">Password</label>
+				<br/>
+				Password
 				<input type="password" name="password" id="password" value="" placeholder="Password"/>
 
 				<br/>
+				Email
 				<input type="text" name="email" value="" placeholder="Email"/>
 				<br/>
 
-				<label for="username">Bio</label>
+				Bio
 				<textarea id="bio" name="bio" placeholder="Bio" required></textarea>
 
 				<br/>
 				
-				<br/>
-
-				<label for="minat">Minat</label>
+				Minat
 				<input type="text" name="minat" id="minat" value="" placeholder="Minat, pisahkan dengan spasi" required/>
 				<br/>
 
+				<br/>
+				dengan melakukan registrasi berarti anda setuju dengan <a href="<?php echo base_url()?>index.php/privacy_policy"> kebijakan privasi</a> kami
+				<br/>
+				<br/>
 				<div id="submit_area">
 					<button type="submit" onClick="return validate();">Register</button>
 				</div>

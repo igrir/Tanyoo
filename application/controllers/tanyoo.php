@@ -323,4 +323,19 @@
 			}
 		}
 
+
+		//comment lagi
+		public function privacy_policy(){ //index disini
+			$this->load->helper('url');
+			$this->load->helper('form');
+			$this->load->library('form_validation');
+			$this->load->library('session');
+			
+				$data['title'] = "Login to Tanyoo";
+				$this->load->view('templates/header', $data);
+				$this->load->view('privacy_policy', $data);
+				$this->load->view('templates/footer', $data);	
+
+		}
+
 	}
