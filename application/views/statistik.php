@@ -20,9 +20,26 @@
 		</ul>
 		
 		<ul data-role="listview" data-inset="true" data-theme="d"> <!---menampilkan 3 nama peserta skor tertinggi-->
+			Penjawab soal terbanyak
 			<?php
 			$count = 1;
 			foreach($highscore as $hs):?> 
+			
+			<li data-role="list-divider" data-theme="e">Rangking <?php echo $count?></li>
+			<li>
+				<a href="<?php echo base_url()?>index.php/u/<?php echo $hs->username?>"><h4><?php echo $hs->username;?></h4></a> <!--masukkan nama-->
+			</li>
+
+			<?php 
+			$count++;
+			endforeach ?>
+		</ul>
+
+		<ul data-role="listview" data-inset="true" data-theme="d"> <!---menampilkan 3 nama peserta skor tertinggi-->
+			Pembuat soal terbanyak
+			<?php
+			$count = 1;
+			foreach($highsoal as $hs):?> 
 			
 			<li data-role="list-divider" data-theme="e">Rangking <?php echo $count?></li>
 			<li>

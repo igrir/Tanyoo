@@ -179,12 +179,25 @@ class Log_model extends CI_Model{
 	   mendapatkan highscore
 	*/
 	function get_highscore($num){
-		$query = "SELECT COUNT(username) as skor, username FROM log GROUP BY username ORDER BY skor DESC LIMIT 0, ?";
+		$query = "SELECT COUNT(username) as skor, username FROM log WHERE log_type = 1 GROUP BY username ORDER BY skor DESC LIMIT 0, ?";
 		$data = $this->db->query($query, array($num));
 
 		return $data->result();
 	}
 	
+	/* Fungsi: get_highsoal
+	   parameter: -
+	   output : INTEGER
+	   mendapatkan pembuat soal terbanyak
+	*/
+	function get_highsoal($num){
+		$query = "SELECT COUNT(username) as skor, username FROM soal GROUP BY username ORDER BY skor DESC LIMIT 0, ?";
+		$data = $this->db->query($query, array($num));
+
+		return $data->result();
+	}
+
+
 	/* Fungsi: get_penjawab soal
 	   parameter: -
 	   output : array
