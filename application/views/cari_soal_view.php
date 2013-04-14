@@ -21,7 +21,7 @@
 						
 						<li><h3><?php echo $t->text_soal ?> ?</h3>
 						<p><i>#<?php echo $t->tag ?></i></p>
-						<p><?php echo anchor('soal/jawab/'.$t->id_soal,'jawab');?></p>
+						<p><?php echo anchor('soal/jawab_id/'.$t->id_soal,'jawab');?></p>
 					</ul>
 					<?php $i++;	 ?>
 					<?php endforeach ?>						
