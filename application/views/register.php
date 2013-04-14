@@ -18,8 +18,8 @@
 
 				<?php echo $error?>
 				<div data-role="fieldcontain" class="ui-hide-label">
-					<label for="username">Nama Tampilan</label>
-					<input type="text" name="username" id="username" value="" placeholder="Nama Tampilan"/>
+					<label for="username">Username</label>
+					<input type="text" name="username" id="username" value="" placeholder="Username"/>
 					<span id="peringatan"></span>
 					<small><i>hanya gunakan 1 kata tanpa spasi</i></small>
 				</div>
