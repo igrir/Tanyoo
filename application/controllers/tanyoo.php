@@ -138,7 +138,7 @@
 
 			$data['num_jawaban_soalmu'] = $this->Soal_model->get_jumlah_penjawab($username);
 			$data['num_flagged_soalmu'] = $this->Log_model->get_num_flagged_user($username);
-			$data['highscore'] = $this->Log_model->get_highscore(3);
+			$data['highscore'] = $this->Log_model->get_highscore(5);
 
 			$this->load->view('templates/header', $data);
 			$this->load->view('templates/header_bar_statistik', $data);
