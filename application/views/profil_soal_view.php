@@ -14,7 +14,7 @@
 			<div class="choice_list">
 			<ul data-role="listview" data-inset="true" data-theme="d" id="tampil-text">
 				<li>
-						<a href="<?php echo base_url()?>index.php/jawab_id/<?php echo $t->id_soal?>">
+						<a href="<?php echo base_url()?>index.php/soal/jawab_id/<?php echo $t->id_soal?>">
 							<p style="color:black;"><b><?php echo $t->text_soal ?> ?</b></p>
 							<p style="">by <?php echo $t->username; ?></p>	
 							<p style="">#<?php echo $t->tag ?></p>	
