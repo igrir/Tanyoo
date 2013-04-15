@@ -14,14 +14,11 @@ class penghargaan{
 			$CI->load->model('Soal_model');
 			
 			$soal = $CI->Soal_model->get_jumlah_soal_1($username);
-			$log = $CI->Log_model->get_jumlah_log($username);
-			$flag = $CI->Log_model->get_jumlah_flag_user($username);
-			$skor = $CI->Log_model->get_skor_from_username($username);
-			$jwb = $log - $flag; 
+			$jwb = $CI->Log_model->get_skor_from_username($username);
 			$data = $CI->Penghargaan_model->data_penghargaan();
 			foreach($data->result_array() as $row)
 			{
-				if($row['Jawab']<=$jwb and $row['Tanya']<=$soal and $row['Skor']<=$skor)
+				if($row['Jawab']<=$jwb and $row['Tanya']<=$soal)
 				{
 					$CI->Penghargaan_model->add_penghargaan($username,$row['id_penghargaan']);
 				}
