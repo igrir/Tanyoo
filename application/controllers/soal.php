@@ -53,13 +53,13 @@
 			}			
 
 			$config['base_url']   = base_url()."index.php/soal/index/";
-			$config['total_rows'] = $this->Soal_model->get_jumlah_soal($username);;
+			$config['total_rows'] = $this->Soal_model->get_jumlah_soal_1($username);
 			$config['per_page']   = $per_page;
 			$config['first_link'] = 'First';
 			$config['last_link'] = 'Last';
 			$this->pagination->initialize($config);			
 			
-			$data['data_soal']=$this->Soal_model->selectByUserPagination($username, $halaman, $per_page);
+			$data['data_soal']=$this->Soal_model->selectByUserPagination_1($username, $halaman, $per_page);
 			
 			$this->load->vars($data);
 

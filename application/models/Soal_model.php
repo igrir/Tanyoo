@@ -12,6 +12,7 @@ class Soal_model extends CI_Model{
 			//locked = 3 artinya terhapus
 			$deleted = array(3);
 			$this->db->where_not_in('locked', $deleted);
+			$this->db->where_not_in('locked', array(1));
 
 			return $this->db->get('soal')->result(); //nama tabelnya soal
 	}
@@ -22,6 +23,7 @@ class Soal_model extends CI_Model{
 		$this->db->order_by("id_soal", "desc"); 
 		$deleted = array(3);
 		$this->db->where_not_in('locked', $deleted);
+		$this->db->where_not_in('locked', array(1));
 
 		$data = $this->db->get_where('soal', array('username' => $user));
 		return $data->result();
@@ -29,6 +31,18 @@ class Soal_model extends CI_Model{
 
 	//mengambil soal-soal berdasarkan user tertentu menggunakan pagination
 	function selectByUserPagination($user, $page, $limit){
+		$this->db->order_by("id_soal", "desc"); 
+
+		$deleted = array(3);
+		$this->db->where_not_in('locked', $deleted);
+		$this->db->where_not_in('locked', array(1));
+
+		$data = $this->db->get_where('soal', array('username' => $user), $limit, $page-1);
+		return $data->result();
+	}
+
+	//mengambil soal-soal berdasarkan user tertentu menggunakan pagination individu
+	function selectByUserPagination_1($user, $page, $limit){
 		$this->db->order_by("id_soal", "desc"); 
 
 		$deleted = array(3);
@@ -49,15 +63,16 @@ class Soal_model extends CI_Model{
 	}
 	
 	function selectsoal ($id_soal){
-			// $deleted = array(3);
-			// $this->db->where_not_in('locked', $deleted);
+			$deleted = array(3);
+			$this->db->where_not_in('locked', $deleted);
+			$this->db->where_not_in('locked', array(2));
 			$data = $this->db->get_where('soal', array('id_soal' => $id_soal));
 
 			return $data;
 	}	
 
 	function get_random_soal(){
-		$query = 'SELECT * FROM `soal` WHERE locked=0 and NOT locked=3 ORDER BY RAND() LIMIT 0,1';
+		$query = 'SELECT * FROM `soal` WHERE locked=0 and (NOT locked=3 or NOT locked=1) ORDER BY RAND() LIMIT 0,1';
 		$data = $this->db->query($query);
 
 		return $data->row();
@@ -105,6 +120,7 @@ class Soal_model extends CI_Model{
 	function get_num_total_soal(){
 		$deleted = array(3);
 		$this->db->where_not_in('locked', $deleted);
+		$this->db->where_not_in('locked', array(1));
 		$query = $this->db->get('soal');
 		return $query->num_rows();
 	}
@@ -115,6 +131,7 @@ class Soal_model extends CI_Model{
 		$this->db->select('text_soal');
 		$deleted = array(3);
 		$this->db->where_not_in('locked', $deleted);
+		$this->db->where_not_in('locked', array(1));
 		$data = $this->db->get_where('soal', array('username' => $user));
 		$data = $data->num_rows();
 		return $data;
@@ -122,6 +139,10 @@ class Soal_model extends CI_Model{
 	//untuk mendapatkan jumlah soal sebuah user
 	public function get_jumlah_soal_1($user){
 		$this->db->select('text_soal');
+		
+		$deleted = array(3);
+		$this->db->where_not_in('locked', $deleted);
+
 		$data = $this->db->get_where('soal', array('username' => $user));
 		$data = $data->num_rows();
 		return $data;

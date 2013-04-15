@@ -6,7 +6,7 @@
 				untuk saling bertanya dan menjawab mengenai topik tentang ilmu pengetahuan. <br/><br/>
 				
 					Dibuat Oleh :<br>
-					Erwin Ginanjar<br>
+					Erwin Ginanjar Wijanarko<br>
 					Giri Prahasta Putra <br>
 					Indana Zulfa<br>
 					Ratih Pujihati<br>
