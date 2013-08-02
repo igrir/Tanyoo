@@ -59,7 +59,21 @@ class Log_model extends CI_Model{
 												   'log_type'=>2));
 		return $query->num_rows();
 	}
-
+	
+	//mendapatkan jumlah log
+	public function get_jumlah_log($user){
+		$this->db->order_by("id_log", "desc");
+		$data = $this->db->get_where('log', array('username' => $user));
+		$data = $data->num_rows();
+		return $data;
+	}
+	//mendapatkan jumlah flag
+	public function get_jumlah_flag_user($user){
+		$this->db->order_by("id_log", "desc");
+		$data = $this->db->get_where('log', array('username' => $user,'log_type'=>2));
+		$data = $data->num_rows();
+		return $data;
+	}
 
 	/* Fungsi: get_skor
 	   parameter: $username

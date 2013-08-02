@@ -19,23 +19,6 @@ class Penghargaan_model extends CI_Model{
 		}
 	}
 	
-	//!!!!!!!!!!!!!!WARNING
-	// SEBAIKNYA INI DI MODEL SOAL KARENA MENUNJUK KE TABEL SOAL
-	public function get_jumlah_soal($user){
-		$this->db->select('text_soal');
-		$data = $this->db->get_where('soal', array('username' => $user));
-		$data = $data->num_rows();
-		return $data;
-	}
-	
-	//!!!!!!!!!!!!!!WARNING
-	// SEBAIKNYA INI DI MODEL LOG KARENA MENUNJUK KE TABEL LOG
-	public function get_jumlah_jawab($user){
-		$this->db->order_by("id_log", "desc");
-		$data = $this->db->get_where('log', array('username' => $user,'log_type'=>2));
-		$data = $data->num_rows();
-		return $data;
-	}
 	
 	public function add_penghargaan($user,$id_peng){
 		$sql="select * from user_penghargaan where username=? and id_penghargaan=?"; 

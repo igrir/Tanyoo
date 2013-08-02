@@ -119,7 +119,13 @@ class Soal_model extends CI_Model{
 		$data = $data->num_rows();
 		return $data;
 	}
-
+	//
+	public function get_jumlah_soal_1($user){
+		$this->db->select('text_soal');
+		$data = $this->db->get_where('soal', array('username' => $user));
+		$data = $data->num_rows();
+		return $data;
+	}
 	//mendapatkan banyak orang yang sudah menjawab soal
 	function get_jumlah_penjawab($user){
 
